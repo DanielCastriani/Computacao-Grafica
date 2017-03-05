@@ -26,7 +26,7 @@ namespace _2D
             {
                 if (y2 > y1)// 1 e 2
                 {
-                    if (dx > dy)//1-
+                    if (dx > dy)//1
                     {
                         Console.WriteLine("1 Octante");
                         for (x = x1; x <= x2; x++)
@@ -35,7 +35,7 @@ namespace _2D
                             Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
                         }
                     }
-                    else//2-
+                    else//2
                     {
                         Console.WriteLine("2 Octante");
                         for (y = y1; y <= y2; y++)
