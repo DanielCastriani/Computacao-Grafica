@@ -123,9 +123,8 @@ namespace _2D
 
             int padding = bmpData.Stride - (W * 3);
             byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
-
+            //----------------------------------------------------------------------------------------------------------------
             int length = Math.Abs(x2 - x1);
-
             if (Math.Abs(y2 - y1) > length)
                 length = Math.Abs(y2 - y1);
 
@@ -156,11 +155,23 @@ namespace _2D
                 }
                 else
                 {
-                    while (y > y2)
+                    if (y > y2)
                     {
-                        Util.setPixel(ptrIni, (int)Math.Round(x), (int)Math.Round(y), W, padding, c);
-                        x += xInc;
-                        y += yInc;
+                        while (y > y2)
+                        {
+                            Util.setPixel(ptrIni, (int)Math.Round(x), (int)Math.Round(y), W, padding, c);
+                            x += xInc;
+                            y += yInc;
+                        }
+                    }
+                    else
+                    {
+                        while (y < y2)
+                        {
+                            Util.setPixel(ptrIni, (int)Math.Round(x), (int)Math.Round(y), W, padding, c);
+                            x += xInc;
+                            y += yInc;
+                        }
                     }
                 }
             }
