@@ -14,31 +14,103 @@ namespace _2D
             int padding = bmpData.Stride - (W * 3);
             byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
 
-            double dy = (double)y2 - y1;
-            double dx = (double)x2 - x1;
+            double dy = y2 - y1;
+            double dx = x2 - x1;
             double m = dy / dx;
             double y, x;
 
-            if (x2 > x1 && y2 > x1)
+            dy = Math.Abs(dy);
+            dx = Math.Abs(dx);
+
+            if (x2 > x1)// 1, 2, 7, 8
             {
-                if (dx > dy)
+                if (y2 > y1)// 1 e 2
                 {
-                    Console.WriteLine("1 Octante");
-                    for (x = x1; x <= x2; x++)
+                    if (dx > dy)//1-
                     {
-                        y = y1 + m * (x - x1);
-                        Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        Console.WriteLine("1 Octante");
+                        for (x = x1; x <= x2; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//2-
+                    {
+                        Console.WriteLine("2 Octante");
+                        for (y = y1; y <= y2; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
                     }
                 }
-                else
+                else// 7 e 8
                 {
-                    Console.WriteLine("2 Octante");
-                    for (y = y1; y <= y2; y++)
+                    if (dx > dy)//8
                     {
-                        x = x1 + (y - y1) / m;
-                        Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        Console.WriteLine("8 Octante");
+                        for (x = x1; x <= x2; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//7
+                    {
+                        Console.WriteLine("7 Octante");
+                        for (y = y2; y <= y1; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
                     }
                 }
+            }
+            else //3 4 5 6
+            {
+                /*if (y2 > y1)// 3 , 4
+                {
+                    if (dx > dy)//4
+                    {
+                        Console.WriteLine("4 Octante");
+                        for (x = x1; x <= x2; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//3
+                    {
+                        Console.WriteLine("3 Octante");
+                        for (y = y1; y <= y2; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                }
+                else// 5, 6
+                {
+                    if (dx > dy)//5
+                    {
+                        Console.WriteLine("5 Octante");
+                        for (x = x1; x <= x2; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//6
+                    {
+                        Console.WriteLine("6 Octante");
+                        for (y = y1; y > y1; y--)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                }*/
             }
 
             img.UnlockBits(bmpData);

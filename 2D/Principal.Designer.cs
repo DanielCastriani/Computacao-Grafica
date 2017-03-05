@@ -45,22 +45,27 @@
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
+            this.desenharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolStrip.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivosToolStripMenuItem});
+            this.arquivosToolStripMenuItem,
+            this.desenharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(781, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(951, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,8 +85,9 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.pictureBox);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(751, 324);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(921, 442);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -94,7 +100,7 @@
             // toolStripContainer1.RightToolStripPanel
             // 
             this.toolStripContainer1.RightToolStripPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStripContainer1.Size = new System.Drawing.Size(781, 349);
+            this.toolStripContainer1.Size = new System.Drawing.Size(951, 467);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -108,7 +114,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(751, 324);
+            this.pictureBox.Size = new System.Drawing.Size(921, 442);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
@@ -135,7 +141,7 @@
             this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta;
             this.toolStripButtonCor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCor.Name = "toolStripButtonCor";
-            this.toolStripButtonCor.Size = new System.Drawing.Size(30, 20);
+            this.toolStripButtonCor.Size = new System.Drawing.Size(28, 20);
             this.toolStripButtonCor.Text = "toolStripButton1";
             this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
             // 
@@ -149,7 +155,7 @@
             this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta;
             this.toolStripDropDownReta.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownReta.Name = "toolStripDropDownReta";
-            this.toolStripDropDownReta.Size = new System.Drawing.Size(30, 20);
+            this.toolStripDropDownReta.Size = new System.Drawing.Size(28, 20);
             this.toolStripDropDownReta.Text = "toolStripDropDownButton1";
             // 
             // equaçãoDaRetaToolStripMenuItem
@@ -183,7 +189,7 @@
             this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo;
             this.toolStripDropDownCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownCirculo.Name = "toolStripDropDownCirculo";
-            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(30, 20);
+            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(28, 20);
             this.toolStripDropDownCirculo.Text = "toolStripDropDownButton1";
             // 
             // equaçãoGeralToolStripMenuItem
@@ -215,13 +221,13 @@
             this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse;
             this.toolStripDropDownElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownElipse.Name = "toolStripDropDownElipse";
-            this.toolStripDropDownElipse.Size = new System.Drawing.Size(30, 20);
+            this.toolStripDropDownElipse.Size = new System.Drawing.Size(28, 20);
             this.toolStripDropDownElipse.Text = "toolStripDropDownButton2";
             // 
             // pontoMédioToolStripMenuItemElipse
             // 
             this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
-            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(152, 22);
+            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
@@ -229,12 +235,37 @@
             // 
             this.colorDialog.FullOpen = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsLBpos});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(921, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsLBpos
+            // 
+            this.tsLBpos.Name = "tsLBpos";
+            this.tsLBpos.Size = new System.Drawing.Size(104, 17);
+            this.tsLBpos.Text = "[000,000] [000,000]";
+            // 
+            // desenharToolStripMenuItem
+            // 
+            this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
+            this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.desenharToolStripMenuItem.Text = "Desenhar";
+            this.desenharToolStripMenuItem.Click += new System.EventHandler(this.desenharToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(781, 373);
+            this.ClientSize = new System.Drawing.Size(951, 491);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -246,6 +277,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
+            this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.LeftToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.LeftToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
@@ -253,6 +285,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +311,8 @@
         private System.Windows.Forms.ToolStripMenuItem pontoMédioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownElipse;
         private System.Windows.Forms.ToolStripMenuItem pontoMédioToolStripMenuItemElipse;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tsLBpos;
+        private System.Windows.Forms.ToolStripMenuItem desenharToolStripMenuItem;
     }
 }

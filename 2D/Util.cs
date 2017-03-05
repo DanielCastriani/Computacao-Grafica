@@ -5,7 +5,7 @@ namespace _2D
 {
     class Util
     {
-        public unsafe static void preencher(Bitmap img, int r, int g, int b)
+        public unsafe static void preencher(Bitmap img, Color c)
         {
             int W = img.Width;
             int H = img.Height;
@@ -18,9 +18,9 @@ namespace _2D
             {
                 for (int x = 0; x < W; x++)
                 {
-                    *(ptr++) = (byte)b;
-                    *(ptr++) = (byte)g;
-                    *(ptr++) = (byte)r;
+                    *(ptr++) = (byte)c.B;
+                    *(ptr++) = (byte)c.G;
+                    *(ptr++) = (byte)c.R;
                 }
                 ptr += padding;
             }

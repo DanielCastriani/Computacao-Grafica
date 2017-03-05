@@ -9,6 +9,8 @@ namespace _2D
         private int xi, yi, xf, yf;
         private int op;
         private Color c;
+        private bool mouseDown;
+        private Bitmap img, temp;
         public Principal()
         {
             InitializeComponent();
@@ -16,11 +18,13 @@ namespace _2D
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            c = Color.Green;
-            pictureBox.Image = new Bitmap(800,600);
-            Util.preencher((Bitmap)pictureBox.Image, 0, 0, 0);
+            c = Color.Black;
+            pictureBox.Image = img = new Bitmap(1920,1080);
+            Util.preencher((Bitmap)pictureBox.Image, Color.White);
             xi = yi = xf = yf = 0;
             op = -1;
+            tsLBpos.Text = "";
+            mouseDown = false;
         }
 
         private void toolStripButtonCor_Click(object sender, EventArgs e)
@@ -80,43 +84,64 @@ namespace _2D
             pictureBox.Cursor = Cursors.Cross;
         }
 
-
+        private void desenharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRMCordenadas frm = new FRMCordenadas();
+            frm.ShowDialog();
+            if (frm.getOk())
+            {
+                xi = frm.getX1();
+                yi = frm.getY1();
+                desenha(img, frm.getX2(), frm.getY2());
+            }
+            frm.Dispose();
+        }
 
         //------------------------------------------------------------------
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseDown = true;
             xi = e.X;
             yi = e.Y;
+            tsLBpos.Text = "[" + xi + "," + yi + "]";
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
-        {            
-            xf = e.X;
-            yf = e.Y;
-
-            Bitmap bmp = new Bitmap(pictureBox.Image);
-
-            if (xi < 0 || yi < 0 || xf < 0 || yf < 0 ||
-                xi > bmp.Width || xf > bmp.Width || yi > bmp.Height || yf > bmp.Height)
-                return;
-
-            switch (op)
-            {
-                case 1:
-                    Reta.equacaoGeral(xi, yi, xf, yf, bmp, c);
-                break;
-                case 2:
-                    Reta.DDA(xi, yi, xf, yf, bmp, c);
-                break;
-            }
-            pictureBox.Image = bmp;
+        {
+            mouseDown = false;
+            desenha(img,e.X,e.Y);
+            //tsLBpos.Text = "";
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (mouseDown)
+            {
+                tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
+                /*temp = new Bitmap(img);
+                desenha(temp,e);*/
+            }
         }
 
         //-----------------------------------------------------------------
+
+        private void desenha(Bitmap bmp, int x,int y)
+        {
+            xf = x;
+            yf = y;
+            if (xi < 0 || yi < 0 || xf < 0 || yf < 0 || xi > bmp.Width || xf > bmp.Width || yi > bmp.Height || yf > bmp.Height)
+                return;
+            switch (op)
+            {
+                case 1:
+                    Reta.equacaoGeral(xi, yi, xf, yf, bmp, c);
+                    break;
+                case 2:
+                    Reta.DDA(xi, yi, xf, yf, bmp, c);
+                    break;
+            }
+
+            pictureBox.Image = bmp;
+        }
     }
 }

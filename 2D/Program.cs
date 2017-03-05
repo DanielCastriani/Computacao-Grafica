@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-//adsadsa
+
 namespace _2D
 {
     static class Program
