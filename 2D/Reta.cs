@@ -69,12 +69,12 @@ namespace _2D
             }
             else //3 4 5 6
             {
-                /*if (y2 > y1)// 3 , 4
+                if (y2 > y1)// 3 , 4
                 {
                     if (dx > dy)//4
                     {
                         Console.WriteLine("4 Octante");
-                        for (x = x1; x <= x2; x++)
+                        for (x = x2; x <= x1; x++)
                         {
                             y = y1 + m * (x - x1);
                             Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
@@ -95,7 +95,7 @@ namespace _2D
                     if (dx > dy)//5
                     {
                         Console.WriteLine("5 Octante");
-                        for (x = x1; x <= x2; x++)
+                        for (x = x2; x <= x1; x++)
                         {
                             y = y1 + m * (x - x1);
                             Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
@@ -104,13 +104,13 @@ namespace _2D
                     else//6
                     {
                         Console.WriteLine("6 Octante");
-                        for (y = y1; y > y1; y--)
+                        for (y = y2; y <= y1; y++)
                         {
                             x = x1 + (y - y1) / m;
                             Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
                         }
                     }
-                }*/
+                }
             }
 
             img.UnlockBits(bmpData);

@@ -97,6 +97,12 @@ namespace _2D
             frm.Dispose();
         }
 
+        private void toolStripButtonLimpar_Click(object sender, EventArgs e)
+        {
+            pictureBox.Image = img = new Bitmap(1920, 1080);
+            Util.preencher((Bitmap)pictureBox.Image, Color.White);
+        }
+
         //------------------------------------------------------------------
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
@@ -129,8 +135,10 @@ namespace _2D
         {
             xf = x;
             yf = y;
+
             if (xi < 0 || yi < 0 || xf < 0 || yf < 0 || xi > bmp.Width || xf > bmp.Width || yi > bmp.Height || yf > bmp.Height)
                 return;
+
             switch (op)
             {
                 case 1:
