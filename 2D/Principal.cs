@@ -147,6 +147,10 @@ namespace _2D
                 case 2:
                     Reta.DDA(xi, yi, xf, yf, bmp, c);
                     break;
+                case 3:
+                    Reta.pontoMedio(xi, yi, xf, yf, bmp, c);
+                    break;
+
             }
 
             pictureBox.Image = bmp;

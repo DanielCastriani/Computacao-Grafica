@@ -89,7 +89,7 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.pictureBox);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(919, 442);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(921, 442);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -122,7 +122,7 @@
             this.toolStripDropDownElipse});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(32, 145);
+            this.toolStrip.Size = new System.Drawing.Size(30, 126);
             this.toolStrip.TabIndex = 0;
             // 
             // colorDialog
@@ -136,7 +136,7 @@
             this.tsLBpos});
             this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(919, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(921, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -160,7 +160,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(919, 442);
+            this.pictureBox.Size = new System.Drawing.Size(921, 442);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
@@ -269,7 +269,7 @@
             this.toolStripButtonLimpar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLimpar.Image")));
             this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
-            this.toolStripButtonLimpar.Size = new System.Drawing.Size(30, 20);
+            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
             this.toolStripButtonLimpar.Text = "toolStripButton1";
             this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
             // 

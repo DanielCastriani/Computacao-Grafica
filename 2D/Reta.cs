@@ -178,5 +178,36 @@ namespace _2D
 
             img.UnlockBits(bmpData);
         }
+        public unsafe static void pontoMedio(int x1, int y1, int x2, int y2, Bitmap img, Color c)
+        {
+            int H = img.Height;
+            int W = img.Width;
+            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            int padding = bmpData.Stride - (W * 3);
+            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+            //----------------------------------------------------------------------------------------------------------------
+            int declive = 1;//**
+            int dx = x2 - x1;
+            int dy = y2 - y1;
+            int incE = 2 * dy;
+            int incNE = 2 * dy - 2 * dx;
+            int d = 2 * dy - dx;
+            int x, y;
+
+            y = y1;
+            for (x = x1; x < x2; x++)
+            {
+                Util.setPixel(ptrIni, x, y, W, padding, c);
+                if (d <= 0)
+                    d += incE;
+                else
+                {
+                    d += incNE;
+                    y += declive;
+                }
+            }
+            img.UnlockBits(bmpData);
+        }
     }
 }
