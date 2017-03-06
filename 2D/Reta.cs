@@ -18,7 +18,7 @@ namespace _2D
             double dx = x2 - x1;
             double m = dy / dx;
             double y, x;
-
+            
             dy = Math.Abs(dy);
             dx = Math.Abs(dx);
 
@@ -28,7 +28,6 @@ namespace _2D
                 {
                     if (dx > dy)//1
                     {
-                        Console.WriteLine("1 Octante");
                         for (x = x1; x <= x2; x++)
                         {
                             y = y1 + m * (x - x1);
@@ -37,7 +36,6 @@ namespace _2D
                     }
                     else//2
                     {
-                        Console.WriteLine("2 Octante");
                         for (y = y1; y <= y2; y++)
                         {
                             x = x1 + (y - y1) / m;
@@ -49,7 +47,6 @@ namespace _2D
                 {
                     if (dx > dy)//8
                     {
-                        Console.WriteLine("8 Octante");
                         for (x = x1; x <= x2; x++)
                         {
                             y = y1 + m * (x - x1);
@@ -58,7 +55,6 @@ namespace _2D
                     }
                     else//7
                     {
-                        Console.WriteLine("7 Octante");
                         for (y = y2; y <= y1; y++)
                         {
                             x = x1 + (y - y1) / m;
@@ -73,7 +69,6 @@ namespace _2D
                 {
                     if (dx > dy)//4
                     {
-                        Console.WriteLine("4 Octante");
                         for (x = x2; x <= x1; x++)
                         {
                             y = y1 + m * (x - x1);
@@ -82,7 +77,6 @@ namespace _2D
                     }
                     else//3
                     {
-                        Console.WriteLine("3 Octante");
                         for (y = y1; y <= y2; y++)
                         {
                             x = x1 + (y - y1) / m;
@@ -94,7 +88,6 @@ namespace _2D
                 {
                     if (dx > dy)//5
                     {
-                        Console.WriteLine("5 Octante");
                         for (x = x2; x <= x1; x++)
                         {
                             y = y1 + m * (x - x1);
@@ -103,7 +96,6 @@ namespace _2D
                     }
                     else//6
                     {
-                        Console.WriteLine("6 Octante");
                         for (y = y2; y <= y1; y++)
                         {
                             x = x1 + (y - y1) / m;
@@ -133,6 +125,7 @@ namespace _2D
 
             double x = x1;
             double y = y1;
+
             if (x < x2)
             {
                 while (x < x2)
@@ -187,7 +180,7 @@ namespace _2D
             int padding = bmpData.Stride - (W * 3);
             byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
             //----------------------------------------------------------------------------------------------------------------
-            int declive = 1;//**
+            int declive = 1;
             int dx = x2 - x1;
             int dy = y2 - y1;
             int incE = 2 * dy;

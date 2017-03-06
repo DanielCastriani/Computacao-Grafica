@@ -115,8 +115,7 @@ namespace _2D
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-            desenha(img,e.X,e.Y);
-            //tsLBpos.Text = "";
+            desenha(img, e.X, e.Y);
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -125,7 +124,8 @@ namespace _2D
             {
                 tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
                 /*temp = new Bitmap(img);
-                desenha(temp,e);*/
+                desenha(temp,e.X,e.Y);
+                temp.Dispose();*/
             }
         }
 
@@ -150,7 +150,15 @@ namespace _2D
                 case 3:
                     Reta.pontoMedio(xi, yi, xf, yf, bmp, c);
                     break;
-
+                case 4:
+                    Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, c);
+                    break;
+                case 5:
+                    Circunferencia.trigonometrica(xi, yi, xf, yf, bmp, c);
+                    break;
+                case 6:
+                    Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, c);
+                    break;
             }
 
             pictureBox.Image = bmp;

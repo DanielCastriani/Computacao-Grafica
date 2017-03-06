@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desenharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
-            this.desenharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonLimpar = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownReta = new System.Windows.Forms.ToolStripDropDownButton();
             this.equaçãoDaRetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,14 +49,14 @@
             this.pontoMédioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonLimpar = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.toolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,6 +77,14 @@
             this.arquivosToolStripMenuItem.Name = "arquivosToolStripMenuItem";
             this.arquivosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.arquivosToolStripMenuItem.Text = "Arquivos";
+            // 
+            // desenharToolStripMenuItem
+            // 
+            this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
+            this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.desenharToolStripMenuItem.Text = "Desenhar";
+            this.desenharToolStripMenuItem.Click += new System.EventHandler(this.desenharToolStripMenuItem_Click);
             // 
             // toolStripContainer1
             // 
@@ -110,25 +118,6 @@
             // 
             this.toolStripContainer1.TopToolStripPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             // 
-            // toolStrip
-            // 
-            this.toolStrip.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonCor,
-            this.toolStripButtonLimpar,
-            this.toolStripDropDownReta,
-            this.toolStripDropDownCirculo,
-            this.toolStripDropDownElipse});
-            this.toolStrip.Location = new System.Drawing.Point(0, 3);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(30, 126);
-            this.toolStrip.TabIndex = 0;
-            // 
-            // colorDialog
-            // 
-            this.colorDialog.FullOpen = true;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -146,14 +135,6 @@
             this.tsLBpos.Size = new System.Drawing.Size(104, 17);
             this.tsLBpos.Text = "[000,000] [000,000]";
             // 
-            // desenharToolStripMenuItem
-            // 
-            this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
-            this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.desenharToolStripMenuItem.Text = "Desenhar";
-            this.desenharToolStripMenuItem.Click += new System.EventHandler(this.desenharToolStripMenuItem_Click);
-            // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -167,6 +148,21 @@
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
+            // toolStrip
+            // 
+            this.toolStrip.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonCor,
+            this.toolStripButtonLimpar,
+            this.toolStripDropDownReta,
+            this.toolStripDropDownCirculo,
+            this.toolStripDropDownElipse});
+            this.toolStrip.Location = new System.Drawing.Point(0, 3);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(30, 126);
+            this.toolStrip.TabIndex = 0;
+            // 
             // toolStripButtonCor
             // 
             this.toolStripButtonCor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -176,6 +172,16 @@
             this.toolStripButtonCor.Size = new System.Drawing.Size(30, 20);
             this.toolStripButtonCor.Text = "toolStripButton1";
             this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
+            // 
+            // toolStripButtonLimpar
+            // 
+            this.toolStripButtonLimpar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonLimpar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLimpar.Image")));
+            this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
+            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonLimpar.Text = "toolStripButton1";
+            this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
             // 
             // toolStripDropDownReta
             // 
@@ -259,19 +265,13 @@
             // pontoMédioToolStripMenuItemElipse
             // 
             this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
-            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(152, 22);
+            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
-            // toolStripButtonLimpar
+            // colorDialog
             // 
-            this.toolStripButtonLimpar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLimpar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLimpar.Image")));
-            this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
-            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
-            this.toolStripButtonLimpar.Text = "toolStripButton1";
-            this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
+            this.colorDialog.FullOpen = true;
             // 
             // Principal
             // 
@@ -295,11 +295,11 @@
             this.toolStripContainer1.LeftToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
