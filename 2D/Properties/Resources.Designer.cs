@@ -93,6 +93,16 @@ namespace _2D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Limpar {
+            get {
+                object obj = ResourceManager.GetObject("Limpar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Paleta {
             get {
                 object obj = ResourceManager.GetObject("Paleta", resourceCulture);

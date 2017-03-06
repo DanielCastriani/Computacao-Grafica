@@ -18,95 +18,61 @@ namespace _2D
             double dx = x2 - x1;
             double m = dy / dx;
             double y, x;
-            
+            int aux;
+
             dy = Math.Abs(dy);
             dx = Math.Abs(dx);
 
+            int xi = x1;
+            int yi = y1;
             if (x2 > x1)// 1, 2, 7, 8
             {
-                if (y2 > y1)// 1 e 2
+                if(y2 <= y1)// 7 e 8
                 {
-                    if (dx > dy)//1
-                    {
-                        for (x = x1; x <= x2; x++)
-                        {
-                            y = y1 + m * (x - x1);
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
-                    else//2
-                    {
-                        for (y = y1; y <= y2; y++)
-                        {
-                            x = x1 + (y - y1) / m;
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
-                }
-                else// 7 e 8
-                {
-                    if (dx > dy)//8
-                    {
-                        for (x = x1; x <= x2; x++)
-                        {
-                            y = y1 + m * (x - x1);
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
-                    else//7
-                    {
-                        for (y = y2; y <= y1; y++)
-                        {
-                            x = x1 + (y - y1) / m;
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
+                    aux = y1;
+                    y1 = y2;
+                    y2 = aux;
                 }
             }
             else //3 4 5 6
             {
                 if (y2 > y1)// 3 , 4
                 {
-                    if (dx > dy)//4
-                    {
-                        for (x = x2; x <= x1; x++)
-                        {
-                            y = y1 + m * (x - x1);
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
-                    else//3
-                    {
-                        for (y = y1; y <= y2; y++)
-                        {
-                            x = x1 + (y - y1) / m;
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
+                    aux = x1;
+                    x1 = x2;
+                    x2 = aux;
                 }
                 else// 5, 6
                 {
-                    if (dx > dy)//5
-                    {
-                        for (x = x2; x <= x1; x++)
-                        {
-                            y = y1 + m * (x - x1);
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
-                    else//6
-                    {
-                        for (y = y2; y <= y1; y++)
-                        {
-                            x = x1 + (y - y1) / m;
-                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
-                        }
-                    }
+                    aux = x1;
+                    x1 = x2;
+                    x2 = aux;
+                    aux = y1;
+                    y1 = y2;
+                    y2 = aux;
+                }
+            }
+
+            if (dx > dy)
+            {
+                for (x = x1; x <= x2; x++)
+                {
+                    y = yi + m * (x - xi);
+                    Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                }
+            }
+            else
+            {
+                for (y = y1; y <= y2; y++)
+                {
+                    x = xi + (y - yi) / m;
+                    Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
                 }
             }
 
             img.UnlockBits(bmpData);
         }
+
         public unsafe static void DDA(int x1, int y1, int x2, int y2, Bitmap img, Color c)
         {
             int H = img.Height;
@@ -200,6 +166,109 @@ namespace _2D
                     y += declive;
                 }
             }
+            img.UnlockBits(bmpData);
+        }
+
+        public unsafe static void equacaoGeral2(int x1, int y1, int x2, int y2, Bitmap img, Color c)
+        {
+            int H = img.Height;
+            int W = img.Width;
+            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            int padding = bmpData.Stride - (W * 3);
+            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+
+            double dy = y2 - y1;
+            double dx = x2 - x1;
+            double m = dy / dx;
+            double y, x;
+
+            dy = Math.Abs(dy);
+            dx = Math.Abs(dx);
+
+            if (x2 > x1)// 1, 2, 7, 8
+            {
+                if (y2 > y1)// 1 e 2
+                {
+                    if (dx > dy)//1
+                    {
+                        for (x = x1; x <= x2; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//2
+                    {
+                        for (y = y1; y <= y2; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                }
+                else// 7 e 8
+                {
+                    if (dx > dy)//8
+                    {
+                        for (x = x1; x <= x2; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//7
+                    {
+                        for (y = y2; y <= y1; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                }
+            }
+            else //3 4 5 6
+            {
+                if (y2 > y1)// 3 , 4
+                {
+                    if (dx > dy)//4
+                    {
+                        for (x = x2; x <= x1; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//3
+                    {
+                        for (y = y1; y <= y2; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                }
+                else// 5, 6
+                {
+                    if (dx > dy)//5
+                    {
+                        for (x = x2; x <= x1; x++)
+                        {
+                            y = y1 + m * (x - x1);
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                    else//6
+                    {
+                        for (y = y2; y <= y1; y++)
+                        {
+                            x = x1 + (y - y1) / m;
+                            Util.setPixel(ptrIni, (int)x, (int)Math.Round(y), W, padding, c);
+                        }
+                    }
+                }
+            }
+
             img.UnlockBits(bmpData);
         }
     }

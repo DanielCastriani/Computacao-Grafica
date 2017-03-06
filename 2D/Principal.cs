@@ -151,7 +151,7 @@ namespace _2D
                     Reta.pontoMedio(xi, yi, xf, yf, bmp, c);
                     break;
                 case 4:
-                    Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, c);
+                    Circunferencia.equacaoGeral(xi, yi, xf, yf, bmp, c);
                     break;
                 case 5:
                     Circunferencia.trigonometrica(xi, yi, xf, yf, bmp, c);
