@@ -16,15 +16,13 @@ namespace _2D
             int padding = bmpData.Stride - (W * 3);
             byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
             //-------------------------------------------------------------------------------------------------------
-            double raio = Math.Round(Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2)));
+            double raio = Math.Round(Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2))) / 2;
             raio = Math.Abs(raio);
-            int x, y;
-
-            for (int i = 0; i < y2 ;i++)
+            double y;
+            for (int x = x1; x < x2;x++)
             {
-                x = (int)(Math.Cos(i) * raio);
-                y = (int)(Math.Sin(i) * raio);
-                Util.setPixel(ptrIni, x, y, W, padding, c);
+                y = Math.Abs(Math.Sqrt(Math.Pow(raio, 2) - Math.Pow(x, 2)));
+                Util.setPixel(ptrIni, x, (int)y, W, padding, c);
             }
 
             img.UnlockBits(bmpData);
