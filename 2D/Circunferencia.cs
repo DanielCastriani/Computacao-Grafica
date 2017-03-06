@@ -22,7 +22,7 @@ namespace _2D
             for (int x = x1; x < x2;x++)
             {
                 y = Math.Abs(Math.Sqrt(Math.Pow(raio, 2) - Math.Pow(x, 2)));
-                Util.setPixel(ptrIni, x, (int)y, W, padding, c);
+                Util.setPixel(ptrIni, x, (int)y, W, padding, c); 
             }
 
             img.UnlockBits(bmpData);
