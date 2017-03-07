@@ -18,11 +18,11 @@ namespace _2D
             //-------------------------------------------------------------------------------------------------------
             double raio = Math.Round(Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2))) / 2;
             raio = Math.Abs(raio);
-            int x, y;
+            int x = 0, y;
 
             for (int i = 0; i < y2 ;i++)
             {
-                y = Math.Abs(Math.Sqrt(Math.Pow(raio, 2) - Math.Pow(x, 2)));
+                y = (int)Math.Abs(Math.Sqrt(Math.Pow(raio, 2) - Math.Pow(x, 2)));
                 Util.setPixel(ptrIni, x, (int)y, W, padding, c); 
             }
 
