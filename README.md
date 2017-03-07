@@ -6,12 +6,25 @@ Vitor Santos
 
 # A fazer #
 
-###[X] Reta###
+###Reta###
 
-[X] equação Geral
+[X] Equação Geral
 
 [X] DDA
 
 [X] Ponto Médio
 
-###[ ] Circulo ###
+###Circunferência ###
+
+[ ] Equação Geral
+
+[ ] Trigonométrica
+
+[ ] Ponto Médio
+
+###Elipse ###
+
+[ ] Ponto Médio
+
+
+###[ ] Poligono ###
