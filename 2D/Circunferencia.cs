@@ -20,7 +20,7 @@ namespace _2D
             raio = Math.Abs(raio);
             int x, y;
 
-            for (int i = 0; i < y2 ;i++)
+            for (int i = 0; i < 45 ;i++)
             {
                 x = (int)(Math.Cos(i) * raio);
                 y = (int)(Math.Sin(i) * raio);
