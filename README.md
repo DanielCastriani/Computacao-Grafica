@@ -4,10 +4,9 @@ Daniel Castriani Santos
 
 Vitor Santos
 
-# A fazer #
+# Task List #
 
 ###Reta###
-
 [X] Equação Geral
 
 [X] DDA
@@ -15,7 +14,6 @@ Vitor Santos
 [X] Ponto Médio
 
 ###Circunferência ###
-
 [ ] Equação Geral
 
 [ ] Trigonométrica
@@ -23,8 +21,8 @@ Vitor Santos
 [ ] Ponto Médio
 
 ###Elipse ###
-
 [ ] Ponto Médio
 
 
-###[ ] Poligono ###
+###Poligono ###
+[ ] Ponto Médio
