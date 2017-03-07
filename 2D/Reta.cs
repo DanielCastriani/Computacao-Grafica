@@ -144,36 +144,34 @@ namespace _2D
 
             int H = img.Height;
             int W = img.Width;
-            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bmpData.Stride - (W * 3);
-            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
-
-            if (x2 < x1)
-            {
-                pontoMedio(x2,y2,x1,y1,img,c);
-                return;
-            }
-            if (y2 < y1)
-            {
-                y1 *= -1;
-                y2 *= -1;
-            }
-
+            BitmapData bmpData;
             int dx = x2 - x1;
             int dy = y2 - y1;
-            
-            int declive = 1;
-            int incE = 2 * dy;
-            int incNE = 2 * dy - 2 * dx;
-            int d = 2 * dy - dx;
-            
-            int x, y;
 
+            int declive = 1;
             if (Math.Abs(dy) < Math.Abs(dx))
             {
-                if (dy < 0)
+                if (x2 < x1)
+                {
+                    pontoMedio(x2, y2, x1, y1, img, c);
+                    return;
+                }
+                bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+                int padding = bmpData.Stride - (W * 3);
+                byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+
+                if (y2 < y1)
+                {
+                    dy *= -1;
                     declive = -1;
+                }
+
+                int incE = 2 * dy;
+                int incNE = 2 * dy - 2 * dx;
+                int d = 2 * dy - dx;
+
+                int x, y;
 
                 y = y1;
                 for (x = x1; x < x2; x++)
@@ -187,11 +185,30 @@ namespace _2D
                         y += declive;
                     }
                 }
-            }
+            }           
             else
-            { 
-                if (dx < 0)
+            {
+                if (y2 < y1)
+                {
+                    pontoMedio(x2, y2, x1, y1, img, c);
+                    return;
+                }
+                bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+                int padding = bmpData.Stride - (W * 3);
+                byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+
+                if (x2 < x1)
+                {
+                    dx *= -1;
                     declive = -1;
+                }
+
+                int incE = 2 * dx;
+                int incNE = 2 * dx - 2 * dy;
+                int d = 2 * dx - dy;
+
+                int x, y;
 
                 x = x1;
                 for (y = y1; y < y2; y++)
