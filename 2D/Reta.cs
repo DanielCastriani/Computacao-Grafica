@@ -189,7 +189,7 @@ namespace _2D
                 }
             }
             else
-            {
+            { 
                 if (dx < 0)
                     declive = -1;
 
