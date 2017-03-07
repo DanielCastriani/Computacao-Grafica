@@ -141,13 +141,19 @@ namespace _2D
 
         public unsafe static void pontoMedio(int x1, int y1, int x2, int y2, Bitmap img, Color c)
         {
-                        
+
+            int H = img.Height;
+            int W = img.Width;
+            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            int padding = bmpData.Stride - (W * 3);
+            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+
             if (x2 < x1)
             {
                 pontoMedio(x2,y2,x1,y1,img,c);
                 return;
             }
-
             if (y2 < y1)
             {
                 y1 *= -1;
@@ -162,12 +168,6 @@ namespace _2D
             int incNE = 2 * dy - 2 * dx;
             int d = 2 * dy - dx;
             
-            int H = img.Height;
-            int W = img.Width;
-            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bmpData.Stride - (W * 3);
-            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
             int x, y;
 
             if (Math.Abs(dy) < Math.Abs(dx))
