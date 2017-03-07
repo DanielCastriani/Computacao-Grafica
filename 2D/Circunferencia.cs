@@ -25,7 +25,6 @@ namespace _2D
                 y = (int)Math.Abs(Math.Sqrt(Math.Pow(raio, 2) - Math.Pow(x, 2)));
                 Util.setPixel(ptrIni, x, (int)y, W, padding, c); 
             }
-
             img.UnlockBits(bmpData);
         }
         public unsafe static void trigonometrica(int x1, int y1, int x2, int y2, Bitmap img, Color c)

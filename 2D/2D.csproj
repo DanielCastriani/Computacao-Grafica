@@ -54,6 +54,7 @@
     <Compile Include="FRMCordenadas.Designer.cs">
       <DependentUpon>FRMCordenadas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Poligono.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
