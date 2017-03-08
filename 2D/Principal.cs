@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace _2D
         private Color c;
         private bool mouseDown;
         private Bitmap img, temp;
+        private List<Poligono> poligonos;
+
         public Principal()
         {
             InitializeComponent();
@@ -25,6 +28,15 @@ namespace _2D
             op = -1;
             tsLBpos.Text = "";
             mouseDown = false;
+            poligonos = new List<Poligono>();
+
+
+            /*  Poligono p = new Poligono();
+                p.add(new Point(20, 200));
+                p.add(new Point(200, 500));
+                p.add(new Point(500, 20));
+                p.desenha(img, Color.Black);
+            */
         }
 
         private void toolStripButtonCor_Click(object sender, EventArgs e)

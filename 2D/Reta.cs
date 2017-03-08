@@ -72,8 +72,7 @@ namespace _2D
 
             img.UnlockBits(bmpData);
         }
-
-
+        
         public unsafe static void DDA(int x1, int y1, int x2, int y2, Bitmap img, Color c)
         {
             int H = img.Height;
@@ -225,6 +224,7 @@ namespace _2D
             }
             img.UnlockBits(bmpData);
         }
+
         public unsafe static void equacaoGeral2(int x1, int y1, int x2, int y2, Bitmap img, Color c)
         {
             int H = img.Height;
