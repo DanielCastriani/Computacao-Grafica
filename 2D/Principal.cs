@@ -30,8 +30,8 @@ namespace _2D
             mouseDown = false;
             poligonos = new List<Poligono>();
 
-
-            /*  Poligono p = new Poligono();
+            /*
+             Poligono p = new Poligono();
                 p.add(new Point(20, 200));
                 p.add(new Point(200, 500));
                 p.add(new Point(500, 20));
