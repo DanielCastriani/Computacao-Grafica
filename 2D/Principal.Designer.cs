@@ -36,25 +36,17 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddPoligono = new System.Windows.Forms.Button();
             this.btRemPoligono = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.dgvPoligonos = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbRotacao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbPos = new System.Windows.Forms.RadioButton();
-            this.rbCentro = new System.Windows.Forms.RadioButton();
-            this.rbOrigem = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -63,7 +55,14 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbPos = new System.Windows.Forms.RadioButton();
+            this.rbCentro = new System.Windows.Forms.RadioButton();
+            this.rbOrigem = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCor = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonLimpar = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownReta = new System.Windows.Forms.ToolStripDropDownButton();
@@ -76,6 +75,8 @@
             this.pontoMédioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.PosicaoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Poligono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -83,18 +84,18 @@
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.toolStrip.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -105,7 +106,7 @@
             this.desenharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(951, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1024, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -135,7 +136,7 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(921, 442);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(994, 467);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -148,7 +149,7 @@
             // toolStripContainer1.RightToolStripPanel
             // 
             this.toolStripContainer1.RightToolStripPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStripContainer1.Size = new System.Drawing.Size(951, 467);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1024, 467);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -159,8 +160,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgvPoligonos, 1, 1);
@@ -169,10 +170,10 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.52632F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.94736F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.52632F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(921, 420);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 445);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel2
@@ -180,15 +181,16 @@
             this.flowLayoutPanel2.Controls.Add(this.btAddPoligono);
             this.flowLayoutPanel2.Controls.Add(this.btRemPoligono);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(785, 378);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(847, 413);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(133, 31);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(144, 29);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // btAddPoligono
             // 
             this.btAddPoligono.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btAddPoligono.Location = new System.Drawing.Point(3, 3);
+            this.btAddPoligono.Location = new System.Drawing.Point(10, 3);
+            this.btAddPoligono.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btAddPoligono.Name = "btAddPoligono";
             this.btAddPoligono.Size = new System.Drawing.Size(59, 23);
             this.btAddPoligono.TabIndex = 0;
@@ -199,24 +201,42 @@
             // btRemPoligono
             // 
             this.btRemPoligono.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btRemPoligono.Location = new System.Drawing.Point(68, 3);
+            this.btRemPoligono.Location = new System.Drawing.Point(75, 3);
             this.btRemPoligono.Name = "btRemPoligono";
             this.btRemPoligono.Size = new System.Drawing.Size(59, 23);
             this.btRemPoligono.TabIndex = 1;
             this.btRemPoligono.Text = "-";
             this.btRemPoligono.UseVisualStyleBackColor = true;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(3, 68);
+            this.pictureBox.Name = "pictureBox";
+            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
+            this.pictureBox.Size = new System.Drawing.Size(838, 374);
+            this.pictureBox.TabIndex = 1;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            // 
             // dgvPoligonos
             // 
+            this.dgvPoligonos.AllowUserToAddRows = false;
             this.dgvPoligonos.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.dgvPoligonos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPoligonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPoligonos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PosicaoInicial,
             this.Poligono});
             this.dgvPoligonos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPoligonos.Location = new System.Drawing.Point(785, 47);
+            this.dgvPoligonos.Location = new System.Drawing.Point(847, 68);
             this.dgvPoligonos.Name = "dgvPoligonos";
             this.dgvPoligonos.ReadOnly = true;
-            this.dgvPoligonos.Size = new System.Drawing.Size(133, 325);
+            this.dgvPoligonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPoligonos.Size = new System.Drawing.Size(144, 339);
             this.dgvPoligonos.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -230,7 +250,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(915, 38);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 59);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // groupBox1
@@ -271,100 +291,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "°";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbPos);
-            this.groupBox2.Controls.Add(this.rbCentro);
-            this.groupBox2.Controls.Add(this.rbOrigem);
-            this.groupBox2.Location = new System.Drawing.Point(569, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(197, 54);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            // 
-            // rbPos
-            // 
-            this.rbPos.AutoSize = true;
-            this.rbPos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbPos.Location = new System.Drawing.Point(132, 20);
-            this.rbPos.Name = "rbPos";
-            this.rbPos.Size = new System.Drawing.Size(63, 17);
-            this.rbPos.TabIndex = 2;
-            this.rbPos.TabStop = true;
-            this.rbPos.Text = "Posição";
-            this.rbPos.UseVisualStyleBackColor = true;
-            // 
-            // rbCentro
-            // 
-            this.rbCentro.AutoSize = true;
-            this.rbCentro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbCentro.Location = new System.Drawing.Point(70, 20);
-            this.rbCentro.Name = "rbCentro";
-            this.rbCentro.Size = new System.Drawing.Size(56, 17);
-            this.rbCentro.TabIndex = 1;
-            this.rbCentro.TabStop = true;
-            this.rbCentro.Text = "Centro";
-            this.rbCentro.UseVisualStyleBackColor = true;
-            // 
-            // rbOrigem
-            // 
-            this.rbOrigem.AutoSize = true;
-            this.rbOrigem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbOrigem.Location = new System.Drawing.Point(6, 20);
-            this.rbOrigem.Name = "rbOrigem";
-            this.rbOrigem.Size = new System.Drawing.Size(58, 17);
-            this.rbOrigem.TabIndex = 0;
-            this.rbOrigem.TabStop = true;
-            this.rbOrigem.Text = "Origem";
-            this.rbOrigem.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(772, 20);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Aplicar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsLBpos});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(921, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // tsLBpos
-            // 
-            this.tsLBpos.Name = "tsLBpos";
-            this.tsLBpos.Size = new System.Drawing.Size(104, 17);
-            this.tsLBpos.Text = "[000,000] [000,000]";
-            // 
-            // toolStrip
-            // 
-            this.toolStrip.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonCor,
-            this.toolStripButtonLimpar,
-            this.toolStripDropDownReta,
-            this.toolStripDropDownCirculo,
-            this.toolStripDropDownElipse});
-            this.toolStrip.Location = new System.Drawing.Point(0, 3);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(30, 126);
-            this.toolStrip.TabIndex = 0;
-            // 
-            // colorDialog
-            // 
-            this.colorDialog.FullOpen = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel4);
@@ -388,13 +314,6 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(211, 35);
             this.flowLayoutPanel4.TabIndex = 0;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(23, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(71, 20);
-            this.textBox2.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -405,6 +324,13 @@
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "X";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(23, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(71, 20);
+            this.textBox2.TabIndex = 2;
             // 
             // label3
             // 
@@ -483,19 +409,95 @@
             this.textBox4.Size = new System.Drawing.Size(71, 20);
             this.textBox4.TabIndex = 4;
             // 
-            // pictureBox
+            // groupBox2
             // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(3, 47);
-            this.pictureBox.Name = "pictureBox";
-            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(776, 370);
-            this.pictureBox.TabIndex = 1;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            this.groupBox2.Controls.Add(this.rbPos);
+            this.groupBox2.Controls.Add(this.rbCentro);
+            this.groupBox2.Controls.Add(this.rbOrigem);
+            this.groupBox2.Location = new System.Drawing.Point(569, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(197, 54);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // rbPos
+            // 
+            this.rbPos.AutoSize = true;
+            this.rbPos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbPos.Location = new System.Drawing.Point(132, 20);
+            this.rbPos.Name = "rbPos";
+            this.rbPos.Size = new System.Drawing.Size(63, 17);
+            this.rbPos.TabIndex = 2;
+            this.rbPos.TabStop = true;
+            this.rbPos.Text = "Posição";
+            this.rbPos.UseVisualStyleBackColor = true;
+            // 
+            // rbCentro
+            // 
+            this.rbCentro.AutoSize = true;
+            this.rbCentro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbCentro.Location = new System.Drawing.Point(70, 20);
+            this.rbCentro.Name = "rbCentro";
+            this.rbCentro.Size = new System.Drawing.Size(56, 17);
+            this.rbCentro.TabIndex = 1;
+            this.rbCentro.TabStop = true;
+            this.rbCentro.Text = "Centro";
+            this.rbCentro.UseVisualStyleBackColor = true;
+            // 
+            // rbOrigem
+            // 
+            this.rbOrigem.AutoSize = true;
+            this.rbOrigem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbOrigem.Location = new System.Drawing.Point(6, 20);
+            this.rbOrigem.Name = "rbOrigem";
+            this.rbOrigem.Size = new System.Drawing.Size(58, 17);
+            this.rbOrigem.TabIndex = 0;
+            this.rbOrigem.TabStop = true;
+            this.rbOrigem.Text = "Origem";
+            this.rbOrigem.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(772, 20);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Aplicar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsLBpos});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(994, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsLBpos
+            // 
+            this.tsLBpos.Name = "tsLBpos";
+            this.tsLBpos.Size = new System.Drawing.Size(104, 17);
+            this.tsLBpos.Text = "[000,000] [000,000]";
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonCor,
+            this.toolStripButtonLimpar,
+            this.toolStripDropDownReta,
+            this.toolStripDropDownCirculo,
+            this.toolStripDropDownElipse});
+            this.toolStrip.Location = new System.Drawing.Point(0, 3);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(30, 126);
+            this.toolStrip.TabIndex = 0;
             // 
             // toolStripButtonCor
             // 
@@ -603,20 +605,32 @@
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
+            // colorDialog
+            // 
+            this.colorDialog.FullOpen = true;
+            // 
+            // PosicaoInicial
+            // 
+            this.PosicaoInicial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PosicaoInicial.DataPropertyName = "PosicaoInicial";
+            this.PosicaoInicial.HeaderText = "Posicao Inicial";
+            this.PosicaoInicial.Name = "PosicaoInicial";
+            this.PosicaoInicial.ReadOnly = true;
+            // 
             // Poligono
             // 
-            this.Poligono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Poligono.DataPropertyName = "Poligono";
             this.Poligono.HeaderText = "Poligono";
             this.Poligono.Name = "Poligono";
             this.Poligono.ReadOnly = true;
+            this.Poligono.Visible = false;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(951, 491);
+            this.ClientSize = new System.Drawing.Size(1024, 491);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -635,24 +649,24 @@
             this.toolStripContainer1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,6 +722,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosicaoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poligono;
     }
 }

@@ -14,12 +14,17 @@ namespace _2D
         public FRMPoligonos()
         {
             InitializeComponent();
+           
+        }
+
+        private void FRMPoligonos_Load(object sender, EventArgs e)
+        {
             ds = Util.criaTablePontos();
 
             dgvPontos.DataSource = ds;
-            dgvPontos.DataMember = "tbPontos";
-            desenha = false;
+            dgvPontos.DataMember = "tbPontos";            
 
+            desenha = false;
             tbX.Focus();
             pos = -1;
         }
@@ -48,12 +53,18 @@ namespace _2D
             tbX.Focus();
             tbY.Clear();
 
+            pos = dgvPontos.Rows.Count - 1;
+            dgvPontos.CurrentCell = dgvPontos.Rows[dgvPontos.Rows.Count - 1].Cells[0];
+
         }
 
         private void btRM_Click(object sender, EventArgs e)
         {
-            if(pos > 0)
+            if (pos > 0)
+            {
                 ds.Tables["Pontos"].Rows.RemoveAt(pos);
+                dgvPontos.Refresh();
+            }
         }
 
         private void btDesenhar_Click(object sender, EventArgs e)
@@ -75,9 +86,5 @@ namespace _2D
             return l;
         }
 
-        private void FRMPoligonos_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

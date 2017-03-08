@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.dgvPontos = new System.Windows.Forms.DataGridView();
+            this.Ponto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbX = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbY = new System.Windows.Forms.TextBox();
             this.btAdd = new System.Windows.Forms.Button();
             this.btRM = new System.Windows.Forms.Button();
-            this.Ponto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btDesenhar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPontos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPontos
             // 
+            this.dgvPontos.AllowUserToAddRows = false;
             this.dgvPontos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPontos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ponto});
@@ -51,6 +52,14 @@
             this.dgvPontos.ReadOnly = true;
             this.dgvPontos.Size = new System.Drawing.Size(250, 150);
             this.dgvPontos.TabIndex = 0;
+            // 
+            // Ponto
+            // 
+            this.Ponto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ponto.DataPropertyName = "Ponto";
+            this.Ponto.HeaderText = "Ponto";
+            this.Ponto.Name = "Ponto";
+            this.Ponto.ReadOnly = true;
             // 
             // tbX
             // 
@@ -105,14 +114,6 @@
             this.btRM.Text = "-";
             this.btRM.UseVisualStyleBackColor = true;
             this.btRM.Click += new System.EventHandler(this.btRM_Click);
-            // 
-            // Ponto
-            // 
-            this.Ponto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ponto.DataPropertyName = "Ponto";
-            this.Ponto.HeaderText = "Ponto";
-            this.Ponto.Name = "Ponto";
-            this.Ponto.ReadOnly = true;
             // 
             // btDesenhar
             // 

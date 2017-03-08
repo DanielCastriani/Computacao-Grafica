@@ -132,6 +132,7 @@ namespace _2D
                 pictureBox.Image = img;
                 DataRow dr = ds.Tables["tbPoligonos"].NewRow();
                 dr["Poligono"] = p;
+                dr["PosicaoInicial"] = p.getPosicaoInicial();
                 ds.Tables["tbPoligonos"].Rows.Add(dr);
             }
             frm.Dispose();

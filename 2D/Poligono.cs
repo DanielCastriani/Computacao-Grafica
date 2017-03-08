@@ -24,6 +24,11 @@ namespace _2D
             pAtual = new List<Point>(p);
         }
 
+        public Point getPosicaoInicial()
+        {
+            return pOriginal[0];
+        }
+
         public void add(Point p)
         {
             pOriginal.Add(p);

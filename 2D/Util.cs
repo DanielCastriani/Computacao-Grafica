@@ -68,6 +68,9 @@ namespace _2D
             DataColumn c = new DataColumn("Poligono", typeof(Poligono));
             c.AllowDBNull = false;
             dt.Columns.Add(c);
+            c = new DataColumn("PosicaoInicial", typeof(Point));
+            c.AllowDBNull = false;
+            dt.Columns.Add(c);
             return ds;
         }
     }
