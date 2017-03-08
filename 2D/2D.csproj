@@ -54,6 +54,12 @@
     <Compile Include="FRMCordenadas.Designer.cs">
       <DependentUpon>FRMCordenadas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMPoligonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMPoligonos.Designer.cs">
+      <DependentUpon>FRMPoligonos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Poligono.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -67,6 +73,9 @@
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="FRMCordenadas.resx">
       <DependentUpon>FRMCordenadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMPoligonos.resx">
+      <DependentUpon>FRMPoligonos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

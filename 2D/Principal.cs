@@ -116,6 +116,19 @@ namespace _2D
             Util.preencher((Bitmap)pictureBox.Image, Color.White);
         }
 
+        private void btAddPoligono_Click(object sender, EventArgs e)
+        {
+            FRMPoligonos frm = new FRMPoligonos();
+            frm.ShowDialog();
+            if (frm.getDesenha())
+            {
+                Poligono p = new Poligono(frm.getPontos());
+                p.desenha(img,c);
+                poligonos.Add(p);
+            }
+            frm.Dispose();
+        }
+
         //------------------------------------------------------------------
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {

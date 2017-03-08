@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Data;
+using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace _2D
@@ -47,6 +48,17 @@ namespace _2D
         {
             BitmapData bmpData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
             return bmpData;
+        }
+
+        public static DataSet criaTablePontos()
+        {
+            DataSet ds = new DataSet("Dataset Pontos");
+            DataTable dt = new DataTable("tbPontos");
+            ds.Tables.Add(dt);
+            DataColumn c = new DataColumn("Ponto", typeof(Point));
+            c.AllowDBNull = false;
+            dt.Columns.Add(c);
+            return ds;
         }
     }
 }
