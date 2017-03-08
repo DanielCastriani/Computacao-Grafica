@@ -6,31 +6,38 @@ namespace _2D
 {
     class Poligono
     {
-        private List<Point> pontos;
+        private List<Point> pOriginal;
+        private List<Point> pAtual;
+
+        private int[,] matAc;
 
         public Poligono()
         {
-            pontos = new List<Point>();
+            pOriginal = new List<Point>();
+            pAtual = new List<Point>();
+            matAc = new int[3,3];
         }
 
         public Poligono(List<Point> p)
         {
-            pontos = p;
+            pOriginal = p;
+            pAtual = new List<Point>(p);
         }
 
         public void add(Point p)
         {
-            pontos.Add(p);
+            pOriginal.Add(p);
+            pAtual.Add(p);
         }
 
         public void desenha(Bitmap img,Color c)
         {
-            if(pontos.Count < 3)
+            if(pAtual.Count < 3)
                 throw new System.ArgumentException("Quantidade de pontos Menor que 3");
 
-            for (int i = 0; i < pontos.Count - 1; i++)
-                Reta.pontoMedio(pontos[i].X, pontos[i].Y, pontos[i + 1].X, pontos[i + 1].Y ,img,c);
-            Reta.pontoMedio(pontos[pontos.Count-1].X, pontos[pontos.Count - 1].Y, pontos[0].X, pontos[0].Y, img, c);
+            for (int i = 0; i < pAtual.Count - 1; i++)
+                Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y ,img,c);
+            Reta.pontoMedio(pAtual[pAtual.Count-1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, c);
 
         }
     }

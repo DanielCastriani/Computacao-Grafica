@@ -21,7 +21,9 @@ Vitor Santos
 [ ] Ponto Médio
 
 ###Elipse ###
-[ ] Ponto Médio
+[X] Ponto Médio
+
+[ ] Menu
 
 
 ###Poligono ###
