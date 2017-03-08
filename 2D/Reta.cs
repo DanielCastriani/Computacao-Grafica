@@ -328,4 +328,4 @@ namespace _2D
             img.UnlockBits(bmpData);
         }
     }
-}
+}//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatireiopaunogato
