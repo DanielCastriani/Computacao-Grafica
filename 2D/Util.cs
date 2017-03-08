@@ -60,5 +60,15 @@ namespace _2D
             dt.Columns.Add(c);
             return ds;
         }
+        public static DataSet criaTablePoligonos()
+        {
+            DataSet ds = new DataSet("Dataset Poligonos");
+            DataTable dt = new DataTable("tbPoligonos");
+            ds.Tables.Add(dt);
+            DataColumn c = new DataColumn("Poligono", typeof(Poligono));
+            c.AllowDBNull = false;
+            dt.Columns.Add(c);
+            return ds;
+        }
     }
 }

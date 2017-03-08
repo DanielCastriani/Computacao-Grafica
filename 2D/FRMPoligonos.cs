@@ -10,7 +10,7 @@ namespace _2D
     {
         private DataSet ds;
         private bool desenha;
-
+        private int pos;
         public FRMPoligonos()
         {
             InitializeComponent();
@@ -21,6 +21,7 @@ namespace _2D
             desenha = false;
 
             tbX.Focus();
+            pos = -1;
         }
 
         private void KeyPress(object sender, KeyPressEventArgs e)
@@ -51,7 +52,8 @@ namespace _2D
 
         private void btRM_Click(object sender, EventArgs e)
         {
-            
+            if(pos > 0)
+                ds.Tables["Pontos"].Rows.RemoveAt(pos);
         }
 
         private void btDesenhar_Click(object sender, EventArgs e)
@@ -68,10 +70,14 @@ namespace _2D
         public List<Point> getPontos()
         {
             List<Point> l = new List<Point>();
-            Point p;
             for (int i = 0; i < ds.Tables["tbPontos"].Rows.Count; i++)
                 l.Add((Point)ds.Tables["tbPontos"].Rows[i]["Ponto"]);
             return l;
+        }
+
+        private void FRMPoligonos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

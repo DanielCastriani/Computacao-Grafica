@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -12,7 +13,7 @@ namespace _2D
         private Color c;
         private bool mouseDown;
         private Bitmap img, temp;
-
+        private DataSet ds;
         private List<Poligono> poligonos;
 
         public Principal()
@@ -31,6 +32,9 @@ namespace _2D
             mouseDown = false;
             poligonos = new List<Poligono>();
 
+            ds = Util.criaTablePoligonos();
+            dgvPoligonos.DataSource = ds;
+            dgvPoligonos.DataMember = "tbPoligonos";
 
             /*  Poligono p = new Poligono();
                 p.add(new Point(20, 200));
@@ -125,6 +129,10 @@ namespace _2D
                 Poligono p = new Poligono(frm.getPontos());
                 p.desenha(img,c);
                 poligonos.Add(p);
+                pictureBox.Image = img;
+                DataRow dr = ds.Tables["tbPoligonos"].NewRow();
+                dr["Poligono"] = p;
+                ds.Tables["tbPoligonos"].Rows.Add(dr);
             }
             frm.Dispose();
         }

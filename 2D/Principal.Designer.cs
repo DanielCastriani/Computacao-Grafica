@@ -36,8 +36,7 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddPoligono = new System.Windows.Forms.Button();
             this.btRemPoligono = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPoligonos = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,18 +50,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonCor = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonLimpar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripDropDownReta = new System.Windows.Forms.ToolStripDropDownButton();
-            this.equaçãoDaRetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pontoMédioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownCirculo = new System.Windows.Forms.ToolStripDropDownButton();
-            this.equaçãoGeralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trigonométricaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pontoMédioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
-            this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -76,14 +63,27 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.toolStripButtonCor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonLimpar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownReta = new System.Windows.Forms.ToolStripDropDownButton();
+            this.equaçãoDaRetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pontoMédioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownCirculo = new System.Windows.Forms.ToolStripDropDownButton();
+            this.equaçãoGeralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trigonométricaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pontoMédioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
+            this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
+            this.Poligono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -94,6 +94,7 @@
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -162,7 +163,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvPoligonos, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -205,28 +206,18 @@
             this.btRemPoligono.Text = "-";
             this.btRemPoligono.UseVisualStyleBackColor = true;
             // 
-            // pictureBox
+            // dgvPoligonos
             // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(3, 47);
-            this.pictureBox.Name = "pictureBox";
-            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(776, 370);
-            this.pictureBox.TabIndex = 1;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(785, 47);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(133, 325);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvPoligonos.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.dgvPoligonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPoligonos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Poligono});
+            this.dgvPoligonos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPoligonos.Location = new System.Drawing.Point(785, 47);
+            this.dgvPoligonos.Name = "dgvPoligonos";
+            this.dgvPoligonos.ReadOnly = true;
+            this.dgvPoligonos.Size = new System.Drawing.Size(133, 325);
+            this.dgvPoligonos.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
@@ -294,6 +285,7 @@
             // rbPos
             // 
             this.rbPos.AutoSize = true;
+            this.rbPos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.rbPos.Location = new System.Drawing.Point(132, 20);
             this.rbPos.Name = "rbPos";
             this.rbPos.Size = new System.Drawing.Size(63, 17);
@@ -305,6 +297,7 @@
             // rbCentro
             // 
             this.rbCentro.AutoSize = true;
+            this.rbCentro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.rbCentro.Location = new System.Drawing.Point(70, 20);
             this.rbCentro.Name = "rbCentro";
             this.rbCentro.Size = new System.Drawing.Size(56, 17);
@@ -316,6 +309,7 @@
             // rbOrigem
             // 
             this.rbOrigem.AutoSize = true;
+            this.rbOrigem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.rbOrigem.Location = new System.Drawing.Point(6, 20);
             this.rbOrigem.Name = "rbOrigem";
             this.rbOrigem.Size = new System.Drawing.Size(58, 17);
@@ -366,112 +360,6 @@
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(30, 126);
             this.toolStrip.TabIndex = 0;
-            // 
-            // toolStripButtonCor
-            // 
-            this.toolStripButtonCor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta;
-            this.toolStripButtonCor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonCor.Name = "toolStripButtonCor";
-            this.toolStripButtonCor.Size = new System.Drawing.Size(28, 20);
-            this.toolStripButtonCor.Text = "toolStripButton1";
-            this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
-            // 
-            // toolStripButtonLimpar
-            // 
-            this.toolStripButtonLimpar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLimpar.Image = global::_2D.Properties.Resources.Limpar;
-            this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
-            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
-            this.toolStripButtonLimpar.Text = "toolStripButton1";
-            this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
-            // 
-            // toolStripDropDownReta
-            // 
-            this.toolStripDropDownReta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownReta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.equaçãoDaRetaToolStripMenuItem,
-            this.dDAToolStripMenuItem,
-            this.pontoMédioToolStripMenuItem});
-            this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta;
-            this.toolStripDropDownReta.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownReta.Name = "toolStripDropDownReta";
-            this.toolStripDropDownReta.Size = new System.Drawing.Size(28, 20);
-            this.toolStripDropDownReta.Text = "toolStripDropDownButton1";
-            // 
-            // equaçãoDaRetaToolStripMenuItem
-            // 
-            this.equaçãoDaRetaToolStripMenuItem.Name = "equaçãoDaRetaToolStripMenuItem";
-            this.equaçãoDaRetaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.equaçãoDaRetaToolStripMenuItem.Text = "Equação da Reta";
-            this.equaçãoDaRetaToolStripMenuItem.Click += new System.EventHandler(this.equaçãoDaRetaToolStripMenuItem_Click);
-            // 
-            // dDAToolStripMenuItem
-            // 
-            this.dDAToolStripMenuItem.Name = "dDAToolStripMenuItem";
-            this.dDAToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.dDAToolStripMenuItem.Text = "DDA";
-            this.dDAToolStripMenuItem.Click += new System.EventHandler(this.dDAToolStripMenuItem_Click);
-            // 
-            // pontoMédioToolStripMenuItem
-            // 
-            this.pontoMédioToolStripMenuItem.Name = "pontoMédioToolStripMenuItem";
-            this.pontoMédioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.pontoMédioToolStripMenuItem.Text = "Ponto Médio";
-            this.pontoMédioToolStripMenuItem.Click += new System.EventHandler(this.pontoMédioToolStripMenuItem_Click);
-            // 
-            // toolStripDropDownCirculo
-            // 
-            this.toolStripDropDownCirculo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownCirculo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.equaçãoGeralToolStripMenuItem,
-            this.trigonométricaToolStripMenuItem,
-            this.pontoMédioToolStripMenuItem1});
-            this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo;
-            this.toolStripDropDownCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownCirculo.Name = "toolStripDropDownCirculo";
-            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(28, 20);
-            this.toolStripDropDownCirculo.Text = "toolStripDropDownButton1";
-            // 
-            // equaçãoGeralToolStripMenuItem
-            // 
-            this.equaçãoGeralToolStripMenuItem.Name = "equaçãoGeralToolStripMenuItem";
-            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.equaçãoGeralToolStripMenuItem.Text = "Equação Geral";
-            this.equaçãoGeralToolStripMenuItem.Click += new System.EventHandler(this.equaçãoGeralToolStripMenuItem_Click);
-            // 
-            // trigonométricaToolStripMenuItem
-            // 
-            this.trigonométricaToolStripMenuItem.Name = "trigonométricaToolStripMenuItem";
-            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.trigonométricaToolStripMenuItem.Text = "Trigonométrica";
-            this.trigonométricaToolStripMenuItem.Click += new System.EventHandler(this.trigonométricaToolStripMenuItem_Click);
-            // 
-            // pontoMédioToolStripMenuItem1
-            // 
-            this.pontoMédioToolStripMenuItem1.Name = "pontoMédioToolStripMenuItem1";
-            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
-            this.pontoMédioToolStripMenuItem1.Text = "Ponto Médio";
-            this.pontoMédioToolStripMenuItem1.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemCirculo_Click);
-            // 
-            // toolStripDropDownElipse
-            // 
-            this.toolStripDropDownElipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownElipse.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pontoMédioToolStripMenuItemElipse});
-            this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse;
-            this.toolStripDropDownElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownElipse.Name = "toolStripDropDownElipse";
-            this.toolStripDropDownElipse.Size = new System.Drawing.Size(28, 20);
-            this.toolStripDropDownElipse.Text = "toolStripDropDownButton2";
-            // 
-            // pontoMédioToolStripMenuItemElipse
-            // 
-            this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
-            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
-            this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
-            this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
             // colorDialog
             // 
@@ -595,6 +483,134 @@
             this.textBox4.Size = new System.Drawing.Size(71, 20);
             this.textBox4.TabIndex = 4;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(3, 47);
+            this.pictureBox.Name = "pictureBox";
+            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
+            this.pictureBox.Size = new System.Drawing.Size(776, 370);
+            this.pictureBox.TabIndex = 1;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            // 
+            // toolStripButtonCor
+            // 
+            this.toolStripButtonCor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta;
+            this.toolStripButtonCor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCor.Name = "toolStripButtonCor";
+            this.toolStripButtonCor.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonCor.Text = "toolStripButton1";
+            this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
+            // 
+            // toolStripButtonLimpar
+            // 
+            this.toolStripButtonLimpar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonLimpar.Image = global::_2D.Properties.Resources.Limpar;
+            this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
+            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonLimpar.Text = "toolStripButton1";
+            this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
+            // 
+            // toolStripDropDownReta
+            // 
+            this.toolStripDropDownReta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownReta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.equaçãoDaRetaToolStripMenuItem,
+            this.dDAToolStripMenuItem,
+            this.pontoMédioToolStripMenuItem});
+            this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta;
+            this.toolStripDropDownReta.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownReta.Name = "toolStripDropDownReta";
+            this.toolStripDropDownReta.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownReta.Text = "toolStripDropDownButton1";
+            // 
+            // equaçãoDaRetaToolStripMenuItem
+            // 
+            this.equaçãoDaRetaToolStripMenuItem.Name = "equaçãoDaRetaToolStripMenuItem";
+            this.equaçãoDaRetaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.equaçãoDaRetaToolStripMenuItem.Text = "Equação da Reta";
+            this.equaçãoDaRetaToolStripMenuItem.Click += new System.EventHandler(this.equaçãoDaRetaToolStripMenuItem_Click);
+            // 
+            // dDAToolStripMenuItem
+            // 
+            this.dDAToolStripMenuItem.Name = "dDAToolStripMenuItem";
+            this.dDAToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.dDAToolStripMenuItem.Text = "DDA";
+            this.dDAToolStripMenuItem.Click += new System.EventHandler(this.dDAToolStripMenuItem_Click);
+            // 
+            // pontoMédioToolStripMenuItem
+            // 
+            this.pontoMédioToolStripMenuItem.Name = "pontoMédioToolStripMenuItem";
+            this.pontoMédioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.pontoMédioToolStripMenuItem.Text = "Ponto Médio";
+            this.pontoMédioToolStripMenuItem.Click += new System.EventHandler(this.pontoMédioToolStripMenuItem_Click);
+            // 
+            // toolStripDropDownCirculo
+            // 
+            this.toolStripDropDownCirculo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownCirculo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.equaçãoGeralToolStripMenuItem,
+            this.trigonométricaToolStripMenuItem,
+            this.pontoMédioToolStripMenuItem1});
+            this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo;
+            this.toolStripDropDownCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownCirculo.Name = "toolStripDropDownCirculo";
+            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownCirculo.Text = "toolStripDropDownButton1";
+            // 
+            // equaçãoGeralToolStripMenuItem
+            // 
+            this.equaçãoGeralToolStripMenuItem.Name = "equaçãoGeralToolStripMenuItem";
+            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.equaçãoGeralToolStripMenuItem.Text = "Equação Geral";
+            this.equaçãoGeralToolStripMenuItem.Click += new System.EventHandler(this.equaçãoGeralToolStripMenuItem_Click);
+            // 
+            // trigonométricaToolStripMenuItem
+            // 
+            this.trigonométricaToolStripMenuItem.Name = "trigonométricaToolStripMenuItem";
+            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.trigonométricaToolStripMenuItem.Text = "Trigonométrica";
+            this.trigonométricaToolStripMenuItem.Click += new System.EventHandler(this.trigonométricaToolStripMenuItem_Click);
+            // 
+            // pontoMédioToolStripMenuItem1
+            // 
+            this.pontoMédioToolStripMenuItem1.Name = "pontoMédioToolStripMenuItem1";
+            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.pontoMédioToolStripMenuItem1.Text = "Ponto Médio";
+            this.pontoMédioToolStripMenuItem1.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemCirculo_Click);
+            // 
+            // toolStripDropDownElipse
+            // 
+            this.toolStripDropDownElipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownElipse.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pontoMédioToolStripMenuItemElipse});
+            this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse;
+            this.toolStripDropDownElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownElipse.Name = "toolStripDropDownElipse";
+            this.toolStripDropDownElipse.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownElipse.Text = "toolStripDropDownButton2";
+            // 
+            // pontoMédioToolStripMenuItemElipse
+            // 
+            this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
+            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
+            this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
+            this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
+            // 
+            // Poligono
+            // 
+            this.Poligono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Poligono.DataPropertyName = "Poligono";
+            this.Poligono.HeaderText = "Poligono";
+            this.Poligono.Name = "Poligono";
+            this.Poligono.ReadOnly = true;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,7 +619,7 @@
             this.ClientSize = new System.Drawing.Size(951, 491);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
-            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";
             this.Text = "Principal";
@@ -619,8 +635,7 @@
             this.toolStripContainer1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -637,6 +652,7 @@
             this.groupBox4.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,7 +682,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonLimpar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPoligonos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btAddPoligono;
         private System.Windows.Forms.Button btRemPoligono;
@@ -692,5 +708,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Poligono;
     }
 }

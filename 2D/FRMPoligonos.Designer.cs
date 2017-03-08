@@ -139,6 +139,7 @@
             this.Controls.Add(this.dgvPontos);
             this.Name = "FRMPoligonos";
             this.Text = "FRMPoligonos";
+            this.Load += new System.EventHandler(this.FRMPoligonos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPontos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
