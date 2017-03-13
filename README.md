@@ -26,8 +26,6 @@ Vitor Santos
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
 
-[ ] Selecionar Polígono
-
 [ ] Rotação
 
 [ ] Translação
