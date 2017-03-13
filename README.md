@@ -23,8 +23,13 @@ Vitor Santos
 ###Elipse ###
 [X] Ponto Médio
 
-[ ] Menu
+###Polígono ###
+[X] Criar Polígono usando ponto médio
 
+[ ] Selecionar Polígono
 
-###Poligono ###
-[ ] Ponto Médio
+[ ] Rotação
+
+[ ] Translação
+
+[ ] Escala
