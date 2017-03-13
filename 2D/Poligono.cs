@@ -50,9 +50,9 @@ namespace _2D
 
         private void soma(int[,] mat)
         {
-            for (int i = 0; i < mat.Length; i++)
-                for (int j = 0; j < mat.Length; j++)
-                        matAc[i, j] += mat[i, j];
+            
+            matAc[0, 0] += mat[0, 0];
+            matAc[1, 0] += mat[1, 0];
         }
 
         private void multiplicar(int[,] mat)
@@ -66,7 +66,7 @@ namespace _2D
                     ac = 0;
                     for (int k = 0; k < mat.Length; k++)
                     {
-                           ac =     
+                           //ac =     
                     }
                 }
             }
@@ -74,9 +74,9 @@ namespace _2D
 
         public void trasform(int tx, int ty, int angulo, int ex, int ey)
         {
-            rotacao(angulo);
+        //    rotacao(angulo);
             traslacao(tx, ty);
-            escala(ex, ey);
+         //   escala(ex, ey);
 
 
             Point p;
@@ -85,7 +85,7 @@ namespace _2D
             {
                 p = pOriginal[i];
                 p.X += matAc[0, 0];
-                p.Y += matAc[0, 1];
+                p.Y += matAc[1, 0];
                 pAtual[i] = p;
             }
         }

@@ -198,6 +198,16 @@ namespace _2D
             desenhaPoligonos();
         }
 
+        private void KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+
+            if (e.KeyChar == '-' && ((TextBox)sender).Text.Length > 0)
+                e.Handled = true;
+
+        }
+
         //------------------------------------------------------------------
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
