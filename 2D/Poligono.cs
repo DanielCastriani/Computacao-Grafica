@@ -55,6 +55,23 @@ namespace _2D
                         matAc[i, j] += mat[i, j];
         }
 
+        private void multiplicar(int[,] mat)
+        {
+            int[,] nMat = new int[2, 2];
+            int ac;
+            for (int i = 0; i < mat.Length; i++)
+            {
+                for (int j = 0; j < mat.Length; j++)
+                {
+                    ac = 0;
+                    for (int k = 0; k < mat.Length; k++)
+                    {
+                           ac =     
+                    }
+                }
+            }
+        }
+
         public void trasform(int tx, int ty, int angulo, int ex, int ey)
         {
             rotacao(angulo);
