@@ -44,6 +44,7 @@ namespace _2D
                 k++;
                 x++;
                 Util.setPixel(ptrIni, k, (int)y, W, padding, c);
+
             }
         }
 

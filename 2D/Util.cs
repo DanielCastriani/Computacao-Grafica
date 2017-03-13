@@ -35,8 +35,13 @@ namespace _2D
             pos += (W * 3 + padding) * TY + (TX * 3);
             return pos;
         }
+
         public unsafe static void setPixel(byte* pIni, int TX, int TY, int W, int padding,Color c)
         {
+            if (TX < 0 || TY < 0)
+                throw new System.ArgumentException("Coordenada Invalida (" + TX + "," + TY + ")");
+
+
             byte* ptr = pIni;
             ptr += (W * 3 + padding) * TY + (TX * 3);
             *(ptr++) = c.B;

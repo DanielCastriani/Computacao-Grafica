@@ -9,11 +9,12 @@ namespace _2D
     public partial class Principal : Form
     {
         private int xi, yi, xf, yf;
-        private int op;
-        private Color c;
+        private int opicao;
+        private Color cor;
         private bool mouseDown;
-        private Bitmap img, temp;
-        private DataSet ds;
+        private Bitmap imagemBmp, temp;
+        private int W,H;
+        private DataSet dsPoligonos;
         private List<Poligono> poligonos;
 
         public Principal()
@@ -23,81 +24,101 @@ namespace _2D
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            c = Color.Black;
-            pictureBox.Image = img = new Bitmap(1920,1080);
+            cor = Color.Black;
+            W = 1920;
+            H = 1080;
+            pictureBox.Image = imagemBmp = new Bitmap(W,H);
             Util.preencher((Bitmap)pictureBox.Image, Color.White);
             xi = yi = xf = yf = 0;
-            op = -1;
+            opicao = -1;
             tsLBpos.Text = "";
             mouseDown = false;
             poligonos = new List<Poligono>();
 
-            ds = Util.criaTablePoligonos();
-            dgvPoligonos.DataSource = ds;
+            dsPoligonos = Util.criaTablePoligonos();
+            dgvPoligonos.DataSource = dsPoligonos;
             dgvPoligonos.DataMember = "tbPoligonos";
 
-            /*  Poligono p = new Poligono();
-                p.add(new Point(20, 200));
-                p.add(new Point(200, 500));
-                p.add(new Point(500, 20));
-                p.desenha(img, Color.Black);
-            */
+            rbOrigem.Checked = true;
+
+            //---------------------------
+            Poligono p = new Poligono();
+            p.add(new Point(150, 200));
+            p.add(new Point(200, 300));
+            p.add(new Point(300, 90));
+            novoPoligono(p);
+
+            p = new Poligono();
+            p.add(new Point(50, 50));
+            p.add(new Point(150, 50));
+            p.add(new Point(150, 100));
+            p.add(new Point(50, 100));
+            novoPoligono(p);
+
+            p = new Poligono();
+            p.add(new Point(760, 130));
+            p.add(new Point(870, 200));
+            p.add(new Point(830, 340));
+            p.add(new Point(700, 340));
+            p.add(new Point(650, 214));
+            novoPoligono(p);
+
         }
 
         private void toolStripButtonCor_Click(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                c = colorDialog.Color;
+                cor = colorDialog.Color;
             }
         }
         //--Reta
         private void equaçãoDaRetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Equação Geral da Reta";
-            op = 1;
+            opicao = 1;
             pictureBox.Cursor = Cursors.Hand;
         }
 
         private void dDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "DDA";
-            op = 2;
+            opicao = 2;
             pictureBox.Cursor = Cursors.Hand;
         }
 
         private void pontoMédioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Ponto Medio(Reta)";
-            op = 3;
+            opicao = 3;
             pictureBox.Cursor = Cursors.Hand;
         }
         //--Circulo
         private void equaçãoGeralToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Equação Geral do Circulo";
-            op = 4;
+            opicao = 4;
             pictureBox.Cursor = Cursors.Cross;
         }
 
         private void trigonométricaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Trigonométrica";
-            op = 5;
+            opicao = 5;
             pictureBox.Cursor = Cursors.Cross;
         }
 
         private void pontoMédioToolStripMenuItemCirculo_Click(object sender, EventArgs e)
         {
             Text = "Ponto Médio(Circulo)";
-            op = 6;
+            opicao = 6;
             pictureBox.Cursor = Cursors.Cross;
         }
         //--Elipse
         private void pontoMédioToolStripMenuItemElipse_Click(object sender, EventArgs e)
         {
             Text = "Ponto Médio(Elipse)";
-            op = 7;
+            opicao = 7;
             pictureBox.Cursor = Cursors.Cross;
         }
 
@@ -109,15 +130,37 @@ namespace _2D
             {
                 xi = frm.getX1();
                 yi = frm.getY1();
-                desenha(img, frm.getX2(), frm.getY2());
+                desenha(imagemBmp, frm.getX2(), frm.getY2());
             }
             frm.Dispose();
         }
 
         private void toolStripButtonLimpar_Click(object sender, EventArgs e)
         {
-            pictureBox.Image = img = new Bitmap(1920, 1080);
+            pictureBox.Image = imagemBmp = new Bitmap(W, H);
             Util.preencher((Bitmap)pictureBox.Image, Color.White);
+        }
+
+        private void novoPoligono(Poligono p)
+        {
+            p.desenha(imagemBmp, cor);
+            poligonos.Add(p);
+            pictureBox.Image = imagemBmp;
+            DataRow dr = dsPoligonos.Tables["tbPoligonos"].NewRow();
+            dr["Poligono"] = p;
+            dr["PosicaoInicial"] = p.getPosicaoInicial();
+            dsPoligonos.Tables["tbPoligonos"].Rows.Add(dr);
+        }
+
+        private void desenhaPoligonos()
+        {
+            pictureBox.Image = imagemBmp = new Bitmap(W, H);
+            Util.preencher((Bitmap)pictureBox.Image, Color.White);
+            
+            for (int i = 0; i < poligonos.Count; i++)
+                poligonos[i].desenha(imagemBmp,cor);
+
+            pictureBox.Image = imagemBmp;
         }
 
         private void btAddPoligono_Click(object sender, EventArgs e)
@@ -126,16 +169,33 @@ namespace _2D
             frm.ShowDialog();
             if (frm.getDesenha())
             {
-                Poligono p = new Poligono(frm.getPontos());
-                p.desenha(img,c);
-                poligonos.Add(p);
-                pictureBox.Image = img;
-                DataRow dr = ds.Tables["tbPoligonos"].NewRow();
-                dr["Poligono"] = p;
-                dr["PosicaoInicial"] = p.getPosicaoInicial();
-                ds.Tables["tbPoligonos"].Rows.Add(dr);
+                Poligono p = new Poligono(frm.getPontos());                
+                novoPoligono(p);
             }
             frm.Dispose();
+        }
+
+        private void btAplicar_Click(object sender, EventArgs e)
+        {
+            Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
+
+            int tx = 0;
+            int ty = 0;
+            int ex = 0;
+            int ey = 0;
+            int angulo = 0;
+
+            int.TryParse(tbTranslacaoX.Text,out tx);
+            int.TryParse(tbTranslacaoY.Text, out ty);
+            int.TryParse(tbRotacao.Text, out angulo);
+            int.TryParse(tbEscalaX.Text, out ex);
+            int.TryParse(tbEscalaY.Text, out ey);
+
+            
+
+
+            p.trasform(tx, ty,angulo,ex,ey);
+            desenhaPoligonos();
         }
 
         //------------------------------------------------------------------
@@ -150,7 +210,7 @@ namespace _2D
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-            desenha(img, e.X, e.Y);
+            desenha(imagemBmp, e.X, e.Y);
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -174,25 +234,25 @@ namespace _2D
             if (xi < 0 || yi < 0 || xf < 0 || yf < 0 || xi > bmp.Width || xf > bmp.Width || yi > bmp.Height || yf > bmp.Height)
                 return;
 
-            switch (op)
+            switch (opicao)
             {
                 case 1:
-                    Reta.equacaoGeral(xi, yi, xf, yf, bmp, c);
+                    Reta.equacaoGeral(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 2:
-                    Reta.DDA(xi, yi, xf, yf, bmp, c);
+                    Reta.DDA(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 3:
-                    Reta.pontoMedio(xi, yi, xf, yf, bmp, c);
+                    Reta.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 4:
-                    Circunferencia.equacaoGeral(xi, yi, xf, yf, bmp, c);
+                    Circunferencia.equacaoGeral(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 5:
-                    Circunferencia.trigonometrica(xi, yi, xf, yf, bmp, c);
+                    Circunferencia.trigonometrica(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 6:
-                    Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, c);
+                    Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
             }
 

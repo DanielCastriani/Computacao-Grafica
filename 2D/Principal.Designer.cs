@@ -38,28 +38,30 @@
             this.btRemPoligono = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.dgvPoligonos = new System.Windows.Forms.DataGridView();
+            this.PosicaoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Poligono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbTranslacaoX = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbTranslacaoY = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbRotacao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbEscalaX = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbEscalaY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbPos = new System.Windows.Forms.RadioButton();
             this.rbCentro = new System.Windows.Forms.RadioButton();
             this.rbOrigem = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btAplicar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -76,8 +78,6 @@
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.PosicaoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Poligono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -87,10 +87,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -136,7 +136,7 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(994, 467);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(994, 442);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -173,7 +173,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 445);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 420);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel2
@@ -181,7 +181,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btAddPoligono);
             this.flowLayoutPanel2.Controls.Add(this.btRemPoligono);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(847, 413);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(847, 388);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(144, 29);
             this.flowLayoutPanel2.TabIndex = 3;
@@ -215,7 +215,7 @@
             this.pictureBox.Location = new System.Drawing.Point(3, 68);
             this.pictureBox.Name = "pictureBox";
             this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(838, 374);
+            this.pictureBox.Size = new System.Drawing.Size(838, 349);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
@@ -225,6 +225,7 @@
             // dgvPoligonos
             // 
             this.dgvPoligonos.AllowUserToAddRows = false;
+            this.dgvPoligonos.AllowUserToDeleteRows = false;
             this.dgvPoligonos.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dgvPoligonos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPoligonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -236,28 +237,103 @@
             this.dgvPoligonos.Name = "dgvPoligonos";
             this.dgvPoligonos.ReadOnly = true;
             this.dgvPoligonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPoligonos.Size = new System.Drawing.Size(144, 339);
+            this.dgvPoligonos.Size = new System.Drawing.Size(144, 314);
             this.dgvPoligonos.TabIndex = 2;
+            // 
+            // PosicaoInicial
+            // 
+            this.PosicaoInicial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PosicaoInicial.DataPropertyName = "PosicaoInicial";
+            this.PosicaoInicial.HeaderText = "Posicao Inicial";
+            this.PosicaoInicial.Name = "PosicaoInicial";
+            this.PosicaoInicial.ReadOnly = true;
+            // 
+            // Poligono
+            // 
+            this.Poligono.DataPropertyName = "Poligono";
+            this.Poligono.HeaderText = "Poligono";
+            this.Poligono.Name = "Poligono";
+            this.Poligono.ReadOnly = true;
+            this.Poligono.Visible = false;
             // 
             // flowLayoutPanel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
             this.flowLayoutPanel1.Controls.Add(this.groupBox3);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
             this.flowLayoutPanel1.Controls.Add(this.groupBox4);
             this.flowLayoutPanel1.Controls.Add(this.groupBox2);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.btAplicar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 59);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.flowLayoutPanel4);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(217, 54);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Translação";
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.label2);
+            this.flowLayoutPanel4.Controls.Add(this.tbTranslacaoX);
+            this.flowLayoutPanel4.Controls.Add(this.label3);
+            this.flowLayoutPanel4.Controls.Add(this.tbTranslacaoY);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(211, 35);
+            this.flowLayoutPanel4.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "X";
+            // 
+            // tbTranslacaoX
+            // 
+            this.tbTranslacaoX.Location = new System.Drawing.Point(23, 3);
+            this.tbTranslacaoX.Name = "tbTranslacaoX";
+            this.tbTranslacaoX.Size = new System.Drawing.Size(71, 20);
+            this.tbTranslacaoX.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(100, 6);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Y";
+            // 
+            // tbTranslacaoY
+            // 
+            this.tbTranslacaoY.Location = new System.Drawing.Point(120, 3);
+            this.tbTranslacaoY.Name = "tbTranslacaoY";
+            this.tbTranslacaoY.Size = new System.Drawing.Size(71, 20);
+            this.tbTranslacaoY.TabIndex = 4;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(226, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(114, 54);
             this.groupBox1.TabIndex = 0;
@@ -291,65 +367,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "°";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox3.Location = new System.Drawing.Point(123, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(217, 54);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Translação";
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.label2);
-            this.flowLayoutPanel4.Controls.Add(this.textBox2);
-            this.flowLayoutPanel4.Controls.Add(this.label3);
-            this.flowLayoutPanel4.Controls.Add(this.textBox1);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(211, 35);
-            this.flowLayoutPanel4.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "X";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(23, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(71, 20);
-            this.textBox2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 6);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Y";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(120, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(71, 20);
-            this.textBox1.TabIndex = 4;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanel5);
@@ -364,9 +381,9 @@
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Controls.Add(this.label4);
-            this.flowLayoutPanel5.Controls.Add(this.textBox3);
+            this.flowLayoutPanel5.Controls.Add(this.tbEscalaX);
             this.flowLayoutPanel5.Controls.Add(this.label5);
-            this.flowLayoutPanel5.Controls.Add(this.textBox4);
+            this.flowLayoutPanel5.Controls.Add(this.tbEscalaY);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
@@ -384,12 +401,12 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "X";
             // 
-            // textBox3
+            // tbEscalaX
             // 
-            this.textBox3.Location = new System.Drawing.Point(23, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(71, 20);
-            this.textBox3.TabIndex = 2;
+            this.tbEscalaX.Location = new System.Drawing.Point(23, 3);
+            this.tbEscalaX.Name = "tbEscalaX";
+            this.tbEscalaX.Size = new System.Drawing.Size(71, 20);
+            this.tbEscalaX.TabIndex = 2;
             // 
             // label5
             // 
@@ -402,12 +419,12 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Y";
             // 
-            // textBox4
+            // tbEscalaY
             // 
-            this.textBox4.Location = new System.Drawing.Point(120, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(71, 20);
-            this.textBox4.TabIndex = 4;
+            this.tbEscalaY.Location = new System.Drawing.Point(120, 3);
+            this.tbEscalaY.Name = "tbEscalaY";
+            this.tbEscalaY.Size = new System.Drawing.Size(71, 20);
+            this.tbEscalaY.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -456,23 +473,24 @@
             this.rbOrigem.Text = "Origem";
             this.rbOrigem.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btAplicar
             // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(772, 20);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Aplicar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btAplicar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btAplicar.Location = new System.Drawing.Point(772, 20);
+            this.btAplicar.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.btAplicar.Name = "btAplicar";
+            this.btAplicar.Size = new System.Drawing.Size(75, 23);
+            this.btAplicar.TabIndex = 2;
+            this.btAplicar.Text = "Aplicar";
+            this.btAplicar.UseVisualStyleBackColor = true;
+            this.btAplicar.Click += new System.EventHandler(this.btAplicar_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsLBpos});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(994, 22);
             this.statusStrip1.TabIndex = 1;
@@ -505,7 +523,7 @@
             this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta;
             this.toolStripButtonCor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCor.Name = "toolStripButtonCor";
-            this.toolStripButtonCor.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonCor.Size = new System.Drawing.Size(30, 20);
             this.toolStripButtonCor.Text = "toolStripButton1";
             this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
             // 
@@ -515,7 +533,7 @@
             this.toolStripButtonLimpar.Image = global::_2D.Properties.Resources.Limpar;
             this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
-            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonLimpar.Size = new System.Drawing.Size(30, 20);
             this.toolStripButtonLimpar.Text = "toolStripButton1";
             this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
             // 
@@ -529,7 +547,7 @@
             this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta;
             this.toolStripDropDownReta.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownReta.Name = "toolStripDropDownReta";
-            this.toolStripDropDownReta.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownReta.Size = new System.Drawing.Size(30, 20);
             this.toolStripDropDownReta.Text = "toolStripDropDownButton1";
             // 
             // equaçãoDaRetaToolStripMenuItem
@@ -563,7 +581,7 @@
             this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo;
             this.toolStripDropDownCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownCirculo.Name = "toolStripDropDownCirculo";
-            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(30, 20);
             this.toolStripDropDownCirculo.Text = "toolStripDropDownButton1";
             // 
             // equaçãoGeralToolStripMenuItem
@@ -595,7 +613,7 @@
             this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse;
             this.toolStripDropDownElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownElipse.Name = "toolStripDropDownElipse";
-            this.toolStripDropDownElipse.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownElipse.Size = new System.Drawing.Size(30, 20);
             this.toolStripDropDownElipse.Text = "toolStripDropDownButton2";
             // 
             // pontoMédioToolStripMenuItemElipse
@@ -608,22 +626,6 @@
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
-            // 
-            // PosicaoInicial
-            // 
-            this.PosicaoInicial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PosicaoInicial.DataPropertyName = "PosicaoInicial";
-            this.PosicaoInicial.HeaderText = "Posicao Inicial";
-            this.PosicaoInicial.Name = "PosicaoInicial";
-            this.PosicaoInicial.ReadOnly = true;
-            // 
-            // Poligono
-            // 
-            this.Poligono.DataPropertyName = "Poligono";
-            this.Poligono.HeaderText = "Poligono";
-            this.Poligono.Name = "Poligono";
-            this.Poligono.ReadOnly = true;
-            this.Poligono.Visible = false;
             // 
             // Principal
             // 
@@ -652,12 +654,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
@@ -709,19 +711,19 @@
         private System.Windows.Forms.RadioButton rbPos;
         private System.Windows.Forms.RadioButton rbCentro;
         private System.Windows.Forms.RadioButton rbOrigem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btAplicar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbTranslacaoX;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTranslacaoY;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbEscalaX;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbEscalaY;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosicaoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poligono;
     }
