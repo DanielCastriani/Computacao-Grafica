@@ -53,11 +53,6 @@ namespace _2D
             Reta.pontoMedio(pAtual[pAtual.Count - 1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, c);
 
         }
-
-        private void soma(int[,] mat)
-        {            
-           for()
-        }
         
         public void novosPontos()
         {
@@ -86,6 +81,16 @@ namespace _2D
             novosPontos();
         }
 
+        private double[,] multiplicar(double[,] mat, double[,] mat2)
+        {
+            double [,]matR = new double[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        matR[i, j] += mat[i, k] * mat2[k, j];
+            return matR;
+        } 
+
         public void rotacao(int a)
         {
             double[,] R = new double[3, 3];
@@ -108,11 +113,11 @@ namespace _2D
             novosPontos();
         }
 
-        /* centro : media dos pontos atuais
+        /* 
+         * centro : media dos pontos atuais
          * transformação -cx -cy
-         *  transformação
-         *  transformação cx cy
-         
+         * transformação x y
+         * transformação cx cy         
          */
     }
 }
