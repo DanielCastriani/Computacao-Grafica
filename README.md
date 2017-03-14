@@ -21,7 +21,7 @@ Vitor Santos
 [ ] Ponto Médio
 
 ###Elipse ###
-[X] Ponto Médio
+[ ] Ponto Médio
 
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
