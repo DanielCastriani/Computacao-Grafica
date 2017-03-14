@@ -48,24 +48,24 @@ namespace _2D
             rbTranslacao.Checked = true;
             //---------------------------
             Poligono p = new Poligono();
-            p.add(new Point(150, 200));
-            p.add(new Point(200, 300));
-            p.add(new Point(300, 90));
+            p.add(new Point(490, 50));
+            p.add(new Point(490, 280));
+            p.add(new Point(700, 280));
             novoPoligono(p);
 
             p = new Poligono();
-            p.add(new Point(50, 50));
-            p.add(new Point(150, 50));
-            p.add(new Point(150, 100));
-            p.add(new Point(50, 100));
+            p.add(new Point(170, 320));
+            p.add(new Point(420, 320));
+            p.add(new Point(420, 440));
+            p.add(new Point(170, 440));
             novoPoligono(p);
-
+            
             p = new Poligono();
-            p.add(new Point(760, 130));
-            p.add(new Point(870, 200));
-            p.add(new Point(830, 340));
-            p.add(new Point(700, 340));
-            p.add(new Point(650, 214));
+            p.add(new Point(240, 40));
+            p.add(new Point(95, 130));
+            p.add(new Point(150, 280));
+            p.add(new Point(330, 280));
+            p.add(new Point(380, 130));
             novoPoligono(p);
 
         }
@@ -269,9 +269,9 @@ namespace _2D
             {
                 tsLBpos.Text = contMouseDown.ToString();
                 //  tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
-                /*temp = new Bitmap(img);
-                desenha(temp,e.X,e.Y);
-                temp.Dispose();*/
+                //temp = new Bitmap(imagemBmp);
+                //desenha(temp,e.X,e.Y);
+                //temp.Dispose();
             }
         }
 
