@@ -58,7 +58,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbEscalaY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbPos = new System.Windows.Forms.RadioButton();
             this.rbCentro = new System.Windows.Forms.RadioButton();
             this.rbOrigem = new System.Windows.Forms.RadioButton();
             this.btAplicar = new System.Windows.Forms.Button();
@@ -433,7 +432,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rbPos);
             this.groupBox2.Controls.Add(this.rbCentro);
             this.groupBox2.Controls.Add(this.rbOrigem);
             this.groupBox2.Location = new System.Drawing.Point(569, 3);
@@ -441,18 +439,6 @@
             this.groupBox2.Size = new System.Drawing.Size(197, 54);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            // 
-            // rbPos
-            // 
-            this.rbPos.AutoSize = true;
-            this.rbPos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbPos.Location = new System.Drawing.Point(132, 20);
-            this.rbPos.Name = "rbPos";
-            this.rbPos.Size = new System.Drawing.Size(63, 17);
-            this.rbPos.TabIndex = 2;
-            this.rbPos.TabStop = true;
-            this.rbPos.Text = "Posição";
-            this.rbPos.UseVisualStyleBackColor = true;
             // 
             // rbCentro
             // 
@@ -727,7 +713,6 @@
         private System.Windows.Forms.TextBox tbRotacao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbPos;
         private System.Windows.Forms.RadioButton rbCentro;
         private System.Windows.Forms.RadioButton rbOrigem;
         private System.Windows.Forms.Button btAplicar;

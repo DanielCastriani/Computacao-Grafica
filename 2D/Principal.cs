@@ -183,10 +183,19 @@ namespace _2D
             int.TryParse(tbEscalaX.Text, out ex);
             int.TryParse(tbEscalaY.Text, out ey);
 
-            
+            if (rbOrigem.Checked)
+            {
+                if (tx > 0 || ty > 0)
+                    p.traslacao(tx, ty);
+                if (ex > 0 || ey > 0)
+                    p.escala(ex, ey);
+                if (angulo > 0)
+                    p.rotacao(angulo);
+            }
+            else
+            {
 
-
-            p.trasform(tx, ty,angulo,ex,ey);
+            }
             desenhaPoligonos();
         }
 

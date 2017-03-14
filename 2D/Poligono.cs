@@ -9,24 +9,27 @@ namespace _2D
         private List<Point> pOriginal;
         private List<Point> pAtual;
 
-        private int[,] matAc;
+        private double[,] matAc;
+
+        private void initMatAc()
+        {
+            matAc = new double[3, 3];
+            for (int i = 0; i < 3; i++)
+                matAc[i, i] = 1;
+        }
 
         public Poligono()
         {
             pOriginal = new List<Point>();
             pAtual = new List<Point>();
-            matAc = new int[2, 2];
-            for (int i = 0; i < 2; i++)
-                matAc[i, i] = 1;
+            initMatAc();
         }
 
         public Poligono(List<Point> p)
         {
             pOriginal = p;
             pAtual = new List<Point>(p);
-            matAc = new int[2, 2];
-            for (int i = 0; i < 2; i++)
-                matAc[i, i] = 1;
+            initMatAc();
         }
 
         public Point getPosicaoInicial()
@@ -51,64 +54,70 @@ namespace _2D
 
         }
 
-        private void soma(int[,] mat)
-        {            
-           for()
-        }
-
-        private int [,] multiplicar(int[,] mat,int[,] mat2)
+        private double[,] multiplicar(double[,] mat, double[,] mat2)
         {
-            int[,] nMat = new int[2, 2];
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    for (int k = 0; k < 2; k++)
-                    {
-                        nMat[i, j] += mat[i, k] * mat2[k, j];    
-                    }
-                }
-            }
-            return nMat;
+            double[,] matR = new double[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        matR[i, j] += mat[i, k] * mat2[k, j];
+            return matR;
         }
-
-        public void trasform(int tx, int ty, int angulo, int ex, int ey)
+        
+        public void novosPontos()
         {
-            rotacao(angulo);
-            traslacao(tx, ty);
-            //escala(ex, ey);
-
-
             Point p;
 
             for (int i = 0; i < pAtual.Count; i++)
             {
                 p = pOriginal[i];
-                p.X = p.X * matAc[0, 0] + p.Y * matAc[0, 1];
-                p.Y = p.X * matAc[1, 0] + p.Y * matAc[1, 1];
+                int x = (int)Math.Round(p.X * matAc[0, 0] + p.Y * matAc[0, 1] + matAc[0, 2] * 1);
+                int y = (int)Math.Round(p.X * matAc[1, 0] + p.Y * matAc[1, 1] + matAc[1, 2] * 1);
+                p.X = x;
+                p.Y = y;
                 pAtual[i] = p;
             }
         }
 
-
-        public void traslacao(int x, int y)
+        public void traslacao(double x, double y)
         {
-            
+            double[,]T = new double[3, 3];
+            T[0, 0] = 1;
+            T[1, 1] = 1;
+            T[2, 2] = 1;
+            T[0, 2] = x;
+            T[1, 2] = y;
+            matAc = multiplicar(T, matAc);
+            novosPontos();
         }
 
-        public void rotacao(int rad)
+        public void rotacao(int a)
         {
-
+            double[,] R = new double[3, 3];
+            R[0, 0] = Math.Cos(a);
+            R[0, 1] = -Math.Sin(a);
+            R[1, 0] = Math.Sin(a);
+            R[1, 1] = Math.Cos(a);
+            R[2, 2] = 1;
+            matAc = multiplicar(R, matAc);
+            novosPontos();
         }
 
-        public void escala(int ex, int ey)
+        public void escala(int x, int y)
         {
-            int[,] matEscala = new int[2, 2];
-            matEscala[0, 0] = ex;
-            matEscala[0, 1] = 0;
-            matEscala[1, 0] = 0;
-            matEscala[1, 1] = ey;
-            matAc = multiplicar(matEscala, matAc);
+            double[,] E = new double[3, 3];
+            E[0, 0] = x;
+            E[1, 1] = y;
+            E[2, 2] = 1;
+            matAc = multiplicar(E, matAc);
+            novosPontos();
         }
+
+        /* centro : media dos pontos atuais
+         * transformação -cx -cy
+         *  transformação
+         *  transformação cx cy
+         
+         */
     }
 }
