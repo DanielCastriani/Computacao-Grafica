@@ -237,6 +237,7 @@ namespace _2D
             contMouseDown++;
             xi = e.X;
             yi = e.Y;
+
             // tsLBpos.Text = "[" + xi + "," + yi + "]";
             tsLBpos.Text = contMouseDown.ToString();
         }
@@ -291,7 +292,9 @@ namespace _2D
                     Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 7:
-                    Reta.poligono(xi, yi, xf, yf, bmp, cor,contMouseDown, coord);
+                    if(contMouseDown>1)
+                        
+                    Reta.poligono(xi, yi, xf, yf, bmp, cor);
                     break;
             }
 
