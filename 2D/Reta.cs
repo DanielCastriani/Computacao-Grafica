@@ -175,7 +175,8 @@ namespace _2D
                 y = y1;
                 for (x = x1; x < x2; x++)
                 {
-                    Util.setPixel(ptrIni, x, y, W, padding, c);
+                    if(x>0 && y>0)                    
+                        Util.setPixel(ptrIni, x, y, W, padding, c);
                     if (d <= 0)
                         d += incE;
                     else
@@ -212,7 +213,8 @@ namespace _2D
                 x = x1;
                 for (y = y1; y < y2; y++)
                 {
-                    Util.setPixel(ptrIni, x, y, W, padding, c);
+                    if (x > 0 && y > 0)
+                        Util.setPixel(ptrIni, x, y, W, padding, c);
                     if (d <= 0)
                         d += incE;
                     else
@@ -328,18 +330,13 @@ namespace _2D
             img.UnlockBits(bmpData);
         }
 
-         public unsafe static void poligono(int x1, int y1, int x2, int y2, Bitmap img, Color c, int cont,int[] coord)
+         public unsafe static void poligono(int x1, int y1, int x2, int y2, Bitmap img, Color c)
         {
 
             int H = img.Height;
             int W = img.Width;
             BitmapData bmpData;
 
-            if (cont > 1)
-            {
-                x1 = coord[0];
-                y1 = coord[1];
-            }
                 int dx = x2 - x1;
                 int dy = y2 - y1;
 
@@ -348,7 +345,7 @@ namespace _2D
                 {
                     if (x2 < x1)
                     {
-                        poligono(x2, y2, x1, y1, img, c, cont, coord);
+                        poligono(x2, y2, x1, y1, img, c);
                         return;
                     }
                     bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
@@ -385,7 +382,7 @@ namespace _2D
                 {
                     if (y2 < y1)
                     {
-                        poligono(x2, y2, x1, y1, img, c, cont, coord);
+                        poligono(x2, y2, x1, y1, img, c);
                         return;
                     }
                     bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
