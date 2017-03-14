@@ -16,7 +16,9 @@ namespace _2D
         private int W,H;
         private DataSet dsPoligonos;
         private List<Poligono> poligonos;
-
+        private bool poligono2;
+        private int contMouseDown;
+        private int[] coord;
         public Principal()
         {
             InitializeComponent();
@@ -34,11 +36,14 @@ namespace _2D
             tsLBpos.Text = "";
             mouseDown = false;
             poligonos = new List<Poligono>();
+            poligono2 = false;
+           // contMouseDown = 0;
+            coord = new int[2];
 
             dsPoligonos = Util.criaTablePoligonos();
             dgvPoligonos.DataSource = dsPoligonos;
             dgvPoligonos.DataMember = "tbPoligonos";
-
+          
             rbOrigem.Checked = true;
 
             //---------------------------
@@ -217,6 +222,13 @@ namespace _2D
             btAddPoligono_Click(null,null);
         }
 
+        private void poligono2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            poligono2 = true;
+            contMouseDown = 0;
+            opicao = 7;
+        }
+
         private void KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -231,14 +243,17 @@ namespace _2D
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
+            contMouseDown++;
             xi = e.X;
             yi = e.Y;
-            tsLBpos.Text = "[" + xi + "," + yi + "]";
+            // tsLBpos.Text = "[" + xi + "," + yi + "]";
+            tsLBpos.Text = contMouseDown.ToString();
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+            coord[0] = xf; coord[1] = yf;
             desenha(imagemBmp, e.X, e.Y);
         }
 
@@ -246,7 +261,8 @@ namespace _2D
         {
             if (mouseDown)
             {
-                tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
+                tsLBpos.Text = contMouseDown.ToString();
+                //  tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
                 /*temp = new Bitmap(img);
                 desenha(temp,e.X,e.Y);
                 temp.Dispose();*/
@@ -282,6 +298,9 @@ namespace _2D
                     break;
                 case 6:
                     Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
+                    break;
+                case 7:
+                    Reta.poligono(xi, yi, xf, yf, bmp, cor,contMouseDown, coord);
                     break;
             }
 
