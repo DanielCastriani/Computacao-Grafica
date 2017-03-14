@@ -45,7 +45,7 @@ namespace _2D
             dgvPoligonos.DataMember = "tbPoligonos";
           
             rbOrigem.Checked = true;
-
+            rbTranslacao.Checked = true;
             //---------------------------
             Poligono p = new Poligono();
             p.add(new Point(150, 200));
@@ -190,16 +190,21 @@ namespace _2D
 
             if (rbOrigem.Checked)
             {
-                if (tx > 0 || ty > 0)
+                if(rbTranslacao.Checked)
                     p.traslacao(tx, ty);
-                if (ex > 0 || ey > 0)
+                if(rbEscala.Checked)
                     p.escala(ex, ey);
-                if (angulo > 0)
+                if(rbRotacao.Checked)
                     p.rotacao(angulo);
             }
             else
             {
-
+                //if (rbTranslacao.Checked)
+                    
+                //if (rbEscala.Checked)
+                    
+                //if (rbRotacao.Checked)
+                    
             }
             desenhaPoligonos();
         }

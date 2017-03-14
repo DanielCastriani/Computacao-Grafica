@@ -33,6 +33,7 @@
             this.desenharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.poligono2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -79,7 +80,10 @@
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.poligono2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbRotacao = new System.Windows.Forms.RadioButton();
+            this.rbTranslacao = new System.Windows.Forms.RadioButton();
+            this.rbEscala = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -98,6 +102,7 @@
             this.groupBox2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -108,7 +113,7 @@
             this.desenharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1024, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1039, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,16 +139,23 @@
             // retaToolStripMenuItem
             // 
             this.retaToolStripMenuItem.Name = "retaToolStripMenuItem";
-            this.retaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.retaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.retaToolStripMenuItem.Text = "Reta";
             this.retaToolStripMenuItem.Click += new System.EventHandler(this.retaToolStripMenuItem_Click);
             // 
             // poligonoToolStripMenuItem
             // 
             this.poligonoToolStripMenuItem.Name = "poligonoToolStripMenuItem";
-            this.poligonoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.poligonoToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.poligonoToolStripMenuItem.Text = "Poligono";
             this.poligonoToolStripMenuItem.Click += new System.EventHandler(this.poligonoToolStripMenuItem_Click);
+            // 
+            // poligono2ToolStripMenuItem
+            // 
+            this.poligono2ToolStripMenuItem.Name = "poligono2ToolStripMenuItem";
+            this.poligono2ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.poligono2ToolStripMenuItem.Text = "Poligono2";
+            this.poligono2ToolStripMenuItem.Click += new System.EventHandler(this.poligono2ToolStripMenuItem_Click);
             // 
             // toolStripContainer1
             // 
@@ -156,7 +168,7 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(992, 442);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1009, 467);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -169,7 +181,7 @@
             // toolStripContainer1.RightToolStripPanel
             // 
             this.toolStripContainer1.RightToolStripPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStripContainer1.Size = new System.Drawing.Size(1024, 467);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1039, 467);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -193,7 +205,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 420);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1009, 445);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel2
@@ -201,7 +213,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btAddPoligono);
             this.flowLayoutPanel2.Controls.Add(this.btRemPoligono);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(845, 388);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(862, 413);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(144, 29);
             this.flowLayoutPanel2.TabIndex = 3;
@@ -235,7 +247,7 @@
             this.pictureBox.Location = new System.Drawing.Point(3, 68);
             this.pictureBox.Name = "pictureBox";
             this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(836, 349);
+            this.pictureBox.Size = new System.Drawing.Size(853, 374);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
@@ -253,11 +265,11 @@
             this.PosicaoInicial,
             this.Poligono});
             this.dgvPoligonos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPoligonos.Location = new System.Drawing.Point(845, 68);
+            this.dgvPoligonos.Location = new System.Drawing.Point(862, 68);
             this.dgvPoligonos.Name = "dgvPoligonos";
             this.dgvPoligonos.ReadOnly = true;
             this.dgvPoligonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPoligonos.Size = new System.Drawing.Size(144, 314);
+            this.dgvPoligonos.Size = new System.Drawing.Size(144, 339);
             this.dgvPoligonos.TabIndex = 2;
             // 
             // PosicaoInicial
@@ -283,11 +295,12 @@
             this.flowLayoutPanel1.Controls.Add(this.groupBox1);
             this.flowLayoutPanel1.Controls.Add(this.groupBox4);
             this.flowLayoutPanel1.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox5);
             this.flowLayoutPanel1.Controls.Add(this.btAplicar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(986, 59);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1003, 59);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // groupBox3
@@ -452,7 +465,7 @@
             this.groupBox2.Controls.Add(this.rbOrigem);
             this.groupBox2.Location = new System.Drawing.Point(569, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(197, 54);
+            this.groupBox2.Size = new System.Drawing.Size(127, 54);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -483,7 +496,7 @@
             // btAplicar
             // 
             this.btAplicar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btAplicar.Location = new System.Drawing.Point(772, 20);
+            this.btAplicar.Location = new System.Drawing.Point(908, 20);
             this.btAplicar.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.btAplicar.Name = "btAplicar";
             this.btAplicar.Size = new System.Drawing.Size(75, 23);
@@ -497,9 +510,9 @@
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsLBpos});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(992, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1009, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -521,7 +534,7 @@
             this.toolStripDropDownElipse});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(32, 145);
+            this.toolStrip.Size = new System.Drawing.Size(30, 126);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripButtonCor
@@ -634,19 +647,59 @@
             // 
             this.colorDialog.FullOpen = true;
             // 
-            // poligono2ToolStripMenuItem
+            // groupBox5
             // 
-            this.poligono2ToolStripMenuItem.Name = "poligono2ToolStripMenuItem";
-            this.poligono2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.poligono2ToolStripMenuItem.Text = "Poligono2";
-            this.poligono2ToolStripMenuItem.Click += new System.EventHandler(this.poligono2ToolStripMenuItem_Click);
+            this.groupBox5.Controls.Add(this.rbEscala);
+            this.groupBox5.Controls.Add(this.rbRotacao);
+            this.groupBox5.Controls.Add(this.rbTranslacao);
+            this.groupBox5.Location = new System.Drawing.Point(702, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(200, 54);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            // 
+            // rbRotacao
+            // 
+            this.rbRotacao.AutoSize = true;
+            this.rbRotacao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbRotacao.Location = new System.Drawing.Point(80, 20);
+            this.rbRotacao.Name = "rbRotacao";
+            this.rbRotacao.Size = new System.Drawing.Size(66, 17);
+            this.rbRotacao.TabIndex = 1;
+            this.rbRotacao.TabStop = true;
+            this.rbRotacao.Text = "Rotação";
+            this.rbRotacao.UseVisualStyleBackColor = true;
+            // 
+            // rbTranslacao
+            // 
+            this.rbTranslacao.AutoSize = true;
+            this.rbTranslacao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbTranslacao.Location = new System.Drawing.Point(6, 20);
+            this.rbTranslacao.Name = "rbTranslacao";
+            this.rbTranslacao.Size = new System.Drawing.Size(78, 17);
+            this.rbTranslacao.TabIndex = 0;
+            this.rbTranslacao.TabStop = true;
+            this.rbTranslacao.Text = "Translação";
+            this.rbTranslacao.UseVisualStyleBackColor = true;
+            // 
+            // rbEscala
+            // 
+            this.rbEscala.AutoSize = true;
+            this.rbEscala.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbEscala.Location = new System.Drawing.Point(142, 20);
+            this.rbEscala.Name = "rbEscala";
+            this.rbEscala.Size = new System.Drawing.Size(57, 17);
+            this.rbEscala.TabIndex = 2;
+            this.rbEscala.TabStop = true;
+            this.rbEscala.Text = "Escala";
+            this.rbEscala.UseVisualStyleBackColor = true;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1024, 491);
+            this.ClientSize = new System.Drawing.Size(1039, 491);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -683,6 +736,8 @@
             this.statusStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,5 +797,9 @@
         private System.Windows.Forms.ToolStripMenuItem retaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem poligonoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem poligono2ToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton rbEscala;
+        private System.Windows.Forms.RadioButton rbRotacao;
+        private System.Windows.Forms.RadioButton rbTranslacao;
     }
 }
