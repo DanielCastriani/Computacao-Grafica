@@ -26,6 +26,14 @@ Vitor Santos
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
 
+###Origem###
+[X] Rotação
+
+[X] Translação
+
+[X] Escala
+
+###Centro###
 [ ] Rotação
 
 [ ] Translação
