@@ -15,8 +15,8 @@ namespace _2D
         {
             pOriginal = new List<Point>();
             pAtual = new List<Point>();
-            matAc = new int[3, 3];
-            for (int i = 0; i < 3; i++)
+            matAc = new int[2, 2];
+            for (int i = 0; i < 2; i++)
                 matAc[i, i] = 1;
         }
 
@@ -24,6 +24,9 @@ namespace _2D
         {
             pOriginal = p;
             pAtual = new List<Point>(p);
+            matAc = new int[2, 2];
+            for (int i = 0; i < 2; i++)
+                matAc[i, i] = 1;
         }
 
         public Point getPosicaoInicial()
@@ -49,34 +52,31 @@ namespace _2D
         }
 
         private void soma(int[,] mat)
-        {
-            
-            matAc[0, 0] += mat[0, 0];
-            matAc[1, 0] += mat[1, 0];
+        {            
+           for()
         }
 
-        private void multiplicar(int[,] mat)
+        private int [,] multiplicar(int[,] mat,int[,] mat2)
         {
             int[,] nMat = new int[2, 2];
-            int ac;
-            for (int i = 0; i < mat.Length; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for (int j = 0; j < mat.Length; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    ac = 0;
-                    for (int k = 0; k < mat.Length; k++)
+                    for (int k = 0; k < 2; k++)
                     {
-                           //ac =     
+                        nMat[i, j] += mat[i, k] * mat2[k, j];    
                     }
                 }
             }
+            return nMat;
         }
 
         public void trasform(int tx, int ty, int angulo, int ex, int ey)
         {
-        //    rotacao(angulo);
+            rotacao(angulo);
             traslacao(tx, ty);
-         //   escala(ex, ey);
+            //escala(ex, ey);
 
 
             Point p;
@@ -84,8 +84,8 @@ namespace _2D
             for (int i = 0; i < pAtual.Count; i++)
             {
                 p = pOriginal[i];
-                p.X += matAc[0, 0];
-                p.Y += matAc[1, 0];
+                p.X = p.X * matAc[0, 0] + p.Y * matAc[0, 1];
+                p.Y = p.X * matAc[1, 0] + p.Y * matAc[1, 1];
                 pAtual[i] = p;
             }
         }
@@ -93,10 +93,7 @@ namespace _2D
 
         public void traslacao(int x, int y)
         {
-            int [,]mat = new int[2, 1];
-            mat[0, 0] = x;
-            mat[1, 0] = y;
-            soma(mat);
+            
         }
 
         public void rotacao(int rad)
@@ -111,7 +108,7 @@ namespace _2D
             matEscala[0, 1] = 0;
             matEscala[1, 0] = 0;
             matEscala[1, 1] = ey;
-            
+            matAc = multiplicar(matEscala, matAc);
         }
     }
 }

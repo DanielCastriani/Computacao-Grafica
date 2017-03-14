@@ -124,15 +124,7 @@ namespace _2D
 
         private void desenharToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRMCordenadas frm = new FRMCordenadas();
-            frm.ShowDialog();
-            if (frm.getOk())
-            {
-                xi = frm.getX1();
-                yi = frm.getY1();
-                desenha(imagemBmp, frm.getX2(), frm.getY2());
-            }
-            frm.Dispose();
+            
         }
 
         private void toolStripButtonLimpar_Click(object sender, EventArgs e)
@@ -196,6 +188,24 @@ namespace _2D
 
             p.trasform(tx, ty,angulo,ex,ey);
             desenhaPoligonos();
+        }
+
+        private void retaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRMCordenadas frm = new FRMCordenadas();
+            frm.ShowDialog();
+            if (frm.getOk())
+            {
+                xi = frm.getX1();
+                yi = frm.getY1();
+                desenha(imagemBmp, frm.getX2(), frm.getY2());
+            }
+            frm.Dispose();
+        }
+
+        private void poligonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btAddPoligono_Click(null,null);
         }
 
         private void KeyPress(object sender, KeyPressEventArgs e)

@@ -78,6 +78,8 @@
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.retaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.poligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -119,6 +121,9 @@
             // 
             // desenharToolStripMenuItem
             // 
+            this.desenharToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.retaToolStripMenuItem,
+            this.poligonoToolStripMenuItem});
             this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
             this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
@@ -523,7 +528,7 @@
             this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta;
             this.toolStripButtonCor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCor.Name = "toolStripButtonCor";
-            this.toolStripButtonCor.Size = new System.Drawing.Size(30, 20);
+            this.toolStripButtonCor.Size = new System.Drawing.Size(28, 20);
             this.toolStripButtonCor.Text = "toolStripButton1";
             this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
             // 
@@ -533,7 +538,7 @@
             this.toolStripButtonLimpar.Image = global::_2D.Properties.Resources.Limpar;
             this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
-            this.toolStripButtonLimpar.Size = new System.Drawing.Size(30, 20);
+            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
             this.toolStripButtonLimpar.Text = "toolStripButton1";
             this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
             // 
@@ -547,7 +552,7 @@
             this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta;
             this.toolStripDropDownReta.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownReta.Name = "toolStripDropDownReta";
-            this.toolStripDropDownReta.Size = new System.Drawing.Size(30, 20);
+            this.toolStripDropDownReta.Size = new System.Drawing.Size(28, 20);
             this.toolStripDropDownReta.Text = "toolStripDropDownButton1";
             // 
             // equaçãoDaRetaToolStripMenuItem
@@ -581,7 +586,7 @@
             this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo;
             this.toolStripDropDownCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownCirculo.Name = "toolStripDropDownCirculo";
-            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(30, 20);
+            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(28, 20);
             this.toolStripDropDownCirculo.Text = "toolStripDropDownButton1";
             // 
             // equaçãoGeralToolStripMenuItem
@@ -613,7 +618,7 @@
             this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse;
             this.toolStripDropDownElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownElipse.Name = "toolStripDropDownElipse";
-            this.toolStripDropDownElipse.Size = new System.Drawing.Size(30, 20);
+            this.toolStripDropDownElipse.Size = new System.Drawing.Size(28, 20);
             this.toolStripDropDownElipse.Text = "toolStripDropDownButton2";
             // 
             // pontoMédioToolStripMenuItemElipse
@@ -626,6 +631,20 @@
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
+            // 
+            // retaToolStripMenuItem
+            // 
+            this.retaToolStripMenuItem.Name = "retaToolStripMenuItem";
+            this.retaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.retaToolStripMenuItem.Text = "Reta";
+            this.retaToolStripMenuItem.Click += new System.EventHandler(this.retaToolStripMenuItem_Click);
+            // 
+            // poligonoToolStripMenuItem
+            // 
+            this.poligonoToolStripMenuItem.Name = "poligonoToolStripMenuItem";
+            this.poligonoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.poligonoToolStripMenuItem.Text = "Poligono";
+            this.poligonoToolStripMenuItem.Click += new System.EventHandler(this.poligonoToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -726,5 +745,7 @@
         private System.Windows.Forms.TextBox tbEscalaY;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosicaoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poligono;
+        private System.Windows.Forms.ToolStripMenuItem retaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem poligonoToolStripMenuItem;
     }
 }
