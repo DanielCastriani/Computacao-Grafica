@@ -39,7 +39,7 @@ namespace _2D
         public unsafe static void setPixel(byte* pIni, int TX, int TY, int W, int padding,Color c)
         {
             if (TX < 0 || TY < 0)
-                throw new System.ArgumentException("Coordenada Invalida (" + TX + "," + TY + ")");
+                return;
 
 
             byte* ptr = pIni;

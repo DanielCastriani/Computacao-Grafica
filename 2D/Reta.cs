@@ -175,8 +175,8 @@ namespace _2D
                 y = y1;
                 for (x = x1; x < x2; x++)
                 {
-                    if(x>0 && y>0)                    
-                        Util.setPixel(ptrIni, x, y, W, padding, c);
+
+                    Util.setPixel(ptrIni, x, y, W, padding, c);
                     if (d <= 0)
                         d += incE;
                     else
@@ -213,8 +213,7 @@ namespace _2D
                 x = x1;
                 for (y = y1; y < y2; y++)
                 {
-                    if (x > 0 && y > 0)
-                        Util.setPixel(ptrIni, x, y, W, padding, c);
+                    Util.setPixel(ptrIni, x, y, W, padding, c);
                     if (d <= 0)
                         d += incE;
                     else
