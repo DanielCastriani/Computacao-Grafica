@@ -53,7 +53,7 @@ namespace _2D
 
         private void soma(int[,] mat)
         {            
-           for()
+          // for()
         }
 
         private int [,] multiplicar(int[,] mat,int[,] mat2)
