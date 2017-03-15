@@ -38,10 +38,9 @@ namespace _2D
 
         public unsafe static void setPixel(byte* pIni, int TX, int TY, int W, int padding,Color c)
         {
-            if (TX < 0 || TY < 0)
+            if (TX < 0 || TY < 0 || TX > Principal.getWTela() || TY > Principal.getHTela())
                 return;
-
-
+            
             byte* ptr = pIni;
             ptr += (W * 3 + padding) * TY + (TX * 3);
             *(ptr++) = c.B;

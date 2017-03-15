@@ -57,7 +57,7 @@ namespace _2D
         public void novosPontos()
         {
             Point p;
-
+            
             for (int i = 0; i < pAtual.Count; i++)
             {
                 p = pOriginal[i];
@@ -118,7 +118,15 @@ namespace _2D
         }
         public void cisalhamento(int x, int y)
         {
-
+            double[,] C = new double[3, 3];
+            C[0, 0] = 1;
+            C[0, 1] = y;
+            C[1, 0] = x;
+            C[1, 1] = 1;
+            C[2, 2] = 1;
+            
+            matAc = multiplicar(C, matAc);
+            novosPontos();
         }
 
         /* 

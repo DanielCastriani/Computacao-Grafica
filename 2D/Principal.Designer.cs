@@ -60,6 +60,8 @@
             this.rbCentro = new System.Windows.Forms.RadioButton();
             this.rbPonto = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbCisalhamento = new System.Windows.Forms.RadioButton();
+            this.rbEspelhamento = new System.Windows.Forms.RadioButton();
             this.rbEscala = new System.Windows.Forms.RadioButton();
             this.rbRotacao = new System.Windows.Forms.RadioButton();
             this.rbTranslacao = new System.Windows.Forms.RadioButton();
@@ -81,8 +83,6 @@
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDesenhaPoligono = new System.Windows.Forms.ToolStripButton();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.rbEspelhamento = new System.Windows.Forms.RadioButton();
-            this.rbCisalhamento = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -456,6 +456,30 @@
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             // 
+            // rbCisalhamento
+            // 
+            this.rbCisalhamento.AutoSize = true;
+            this.rbCisalhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbCisalhamento.Location = new System.Drawing.Point(290, 20);
+            this.rbCisalhamento.Name = "rbCisalhamento";
+            this.rbCisalhamento.Size = new System.Drawing.Size(88, 17);
+            this.rbCisalhamento.TabIndex = 4;
+            this.rbCisalhamento.TabStop = true;
+            this.rbCisalhamento.Text = "Cisalhamento";
+            this.rbCisalhamento.UseVisualStyleBackColor = true;
+            // 
+            // rbEspelhamento
+            // 
+            this.rbEspelhamento.AutoSize = true;
+            this.rbEspelhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbEspelhamento.Location = new System.Drawing.Point(196, 20);
+            this.rbEspelhamento.Name = "rbEspelhamento";
+            this.rbEspelhamento.Size = new System.Drawing.Size(92, 17);
+            this.rbEspelhamento.TabIndex = 3;
+            this.rbEspelhamento.TabStop = true;
+            this.rbEspelhamento.Text = "Espelhamento";
+            this.rbEspelhamento.UseVisualStyleBackColor = true;
+            // 
             // rbEscala
             // 
             this.rbEscala.AutoSize = true;
@@ -655,30 +679,6 @@
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
-            // 
-            // rbEspelhamento
-            // 
-            this.rbEspelhamento.AutoSize = true;
-            this.rbEspelhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbEspelhamento.Location = new System.Drawing.Point(196, 20);
-            this.rbEspelhamento.Name = "rbEspelhamento";
-            this.rbEspelhamento.Size = new System.Drawing.Size(92, 17);
-            this.rbEspelhamento.TabIndex = 3;
-            this.rbEspelhamento.TabStop = true;
-            this.rbEspelhamento.Text = "Espelhamento";
-            this.rbEspelhamento.UseVisualStyleBackColor = true;
-            // 
-            // rbCisalhamento
-            // 
-            this.rbCisalhamento.AutoSize = true;
-            this.rbCisalhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbCisalhamento.Location = new System.Drawing.Point(290, 20);
-            this.rbCisalhamento.Name = "rbCisalhamento";
-            this.rbCisalhamento.Size = new System.Drawing.Size(88, 17);
-            this.rbCisalhamento.TabIndex = 4;
-            this.rbCisalhamento.TabStop = true;
-            this.rbCisalhamento.Text = "Cisalhamento";
-            this.rbCisalhamento.UseVisualStyleBackColor = true;
             // 
             // Principal
             // 

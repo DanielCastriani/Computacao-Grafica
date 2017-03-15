@@ -13,7 +13,7 @@ namespace _2D
         private Color cor;
         private bool mouseDown;
         private Bitmap imagemBmp, temp;
-        private int W,H;
+        private static int W,H;
         private DataSet dsPoligonos;
         private List<Poligono> poligonos;
         private bool poligono2;
@@ -23,6 +23,17 @@ namespace _2D
         {
             InitializeComponent();
         }
+
+        public static int getWTela()
+        {
+            return W;
+        }
+
+        public static int getHTela()
+        {
+            return H;
+        }
+
 
         private void Principal_Load(object sender, EventArgs e)
         {
