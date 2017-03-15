@@ -260,7 +260,7 @@ namespace _2D
 
         private void toolStripButtonEspelhoHorizontal_Click(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void KeyPress(object sender, KeyPressEventArgs e)
