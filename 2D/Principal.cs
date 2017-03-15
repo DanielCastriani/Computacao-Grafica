@@ -240,7 +240,6 @@ namespace _2D
 
         private void poligono2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            poligono2 = true;
             contMouseDown = 0;
             opicao = 7;
         }
@@ -260,6 +259,9 @@ namespace _2D
         {
             mouseDown = true;
             contMouseDown++;
+            coord[0] = xf; coord[1] = yf;
+            
+
             xi = e.X;
             yi = e.Y;
 
@@ -270,7 +272,7 @@ namespace _2D
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-            coord[0] = xf; coord[1] = yf;
+            
             desenha(imagemBmp, e.X, e.Y);
         }
 
@@ -317,7 +319,8 @@ namespace _2D
                     Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 7:
-                    if(contMouseDown>1)               
+                    if (contMouseDown > 1)
+                    { xi = coord[0]; yi = coord[1]; }               
                         Reta.poligono(xi, yi, xf, yf, bmp, cor);
                     break;
             }
