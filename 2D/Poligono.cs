@@ -110,8 +110,9 @@ namespace _2D
             return matR;
         } 
 
-        public void rotacao(int a)
+        public void rotacao(double a)
         {
+            a = a * Math.PI / 180;
             double[,] R = new double[3, 3];
             R[0, 0] = Math.Cos(a);
             R[0, 1] = -Math.Sin(a);
@@ -122,7 +123,7 @@ namespace _2D
             novosPontos();
         }
 
-        public void escala(int x, int y)
+        public void escala(double x, double y)
         {
             double[,] E = new double[3, 3];
             E[0, 0] = x;
@@ -134,7 +135,6 @@ namespace _2D
 
         public void espelhamento(bool vertical)
         {
-
             double[,] E = new double[3, 3];
             if(vertical)
             {
@@ -152,15 +152,14 @@ namespace _2D
             novosPontos();
         }
 
-        public void cisalhamento(int x, int y)
+        public void cisalhamento(double x, double y)
         {
             double[,] C = new double[3, 3];
             C[0, 0] = 1;
             C[1, 1] = 1;
             C[2, 2] = 1;
-
-            C[0, 1] = y;
-            C[1, 0] = x;
+            C[0, 1] = x;
+            C[1, 0] = y;
             
             matAc = multiplicar(C, matAc);
             novosPontos();

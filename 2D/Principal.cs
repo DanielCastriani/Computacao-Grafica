@@ -186,13 +186,13 @@ namespace _2D
         {
             Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
 
-            int tx = 0;
-            int ty = 0;
-            int angulo = 0;
+            double tx = 0;
+            double ty = 0;
+            double angulo = 0;
 
-            int.TryParse(tbTranslacaoX.Text,out tx);
-            int.TryParse(tbTranslacaoY.Text, out ty);
-            int.TryParse(tbRotacao.Text, out angulo);
+            double.TryParse(tbTranslacaoX.Text,out tx);
+            double.TryParse(tbTranslacaoY.Text, out ty);
+            double.TryParse(tbRotacao.Text, out angulo);
 
             if (rbPonto.Checked)
             {
@@ -218,23 +218,21 @@ namespace _2D
                     }
                     if (rbEscala.Checked)
                     {
-                        p.escala(-pt.X, -pt.Y);
+                        p.traslacao(-pt.X, -pt.Y);
                         p.escala(tx, ty);
-                        p.escala(pt.X, pt.Y);
+                        p.traslacao(pt.X, pt.Y);
                     }
-                    /*
                     if (rbRotacao.Checked)
                     {
-                        p.rotacao(-pt.X, -pt.Y);
-                        p.rotacao(tx, ty);
-                        p.rotacao(pt.X, pt.Y);
+                        p.traslacao(-pt.X, -pt.Y);
+                        p.rotacao(angulo);
+                        p.traslacao(pt.X, pt.Y);
                     }
-                    */
                     if (rbCisalhamento.Checked)
                     {
-                        p.cisalhamento(-pt.X, -pt.Y);
+                        p.traslacao(-pt.X, -pt.Y);
                         p.cisalhamento(tx, ty);
-                        p.cisalhamento(pt.X, pt.Y);
+                        p.traslacao(pt.X, pt.Y);
                     }
 
                 }
@@ -278,7 +276,10 @@ namespace _2D
         private void espelho(bool vertical)
         {
             Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
+            Point pt = p.getCentro();
+            p.traslacao(-pt.X, -pt.Y);
             p.espelhamento(vertical);
+            p.traslacao(pt.X, pt.Y);
             desenhaPoligonos();
         }
 
@@ -290,6 +291,11 @@ namespace _2D
         private void toolStripButtonEspelhoHorizontal_Click(object sender, EventArgs e)
         {
             espelho(false);
+        }
+
+        private void toolStripDesenhaPoligono_Click(object sender, EventArgs e)
+        {
+            poligono2ToolStripMenuItem_Click(null,null);
         }
 
         private void KeyPress(object sender, KeyPressEventArgs e)

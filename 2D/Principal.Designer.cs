@@ -550,7 +550,7 @@
             this.toolStripButtonEspelhoHorizontal});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(46, 323);
+            this.toolStrip.Size = new System.Drawing.Size(46, 342);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripButtonCor
@@ -673,6 +673,7 @@
             this.toolStripDesenhaPoligono.Name = "toolStripDesenhaPoligono";
             this.toolStripDesenhaPoligono.Size = new System.Drawing.Size(44, 36);
             this.toolStripDesenhaPoligono.Text = "toolStripButton1";
+            this.toolStripDesenhaPoligono.Click += new System.EventHandler(this.toolStripDesenhaPoligono_Click);
             // 
             // toolStripButtonEspelhoVertical
             // 
