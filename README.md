@@ -65,3 +65,14 @@ Vitor Santos
 [ ] Flood Fill
 
 [ ] Scanline
+
+
+# Notas #
+### centro ###
+media dos pontos atuais
+
+transformação -cx -cy
+
+transformação x y
+
+transformação cx cy
