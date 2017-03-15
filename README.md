@@ -26,12 +26,16 @@ Vitor Santos
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
 
-###Origem###
+###Ponto###
 [X] Rotação
 
 [X] Translação
 
 [X] Escala
+
+[ ] Espelhamento
+
+[ ] Cisalhamento
 
 ###Centro###
 [ ] Rotação
@@ -39,3 +43,25 @@ Vitor Santos
 [ ] Translação
 
 [ ] Escala
+
+[ ] Espelhamento
+
+[ ] Cisalhamento
+
+###Origem###
+[ ] Rotação
+
+[ ] Translação
+
+[ ] Escala
+
+[ ] Espelhamento
+
+[ ] Cisalhamento
+
+
+#### Preenchimento ####
+
+[ ] Flood Fill
+
+[ ] Scanline
