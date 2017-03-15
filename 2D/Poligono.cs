@@ -112,6 +112,14 @@ namespace _2D
             matAc = multiplicar(E, matAc);
             novosPontos();
         }
+        public void espelhamento(int x, int y)
+        {
+
+        }
+        public void cisalhamento(int x, int y)
+        {
+
+        }
 
         /* 
          * centro : media dos pontos atuais

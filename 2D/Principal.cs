@@ -44,7 +44,7 @@ namespace _2D
             dgvPoligonos.DataSource = dsPoligonos;
             dgvPoligonos.DataMember = "tbPoligonos";
           
-            rbOrigem.Checked = true;
+            rbPonto.Checked = true;
             rbTranslacao.Checked = true;
             //---------------------------
             Poligono p = new Poligono();
@@ -178,33 +178,44 @@ namespace _2D
 
             int tx = 0;
             int ty = 0;
-            int ex = 0;
-            int ey = 0;
             int angulo = 0;
 
             int.TryParse(tbTranslacaoX.Text,out tx);
             int.TryParse(tbTranslacaoY.Text, out ty);
             int.TryParse(tbRotacao.Text, out angulo);
-            int.TryParse(tbEscalaX.Text, out ex);
-            int.TryParse(tbEscalaY.Text, out ey);
 
-            if (rbOrigem.Checked)
+            if (rbPonto.Checked)
             {
                 if(rbTranslacao.Checked)
                     p.traslacao(tx, ty);
                 if(rbEscala.Checked)
-                    p.escala(ex, ey);
+                    p.escala(tx, ty);
                 if(rbRotacao.Checked)
                     p.rotacao(angulo);
+                if (rbEspelhamento.Checked)
+                    p.espelhamento(tx, ty);
+                if (rbCisalhamento.Checked)
+                    p.cisalhamento(tx, ty);
             }
             else
             {
-                //if (rbTranslacao.Checked)
-                    
-                //if (rbEscala.Checked)
-                    
-                //if (rbRotacao.Checked)
-                    
+                if (rbCentro.Checked)
+                {
+                    //if (rbTranslacao.Checked)
+
+                    //if (rbEscala.Checked)
+
+                    //if (rbRotacao.Checked)
+                }
+                else
+                {
+                    //if (rbTranslacao.Checked)
+
+                    //if (rbEscala.Checked)
+
+                    //if (rbRotacao.Checked)
+                }
+
             }
             desenhaPoligonos();
         }
@@ -306,9 +317,8 @@ namespace _2D
                     Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 7:
-                    if(contMouseDown>1)
-                        
-                    Reta.poligono(xi, yi, xf, yf, bmp, cor);
+                    if(contMouseDown>1)               
+                        Reta.poligono(xi, yi, xf, yf, bmp, cor);
                     break;
             }
 

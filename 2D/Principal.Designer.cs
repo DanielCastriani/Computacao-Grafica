@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desenharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,15 +55,14 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbRotacao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbEscalaX = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbEscalaY = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbCentro = new System.Windows.Forms.RadioButton();
             this.rbOrigem = new System.Windows.Forms.RadioButton();
+            this.rbCentro = new System.Windows.Forms.RadioButton();
+            this.rbPonto = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbEscala = new System.Windows.Forms.RadioButton();
+            this.rbRotacao = new System.Windows.Forms.RadioButton();
+            this.rbTranslacao = new System.Windows.Forms.RadioButton();
             this.btAplicar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
@@ -79,11 +79,10 @@
             this.pontoMédioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDesenhaPoligono = new System.Windows.Forms.ToolStripButton();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.rbRotacao = new System.Windows.Forms.RadioButton();
-            this.rbTranslacao = new System.Windows.Forms.RadioButton();
-            this.rbEscala = new System.Windows.Forms.RadioButton();
+            this.rbEspelhamento = new System.Windows.Forms.RadioButton();
+            this.rbCisalhamento = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -97,12 +96,10 @@
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -139,22 +136,22 @@
             // retaToolStripMenuItem
             // 
             this.retaToolStripMenuItem.Name = "retaToolStripMenuItem";
-            this.retaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.retaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.retaToolStripMenuItem.Text = "Reta";
             this.retaToolStripMenuItem.Click += new System.EventHandler(this.retaToolStripMenuItem_Click);
             // 
             // poligonoToolStripMenuItem
             // 
             this.poligonoToolStripMenuItem.Name = "poligonoToolStripMenuItem";
-            this.poligonoToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.poligonoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.poligonoToolStripMenuItem.Text = "Poligono";
             this.poligonoToolStripMenuItem.Click += new System.EventHandler(this.poligonoToolStripMenuItem_Click);
             // 
             // poligono2ToolStripMenuItem
             // 
             this.poligono2ToolStripMenuItem.Name = "poligono2ToolStripMenuItem";
-            this.poligono2ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.poligono2ToolStripMenuItem.Text = "Poligono2";
+            this.poligono2ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.poligono2ToolStripMenuItem.Text = "Desenha Poligono";
             this.poligono2ToolStripMenuItem.Click += new System.EventHandler(this.poligono2ToolStripMenuItem_Click);
             // 
             // toolStripContainer1
@@ -168,7 +165,7 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1009, 467);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1009, 442);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -205,7 +202,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1009, 445);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1009, 420);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel2
@@ -213,7 +210,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btAddPoligono);
             this.flowLayoutPanel2.Controls.Add(this.btRemPoligono);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(862, 413);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(862, 388);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(144, 29);
             this.flowLayoutPanel2.TabIndex = 3;
@@ -247,7 +244,7 @@
             this.pictureBox.Location = new System.Drawing.Point(3, 68);
             this.pictureBox.Name = "pictureBox";
             this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(853, 374);
+            this.pictureBox.Size = new System.Drawing.Size(853, 349);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
@@ -269,7 +266,7 @@
             this.dgvPoligonos.Name = "dgvPoligonos";
             this.dgvPoligonos.ReadOnly = true;
             this.dgvPoligonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPoligonos.Size = new System.Drawing.Size(144, 339);
+            this.dgvPoligonos.Size = new System.Drawing.Size(144, 314);
             this.dgvPoligonos.TabIndex = 2;
             // 
             // PosicaoInicial
@@ -293,7 +290,6 @@
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
             this.flowLayoutPanel1.Controls.Add(this.groupBox3);
             this.flowLayoutPanel1.Controls.Add(this.groupBox1);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox4);
             this.flowLayoutPanel1.Controls.Add(this.groupBox2);
             this.flowLayoutPanel1.Controls.Add(this.groupBox5);
             this.flowLayoutPanel1.Controls.Add(this.btAplicar);
@@ -312,7 +308,7 @@
             this.groupBox3.Size = new System.Drawing.Size(217, 54);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Translação";
+            this.groupBox3.Text = "Transformação";
             // 
             // flowLayoutPanel4
             // 
@@ -400,80 +396,34 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "°";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.flowLayoutPanel5);
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox4.Location = new System.Drawing.Point(346, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(217, 54);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Escala";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.label4);
-            this.flowLayoutPanel5.Controls.Add(this.tbEscalaX);
-            this.flowLayoutPanel5.Controls.Add(this.label5);
-            this.flowLayoutPanel5.Controls.Add(this.tbEscalaY);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(211, 35);
-            this.flowLayoutPanel5.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 6);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "X";
-            // 
-            // tbEscalaX
-            // 
-            this.tbEscalaX.Location = new System.Drawing.Point(23, 3);
-            this.tbEscalaX.Name = "tbEscalaX";
-            this.tbEscalaX.Size = new System.Drawing.Size(71, 20);
-            this.tbEscalaX.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(100, 6);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Y";
-            // 
-            // tbEscalaY
-            // 
-            this.tbEscalaY.Location = new System.Drawing.Point(120, 3);
-            this.tbEscalaY.Name = "tbEscalaY";
-            this.tbEscalaY.Size = new System.Drawing.Size(71, 20);
-            this.tbEscalaY.TabIndex = 4;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rbCentro);
             this.groupBox2.Controls.Add(this.rbOrigem);
-            this.groupBox2.Location = new System.Drawing.Point(569, 3);
+            this.groupBox2.Controls.Add(this.rbCentro);
+            this.groupBox2.Controls.Add(this.rbPonto);
+            this.groupBox2.Location = new System.Drawing.Point(346, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(127, 54);
+            this.groupBox2.Size = new System.Drawing.Size(176, 54);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // rbOrigem
+            // 
+            this.rbOrigem.AutoSize = true;
+            this.rbOrigem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbOrigem.Location = new System.Drawing.Point(113, 20);
+            this.rbOrigem.Name = "rbOrigem";
+            this.rbOrigem.Size = new System.Drawing.Size(58, 17);
+            this.rbOrigem.TabIndex = 2;
+            this.rbOrigem.TabStop = true;
+            this.rbOrigem.Text = "Origem";
+            this.rbOrigem.UseVisualStyleBackColor = true;
             // 
             // rbCentro
             // 
             this.rbCentro.AutoSize = true;
             this.rbCentro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbCentro.Location = new System.Drawing.Point(70, 20);
+            this.rbCentro.Location = new System.Drawing.Point(57, 20);
             this.rbCentro.Name = "rbCentro";
             this.rbCentro.Size = new System.Drawing.Size(56, 17);
             this.rbCentro.TabIndex = 1;
@@ -481,22 +431,71 @@
             this.rbCentro.Text = "Centro";
             this.rbCentro.UseVisualStyleBackColor = true;
             // 
-            // rbOrigem
+            // rbPonto
             // 
-            this.rbOrigem.AutoSize = true;
-            this.rbOrigem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbOrigem.Location = new System.Drawing.Point(6, 20);
-            this.rbOrigem.Name = "rbOrigem";
-            this.rbOrigem.Size = new System.Drawing.Size(58, 17);
-            this.rbOrigem.TabIndex = 0;
-            this.rbOrigem.TabStop = true;
-            this.rbOrigem.Text = "Origem";
-            this.rbOrigem.UseVisualStyleBackColor = true;
+            this.rbPonto.AutoSize = true;
+            this.rbPonto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbPonto.Location = new System.Drawing.Point(6, 20);
+            this.rbPonto.Name = "rbPonto";
+            this.rbPonto.Size = new System.Drawing.Size(53, 17);
+            this.rbPonto.TabIndex = 0;
+            this.rbPonto.TabStop = true;
+            this.rbPonto.Text = "Ponto";
+            this.rbPonto.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.rbCisalhamento);
+            this.groupBox5.Controls.Add(this.rbEspelhamento);
+            this.groupBox5.Controls.Add(this.rbEscala);
+            this.groupBox5.Controls.Add(this.rbRotacao);
+            this.groupBox5.Controls.Add(this.rbTranslacao);
+            this.groupBox5.Location = new System.Drawing.Point(528, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(386, 54);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            // 
+            // rbEscala
+            // 
+            this.rbEscala.AutoSize = true;
+            this.rbEscala.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbEscala.Location = new System.Drawing.Point(142, 20);
+            this.rbEscala.Name = "rbEscala";
+            this.rbEscala.Size = new System.Drawing.Size(57, 17);
+            this.rbEscala.TabIndex = 2;
+            this.rbEscala.TabStop = true;
+            this.rbEscala.Text = "Escala";
+            this.rbEscala.UseVisualStyleBackColor = true;
+            // 
+            // rbRotacao
+            // 
+            this.rbRotacao.AutoSize = true;
+            this.rbRotacao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbRotacao.Location = new System.Drawing.Point(80, 20);
+            this.rbRotacao.Name = "rbRotacao";
+            this.rbRotacao.Size = new System.Drawing.Size(66, 17);
+            this.rbRotacao.TabIndex = 1;
+            this.rbRotacao.TabStop = true;
+            this.rbRotacao.Text = "Rotação";
+            this.rbRotacao.UseVisualStyleBackColor = true;
+            // 
+            // rbTranslacao
+            // 
+            this.rbTranslacao.AutoSize = true;
+            this.rbTranslacao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbTranslacao.Location = new System.Drawing.Point(6, 20);
+            this.rbTranslacao.Name = "rbTranslacao";
+            this.rbTranslacao.Size = new System.Drawing.Size(78, 17);
+            this.rbTranslacao.TabIndex = 0;
+            this.rbTranslacao.TabStop = true;
+            this.rbTranslacao.Text = "Translação";
+            this.rbTranslacao.UseVisualStyleBackColor = true;
             // 
             // btAplicar
             // 
             this.btAplicar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btAplicar.Location = new System.Drawing.Point(908, 20);
+            this.btAplicar.Location = new System.Drawing.Point(920, 20);
             this.btAplicar.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.btAplicar.Name = "btAplicar";
             this.btAplicar.Size = new System.Drawing.Size(75, 23);
@@ -510,7 +509,7 @@
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsLBpos});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 445);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1009, 22);
             this.statusStrip1.TabIndex = 1;
@@ -531,10 +530,11 @@
             this.toolStripButtonLimpar,
             this.toolStripDropDownReta,
             this.toolStripDropDownCirculo,
-            this.toolStripDropDownElipse});
+            this.toolStripDropDownElipse,
+            this.toolStripDesenhaPoligono});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(30, 126);
+            this.toolStrip.Size = new System.Drawing.Size(30, 149);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripButtonCor
@@ -643,56 +643,42 @@
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
+            // toolStripDesenhaPoligono
+            // 
+            this.toolStripDesenhaPoligono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDesenhaPoligono.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDesenhaPoligono.Image")));
+            this.toolStripDesenhaPoligono.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDesenhaPoligono.Name = "toolStripDesenhaPoligono";
+            this.toolStripDesenhaPoligono.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDesenhaPoligono.Text = "toolStripButton1";
+            // 
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
             // 
-            // groupBox5
+            // rbEspelhamento
             // 
-            this.groupBox5.Controls.Add(this.rbEscala);
-            this.groupBox5.Controls.Add(this.rbRotacao);
-            this.groupBox5.Controls.Add(this.rbTranslacao);
-            this.groupBox5.Location = new System.Drawing.Point(702, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 54);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
+            this.rbEspelhamento.AutoSize = true;
+            this.rbEspelhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbEspelhamento.Location = new System.Drawing.Point(196, 20);
+            this.rbEspelhamento.Name = "rbEspelhamento";
+            this.rbEspelhamento.Size = new System.Drawing.Size(92, 17);
+            this.rbEspelhamento.TabIndex = 3;
+            this.rbEspelhamento.TabStop = true;
+            this.rbEspelhamento.Text = "Espelhamento";
+            this.rbEspelhamento.UseVisualStyleBackColor = true;
             // 
-            // rbRotacao
+            // rbCisalhamento
             // 
-            this.rbRotacao.AutoSize = true;
-            this.rbRotacao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbRotacao.Location = new System.Drawing.Point(80, 20);
-            this.rbRotacao.Name = "rbRotacao";
-            this.rbRotacao.Size = new System.Drawing.Size(66, 17);
-            this.rbRotacao.TabIndex = 1;
-            this.rbRotacao.TabStop = true;
-            this.rbRotacao.Text = "Rotação";
-            this.rbRotacao.UseVisualStyleBackColor = true;
-            // 
-            // rbTranslacao
-            // 
-            this.rbTranslacao.AutoSize = true;
-            this.rbTranslacao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbTranslacao.Location = new System.Drawing.Point(6, 20);
-            this.rbTranslacao.Name = "rbTranslacao";
-            this.rbTranslacao.Size = new System.Drawing.Size(78, 17);
-            this.rbTranslacao.TabIndex = 0;
-            this.rbTranslacao.TabStop = true;
-            this.rbTranslacao.Text = "Translação";
-            this.rbTranslacao.UseVisualStyleBackColor = true;
-            // 
-            // rbEscala
-            // 
-            this.rbEscala.AutoSize = true;
-            this.rbEscala.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbEscala.Location = new System.Drawing.Point(142, 20);
-            this.rbEscala.Name = "rbEscala";
-            this.rbEscala.Size = new System.Drawing.Size(57, 17);
-            this.rbEscala.TabIndex = 2;
-            this.rbEscala.TabStop = true;
-            this.rbEscala.Text = "Escala";
-            this.rbEscala.UseVisualStyleBackColor = true;
+            this.rbCisalhamento.AutoSize = true;
+            this.rbCisalhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbCisalhamento.Location = new System.Drawing.Point(290, 20);
+            this.rbCisalhamento.Name = "rbCisalhamento";
+            this.rbCisalhamento.Size = new System.Drawing.Size(88, 17);
+            this.rbCisalhamento.TabIndex = 4;
+            this.rbCisalhamento.TabStop = true;
+            this.rbCisalhamento.Text = "Cisalhamento";
+            this.rbCisalhamento.UseVisualStyleBackColor = true;
             // 
             // Principal
             // 
@@ -727,17 +713,14 @@
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel5.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -778,7 +761,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbCentro;
-        private System.Windows.Forms.RadioButton rbOrigem;
+        private System.Windows.Forms.RadioButton rbPonto;
         private System.Windows.Forms.Button btAplicar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
@@ -786,12 +769,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbTranslacaoY;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbEscalaX;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbEscalaY;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosicaoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poligono;
         private System.Windows.Forms.ToolStripMenuItem retaToolStripMenuItem;
@@ -801,5 +778,9 @@
         private System.Windows.Forms.RadioButton rbEscala;
         private System.Windows.Forms.RadioButton rbRotacao;
         private System.Windows.Forms.RadioButton rbTranslacao;
+        private System.Windows.Forms.RadioButton rbOrigem;
+        private System.Windows.Forms.ToolStripButton toolStripDesenhaPoligono;
+        private System.Windows.Forms.RadioButton rbCisalhamento;
+        private System.Windows.Forms.RadioButton rbEspelhamento;
     }
 }
