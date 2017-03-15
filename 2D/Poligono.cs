@@ -37,6 +37,25 @@ namespace _2D
             return pOriginal[0];
         }
 
+
+        public Point getCentro()
+        {
+            int x = 0;
+            int y = 0;
+
+            foreach (Point pts in pOriginal)
+            {
+                x += pts.X;
+                y += pts.Y;    
+            }
+
+            Point p = new Point();
+            p.X = x / pOriginal.Count;
+            p.Y = y / pOriginal.Count;
+
+            return p;
+        }
+
         public void add(Point p)
         {
             pOriginal.Add(p);
@@ -112,10 +131,27 @@ namespace _2D
             matAc = multiplicar(E, matAc);
             novosPontos();
         }
-        public void espelhamento(int x, int y)
+
+        public void espelhamento(bool vertical)
         {
 
+            double[,] E = new double[3, 3];
+            if(vertical)
+            {
+                E[0, 0] = 1;
+                E[1, 1] = -1;
+                E[2, 2] = 1;
+            }
+            else
+            {
+                E[0, 0] = -1;
+                E[1, 1] = 1;
+                E[2, 2] = 1;
+            }
+            matAc = multiplicar(E, matAc);
+            novosPontos();
         }
+
         public void cisalhamento(int x, int y)
         {
             double[,] C = new double[3, 3];
@@ -125,8 +161,7 @@ namespace _2D
 
             C[0, 1] = y;
             C[1, 0] = x;
-
-
+            
             matAc = multiplicar(C, matAc);
             novosPontos();
         }

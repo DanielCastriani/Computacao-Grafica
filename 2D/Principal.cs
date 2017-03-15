@@ -13,7 +13,7 @@ namespace _2D
         private Color cor;
         private bool mouseDown;
         private Bitmap imagemBmp, temp;
-        private static int W,H;
+        private static int W, H;
         private DataSet dsPoligonos;
         private List<Poligono> poligonos;
         private bool poligono2;
@@ -33,8 +33,7 @@ namespace _2D
         {
             return H;
         }
-
-
+        
         private void Principal_Load(object sender, EventArgs e)
         {
             cor = Color.Black;
@@ -210,11 +209,34 @@ namespace _2D
             {
                 if (rbCentro.Checked)
                 {
-                    //if (rbTranslacao.Checked)
+                    Point pt = p.getCentro();
+                    if (rbTranslacao.Checked)
+                    {
+                        p.traslacao(-pt.X,-pt.Y);
+                        p.traslacao(tx, ty);
+                        p.traslacao(pt.X, pt.Y);
+                    }
+                    if (rbEscala.Checked)
+                    {
+                        p.escala(-pt.X, -pt.Y);
+                        p.escala(tx, ty);
+                        p.escala(pt.X, pt.Y);
+                    }
+                    /*
+                    if (rbRotacao.Checked)
+                    {
+                        p.rotacao(-pt.X, -pt.Y);
+                        p.rotacao(tx, ty);
+                        p.rotacao(pt.X, pt.Y);
+                    }
+                    */
+                    if (rbCisalhamento.Checked)
+                    {
+                        p.cisalhamento(-pt.X, -pt.Y);
+                        p.cisalhamento(tx, ty);
+                        p.cisalhamento(pt.X, pt.Y);
+                    }
 
-                    //if (rbEscala.Checked)
-
-                    //if (rbRotacao.Checked)
                 }
                 else
                 {
@@ -253,19 +275,29 @@ namespace _2D
             opicao = 7;
         }
 
+        private void espelho(bool vertical)
+        {
+            Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
+            p.espelhamento(vertical);
+            desenhaPoligonos();
+        }
+
         private void toolStripButtonEspelhoVertical_Click(object sender, EventArgs e)
         {
-
+            espelho(true);   
         }
 
         private void toolStripButtonEspelhoHorizontal_Click(object sender, EventArgs e)
         {
-            //
+            espelho(false);
         }
 
         private void KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '.' && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+
+            if (e.KeyChar == '.' && (((TextBox)sender).Text.Trim('-').Contains(".") || ((TextBox)sender).Text.Trim('-').Length == 0))
                 e.Handled = true;
 
             if (e.KeyChar == '-' && ((TextBox)sender).Text.Length > 0)
