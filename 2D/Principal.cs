@@ -298,6 +298,29 @@ namespace _2D
             poligono2ToolStripMenuItem_Click(null,null);
         }
 
+        private void limparToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripButtonLimpar_ButtonClick(null, null);
+        }
+
+        private void toolStripButtonLimpar_ButtonClick(object sender, EventArgs e)
+        {
+            pictureBox.Image = imagemBmp = new Bitmap(W, H);
+            Util.preencher((Bitmap)pictureBox.Image, Color.White);
+        }
+
+        private void resetPoligonosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            imagemBmp = new Bitmap(W, H);
+            Util.preencher(imagemBmp, Color.White);
+            foreach (Poligono pol in poligonos)
+            {
+                pol.reset();
+                pol.desenha(imagemBmp, cor);
+            }
+            pictureBox.Image = imagemBmp;
+        }
+
         private void KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '.' && !char.IsDigit(e.KeyChar))
