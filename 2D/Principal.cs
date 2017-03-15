@@ -203,8 +203,6 @@ namespace _2D
                     p.escala(tx, ty);
                 if(rbRotacao.Checked)
                     p.rotacao(angulo);
-                if (rbEspelhamento.Checked)
-                    p.espelhamento(tx, ty);
                 if (rbCisalhamento.Checked)
                     p.cisalhamento(tx, ty);
             }
@@ -253,6 +251,16 @@ namespace _2D
         {
             contMouseDown = 0;
             opicao = 7;
+        }
+
+        private void toolStripButtonEspelhoVertical_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonEspelhoHorizontal_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void KeyPress(object sender, KeyPressEventArgs e)

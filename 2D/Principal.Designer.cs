@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desenharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +39,6 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddPoligono = new System.Windows.Forms.Button();
             this.btRemPoligono = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.dgvPoligonos = new System.Windows.Forms.DataGridView();
             this.PosicaoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Poligono = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +59,6 @@
             this.rbPonto = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rbCisalhamento = new System.Windows.Forms.RadioButton();
-            this.rbEspelhamento = new System.Windows.Forms.RadioButton();
             this.rbEscala = new System.Windows.Forms.RadioButton();
             this.rbRotacao = new System.Windows.Forms.RadioButton();
             this.rbTranslacao = new System.Windows.Forms.RadioButton();
@@ -69,6 +66,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsLBpos = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.toolStripButtonCor = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonLimpar = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownReta = new System.Windows.Forms.ToolStripDropDownButton();
@@ -82,14 +81,14 @@
             this.toolStripDropDownElipse = new System.Windows.Forms.ToolStripDropDownButton();
             this.pontoMédioToolStripMenuItemElipse = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDesenhaPoligono = new System.Windows.Forms.ToolStripButton();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.toolStripButtonEspelhoVertical = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEspelhoHorizontal = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -100,6 +99,7 @@
             this.groupBox5.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -165,7 +165,7 @@
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.statusStrip1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1009, 442);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(993, 442);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -202,7 +202,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1009, 420);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 420);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel2
@@ -210,7 +210,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btAddPoligono);
             this.flowLayoutPanel2.Controls.Add(this.btRemPoligono);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(862, 388);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(846, 388);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(144, 29);
             this.flowLayoutPanel2.TabIndex = 3;
@@ -237,20 +237,6 @@
             this.btRemPoligono.Text = "-";
             this.btRemPoligono.UseVisualStyleBackColor = true;
             // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(3, 68);
-            this.pictureBox.Name = "pictureBox";
-            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(853, 349);
-            this.pictureBox.TabIndex = 1;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
-            // 
             // dgvPoligonos
             // 
             this.dgvPoligonos.AllowUserToAddRows = false;
@@ -262,7 +248,7 @@
             this.PosicaoInicial,
             this.Poligono});
             this.dgvPoligonos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPoligonos.Location = new System.Drawing.Point(862, 68);
+            this.dgvPoligonos.Location = new System.Drawing.Point(846, 68);
             this.dgvPoligonos.Name = "dgvPoligonos";
             this.dgvPoligonos.ReadOnly = true;
             this.dgvPoligonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -296,7 +282,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1003, 59);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(987, 59);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // groupBox3
@@ -446,13 +432,12 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.rbCisalhamento);
-            this.groupBox5.Controls.Add(this.rbEspelhamento);
             this.groupBox5.Controls.Add(this.rbEscala);
             this.groupBox5.Controls.Add(this.rbRotacao);
             this.groupBox5.Controls.Add(this.rbTranslacao);
             this.groupBox5.Location = new System.Drawing.Point(528, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(386, 54);
+            this.groupBox5.Size = new System.Drawing.Size(305, 54);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             // 
@@ -460,25 +445,13 @@
             // 
             this.rbCisalhamento.AutoSize = true;
             this.rbCisalhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbCisalhamento.Location = new System.Drawing.Point(290, 20);
+            this.rbCisalhamento.Location = new System.Drawing.Point(196, 20);
             this.rbCisalhamento.Name = "rbCisalhamento";
             this.rbCisalhamento.Size = new System.Drawing.Size(88, 17);
             this.rbCisalhamento.TabIndex = 4;
             this.rbCisalhamento.TabStop = true;
             this.rbCisalhamento.Text = "Cisalhamento";
             this.rbCisalhamento.UseVisualStyleBackColor = true;
-            // 
-            // rbEspelhamento
-            // 
-            this.rbEspelhamento.AutoSize = true;
-            this.rbEspelhamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbEspelhamento.Location = new System.Drawing.Point(196, 20);
-            this.rbEspelhamento.Name = "rbEspelhamento";
-            this.rbEspelhamento.Size = new System.Drawing.Size(92, 17);
-            this.rbEspelhamento.TabIndex = 3;
-            this.rbEspelhamento.TabStop = true;
-            this.rbEspelhamento.Text = "Espelhamento";
-            this.rbEspelhamento.UseVisualStyleBackColor = true;
             // 
             // rbEscala
             // 
@@ -519,7 +492,7 @@
             // btAplicar
             // 
             this.btAplicar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btAplicar.Location = new System.Drawing.Point(920, 20);
+            this.btAplicar.Location = new System.Drawing.Point(839, 20);
             this.btAplicar.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.btAplicar.Name = "btAplicar";
             this.btAplicar.Size = new System.Drawing.Size(75, 23);
@@ -535,7 +508,7 @@
             this.tsLBpos});
             this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1009, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(993, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -555,29 +528,51 @@
             this.toolStripDropDownReta,
             this.toolStripDropDownCirculo,
             this.toolStripDropDownElipse,
-            this.toolStripDesenhaPoligono});
+            this.toolStripDesenhaPoligono,
+            this.toolStripButtonEspelhoVertical,
+            this.toolStripButtonEspelhoHorizontal});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(30, 149);
+            this.toolStrip.Size = new System.Drawing.Size(46, 326);
             this.toolStrip.TabIndex = 0;
+            // 
+            // colorDialog
+            // 
+            this.colorDialog.FullOpen = true;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(3, 68);
+            this.pictureBox.Name = "pictureBox";
+            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
+            this.pictureBox.Size = new System.Drawing.Size(837, 349);
+            this.pictureBox.TabIndex = 1;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // toolStripButtonCor
             // 
             this.toolStripButtonCor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta;
+            this.toolStripButtonCor.Image = global::_2D.Properties.Resources.Paleta_32x32;
+            this.toolStripButtonCor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonCor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCor.Name = "toolStripButtonCor";
-            this.toolStripButtonCor.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonCor.Size = new System.Drawing.Size(44, 36);
             this.toolStripButtonCor.Text = "toolStripButton1";
             this.toolStripButtonCor.Click += new System.EventHandler(this.toolStripButtonCor_Click);
             // 
             // toolStripButtonLimpar
             // 
             this.toolStripButtonLimpar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLimpar.Image = global::_2D.Properties.Resources.Limpar;
+            this.toolStripButtonLimpar.Image = global::_2D.Properties.Resources.Limpar_32x32;
+            this.toolStripButtonLimpar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonLimpar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLimpar.Name = "toolStripButtonLimpar";
-            this.toolStripButtonLimpar.Size = new System.Drawing.Size(28, 20);
+            this.toolStripButtonLimpar.Size = new System.Drawing.Size(44, 36);
             this.toolStripButtonLimpar.Text = "toolStripButton1";
             this.toolStripButtonLimpar.Click += new System.EventHandler(this.toolStripButtonLimpar_Click);
             // 
@@ -588,10 +583,11 @@
             this.equaçãoDaRetaToolStripMenuItem,
             this.dDAToolStripMenuItem,
             this.pontoMédioToolStripMenuItem});
-            this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta;
+            this.toolStripDropDownReta.Image = global::_2D.Properties.Resources.Reta_32x321;
+            this.toolStripDropDownReta.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripDropDownReta.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownReta.Name = "toolStripDropDownReta";
-            this.toolStripDropDownReta.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownReta.Size = new System.Drawing.Size(44, 36);
             this.toolStripDropDownReta.Text = "toolStripDropDownButton1";
             // 
             // equaçãoDaRetaToolStripMenuItem
@@ -622,10 +618,11 @@
             this.equaçãoGeralToolStripMenuItem,
             this.trigonométricaToolStripMenuItem,
             this.pontoMédioToolStripMenuItem1});
-            this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo;
+            this.toolStripDropDownCirculo.Image = global::_2D.Properties.Resources.Circulo_32x32;
+            this.toolStripDropDownCirculo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripDropDownCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownCirculo.Name = "toolStripDropDownCirculo";
-            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownCirculo.Size = new System.Drawing.Size(44, 36);
             this.toolStripDropDownCirculo.Text = "toolStripDropDownButton1";
             // 
             // equaçãoGeralToolStripMenuItem
@@ -654,10 +651,10 @@
             this.toolStripDropDownElipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripDropDownElipse.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pontoMédioToolStripMenuItemElipse});
-            this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse;
+            this.toolStripDropDownElipse.Image = global::_2D.Properties.Resources.Elipse___32x32;
             this.toolStripDropDownElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownElipse.Name = "toolStripDropDownElipse";
-            this.toolStripDropDownElipse.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDropDownElipse.Size = new System.Drawing.Size(44, 20);
             this.toolStripDropDownElipse.Text = "toolStripDropDownButton2";
             // 
             // pontoMédioToolStripMenuItemElipse
@@ -670,15 +667,34 @@
             // toolStripDesenhaPoligono
             // 
             this.toolStripDesenhaPoligono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDesenhaPoligono.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDesenhaPoligono.Image")));
+            this.toolStripDesenhaPoligono.Image = global::_2D.Properties.Resources.Desenha_Poligono_32x32;
+            this.toolStripDesenhaPoligono.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripDesenhaPoligono.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDesenhaPoligono.Name = "toolStripDesenhaPoligono";
-            this.toolStripDesenhaPoligono.Size = new System.Drawing.Size(28, 20);
+            this.toolStripDesenhaPoligono.Size = new System.Drawing.Size(44, 36);
             this.toolStripDesenhaPoligono.Text = "toolStripButton1";
             // 
-            // colorDialog
+            // toolStripButtonEspelhoVertical
             // 
-            this.colorDialog.FullOpen = true;
+            this.toolStripButtonEspelhoVertical.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEspelhoVertical.Image = global::_2D.Properties.Resources.Espelho_Vertical_32x32;
+            this.toolStripButtonEspelhoVertical.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonEspelhoVertical.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEspelhoVertical.Name = "toolStripButtonEspelhoVertical";
+            this.toolStripButtonEspelhoVertical.Size = new System.Drawing.Size(44, 36);
+            this.toolStripButtonEspelhoVertical.Text = "toolStripButtonEspelhoVertical";
+            this.toolStripButtonEspelhoVertical.Click += new System.EventHandler(this.toolStripButtonEspelhoVertical_Click);
+            // 
+            // toolStripButtonEspelhoHorizontal
+            // 
+            this.toolStripButtonEspelhoHorizontal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEspelhoHorizontal.Image = global::_2D.Properties.Resources.Espelho_Horizontal_32x32;
+            this.toolStripButtonEspelhoHorizontal.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonEspelhoHorizontal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEspelhoHorizontal.Name = "toolStripButtonEspelhoHorizontal";
+            this.toolStripButtonEspelhoHorizontal.Size = new System.Drawing.Size(44, 36);
+            this.toolStripButtonEspelhoHorizontal.Text = "toolStripButtonEspelhoHorizontal";
+            this.toolStripButtonEspelhoHorizontal.Click += new System.EventHandler(this.toolStripButtonEspelhoHorizontal_Click);
             // 
             // Principal
             // 
@@ -704,7 +720,6 @@
             this.toolStripContainer1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -721,6 +736,7 @@
             this.statusStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -781,6 +797,7 @@
         private System.Windows.Forms.RadioButton rbOrigem;
         private System.Windows.Forms.ToolStripButton toolStripDesenhaPoligono;
         private System.Windows.Forms.RadioButton rbCisalhamento;
-        private System.Windows.Forms.RadioButton rbEspelhamento;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEspelhoVertical;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEspelhoHorizontal;
     }
 }

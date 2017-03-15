@@ -73,9 +73,69 @@ namespace _2D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Circulo_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Circulo 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Desenha_Poligono {
+            get {
+                object obj = ResourceManager.GetObject("Desenha Poligono", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Desenha_Poligono_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Desenha Poligono 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Elipse {
             get {
                 object obj = ResourceManager.GetObject("Elipse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Elipse___32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Elipse - 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Espelho_Horizontal_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Espelho Horizontal 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Espelho_Vertical_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Espelho Vertical 32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,6 +163,26 @@ namespace _2D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Limpar_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Limpar 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Limpar1 {
+            get {
+                object obj = ResourceManager.GetObject("Limpar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Paleta {
             get {
                 object obj = ResourceManager.GetObject("Paleta", resourceCulture);
@@ -113,9 +193,39 @@ namespace _2D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Paleta_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Paleta 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Reta {
             get {
                 object obj = ResourceManager.GetObject("Reta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reta_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Reta 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reta_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("Reta 32x321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

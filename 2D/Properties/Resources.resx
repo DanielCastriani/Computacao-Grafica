@@ -118,22 +118,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Desenha Poligono 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desenha Poligono 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Espelho Vertical 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Espelho Vertical 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Limpar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Limpar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reta 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reta 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reta 32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reta 32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Paleta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Paleta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Paleta 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Paleta 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Elipse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Elipse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InconeReta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InconeReta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Desenha Poligono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desenha Poligono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Circulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="InconeReta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InconeReta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Limpar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Limpar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Circulo 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circulo 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Elipse - 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Elipse - 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Limpar 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Limpar 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Circulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Espelho Horizontal 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Espelho Horizontal 32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

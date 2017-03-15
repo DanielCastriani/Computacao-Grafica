@@ -121,6 +121,39 @@
   <ItemGroup>
     <None Include="Resources\Limpar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desenha Poligono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Limpar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paleta 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Limpar 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reta 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reta 32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circulo 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Elipse - 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desenha Poligono 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Espelho Vertical 32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Espelho Horizontal 32x32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
