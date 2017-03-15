@@ -26,6 +26,8 @@ Vitor Santos
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
 
+[ ] Criar Polígono utilizando mouse
+
 ###Ponto###
 [X] Rotação
 
@@ -33,20 +35,18 @@ Vitor Santos
 
 [X] Escala
 
-[ ] Espelhamento
-
-[ ] Cisalhamento
+[X] Cisalhamento
 
 ###Centro###
-[ ] Rotação
+[X] Rotação
 
-[ ] Translação
+[X] Translação
 
 [ ] Escala
 
-[ ] Espelhamento
+[X] Espelhamento
 
-[ ] Cisalhamento
+[X] Cisalhamento
 
 ###Origem###
 [ ] Rotação
@@ -54,8 +54,6 @@ Vitor Santos
 [ ] Translação
 
 [ ] Escala
-
-[ ] Espelhamento
 
 [ ] Cisalhamento
 
