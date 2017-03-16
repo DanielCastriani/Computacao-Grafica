@@ -85,6 +85,7 @@
             this.toolStripButtonEspelhoVertical = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEspelhoHorizontal = new System.Windows.Forms.ToolStripButton();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.fecharPoligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -128,7 +129,8 @@
             this.desenharToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.retaToolStripMenuItem,
             this.poligonoToolStripMenuItem,
-            this.poligono2ToolStripMenuItem});
+            this.poligono2ToolStripMenuItem,
+            this.fecharPoligonoToolStripMenuItem});
             this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
             this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
@@ -552,7 +554,7 @@
             this.toolStripButtonEspelhoHorizontal});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(49, 342);
+            this.toolStrip.Size = new System.Drawing.Size(49, 323);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripButtonCor
@@ -647,21 +649,21 @@
             // equaçãoGeralToolStripMenuItem
             // 
             this.equaçãoGeralToolStripMenuItem.Name = "equaçãoGeralToolStripMenuItem";
-            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.equaçãoGeralToolStripMenuItem.Text = "Equação Geral";
             this.equaçãoGeralToolStripMenuItem.Click += new System.EventHandler(this.equaçãoGeralToolStripMenuItem_Click);
             // 
             // trigonométricaToolStripMenuItem
             // 
             this.trigonométricaToolStripMenuItem.Name = "trigonométricaToolStripMenuItem";
-            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.trigonométricaToolStripMenuItem.Text = "Trigonométrica";
             this.trigonométricaToolStripMenuItem.Click += new System.EventHandler(this.trigonométricaToolStripMenuItem_Click);
             // 
             // pontoMédioToolStripMenuItem1
             // 
             this.pontoMédioToolStripMenuItem1.Name = "pontoMédioToolStripMenuItem1";
-            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.pontoMédioToolStripMenuItem1.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItem1.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemCirculo_Click);
             // 
@@ -680,7 +682,7 @@
             // pontoMédioToolStripMenuItemElipse
             // 
             this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
-            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
+            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(152, 22);
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
@@ -720,6 +722,13 @@
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
+            // 
+            // fecharPoligonoToolStripMenuItem
+            // 
+            this.fecharPoligonoToolStripMenuItem.Name = "fecharPoligonoToolStripMenuItem";
+            this.fecharPoligonoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.fecharPoligonoToolStripMenuItem.Text = "Fechar Poligono";
+            this.fecharPoligonoToolStripMenuItem.Click += new System.EventHandler(this.fecharPoligonoToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -826,5 +835,6 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripButtonLimpar;
         private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetPoligonosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fecharPoligonoToolStripMenuItem;
     }
 }
