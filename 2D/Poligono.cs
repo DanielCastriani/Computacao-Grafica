@@ -75,13 +75,12 @@ namespace _2D
 
         public void desenha(Bitmap img, Color c)
         {
-            if (pAtual.Count < 3)
-                throw new System.ArgumentException("Quantidade de pontos Menor que 3");
-
-            for (int i = 0; i < pAtual.Count - 1; i++)
-                Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y, img, c);
-            Reta.pontoMedio(pAtual[pAtual.Count - 1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, c);
-
+            if (pAtual.Count > 2)
+            {
+                for (int i = 0; i < pAtual.Count - 1; i++)
+                    Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y, img, c);
+                Reta.pontoMedio(pAtual[pAtual.Count - 1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, c);
+            }
         }
         
         public void novosPontos()
@@ -97,6 +96,11 @@ namespace _2D
                 p.Y = y;
                 pAtual[i] = p;
             }
+        }
+
+        public List<Point> getPontos()
+        {
+            return pAtual;
         }
 
         public void traslacao(double x, double y)
