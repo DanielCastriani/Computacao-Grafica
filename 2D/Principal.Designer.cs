@@ -39,7 +39,6 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddPoligono = new System.Windows.Forms.Button();
             this.btRemPoligono = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.dgvPoligonos = new System.Windows.Forms.DataGridView();
             this.PosicaoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Poligono = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,14 +84,12 @@
             this.toolStripButtonEspelhoVertical = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEspelhoHorizontal = new System.Windows.Forms.ToolStripButton();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.fecharPoligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -103,6 +100,8 @@
             this.groupBox5.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.panelImageViewScroll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -196,9 +195,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgvPoligonos, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelImageViewScroll, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -240,20 +239,6 @@
             this.btRemPoligono.TabIndex = 1;
             this.btRemPoligono.Text = "-";
             this.btRemPoligono.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(3, 68);
-            this.pictureBox.Name = "pictureBox";
-            this.tableLayoutPanel1.SetRowSpan(this.pictureBox, 2);
-            this.pictureBox.Size = new System.Drawing.Size(834, 349);
-            this.pictureBox.TabIndex = 1;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // dgvPoligonos
             // 
@@ -723,13 +708,6 @@
             // 
             this.colorDialog.FullOpen = true;
             // 
-            // fecharPoligonoToolStripMenuItem
-            // 
-            this.fecharPoligonoToolStripMenuItem.Name = "fecharPoligonoToolStripMenuItem";
-            this.fecharPoligonoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.fecharPoligonoToolStripMenuItem.Text = "Fechar Poligono";
-            this.fecharPoligonoToolStripMenuItem.Click += new System.EventHandler(this.fecharPoligonoToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -754,7 +732,6 @@
             this.toolStripContainer1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoligonos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -771,6 +748,8 @@
             this.statusStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.panelImageViewScroll.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,7 +777,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tsLBpos;
         private System.Windows.Forms.ToolStripMenuItem desenharToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.DataGridView dgvPoligonos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btAddPoligono;
@@ -835,6 +813,5 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripButtonLimpar;
         private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetPoligonosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fecharPoligonoToolStripMenuItem;
     }
 }
