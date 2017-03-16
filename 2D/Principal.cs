@@ -239,11 +239,15 @@ namespace _2D
                 }
                 else
                 {
-                    //if (rbTranslacao.Checked)
-
-                    //if (rbEscala.Checked)
-
-                    //if (rbRotacao.Checked)
+                    p.origem();
+                    if (rbTranslacao.Checked)
+                        p.traslacao(tx, ty);
+                    if (rbEscala.Checked)
+                        p.escala(tx, ty);
+                    if (rbRotacao.Checked)
+                        p.rotacao(angulo);
+                    if (rbCisalhamento.Checked)
+                        p.cisalhamento(tx, ty);
                 }
 
             }

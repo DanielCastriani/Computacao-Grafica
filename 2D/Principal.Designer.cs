@@ -128,8 +128,7 @@
             this.desenharToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.retaToolStripMenuItem,
             this.poligonoToolStripMenuItem,
-            this.poligono2ToolStripMenuItem,
-            this.fecharPoligonoToolStripMenuItem});
+            this.poligono2ToolStripMenuItem});
             this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
             this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
