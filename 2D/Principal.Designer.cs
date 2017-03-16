@@ -133,7 +133,6 @@
             this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
             this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.desenharToolStripMenuItem.Text = "Desenhar";
-            this.desenharToolStripMenuItem.Click += new System.EventHandler(this.desenharToolStripMenuItem_Click);
             // 
             // retaToolStripMenuItem
             // 
@@ -249,6 +248,7 @@
             this.pictureBox.Size = new System.Drawing.Size(834, 349);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
@@ -552,7 +552,7 @@
             this.toolStripButtonEspelhoHorizontal});
             this.toolStrip.Location = new System.Drawing.Point(0, 3);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(49, 342);
+            this.toolStrip.Size = new System.Drawing.Size(49, 323);
             this.toolStrip.TabIndex = 0;
             // 
             // toolStripButtonCor
@@ -647,21 +647,21 @@
             // equaçãoGeralToolStripMenuItem
             // 
             this.equaçãoGeralToolStripMenuItem.Name = "equaçãoGeralToolStripMenuItem";
-            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.equaçãoGeralToolStripMenuItem.Text = "Equação Geral";
             this.equaçãoGeralToolStripMenuItem.Click += new System.EventHandler(this.equaçãoGeralToolStripMenuItem_Click);
             // 
             // trigonométricaToolStripMenuItem
             // 
             this.trigonométricaToolStripMenuItem.Name = "trigonométricaToolStripMenuItem";
-            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.trigonométricaToolStripMenuItem.Text = "Trigonométrica";
             this.trigonométricaToolStripMenuItem.Click += new System.EventHandler(this.trigonométricaToolStripMenuItem_Click);
             // 
             // pontoMédioToolStripMenuItem1
             // 
             this.pontoMédioToolStripMenuItem1.Name = "pontoMédioToolStripMenuItem1";
-            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.pontoMédioToolStripMenuItem1.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItem1.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemCirculo_Click);
             // 
@@ -680,7 +680,7 @@
             // pontoMédioToolStripMenuItemElipse
             // 
             this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
-            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(152, 22);
+            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 

@@ -8,18 +8,20 @@ namespace _2D
 {
     public partial class Principal : Form
     {
+        private static int W, H;
+
         private int xi, yi, xf, yf;
         private int opicao;
-        private Color cor;
-        private bool mouseDown;
-        private Bitmap imagemBmp, temp;
-        private static int W, H;
-        private DataSet dsPoligonos;
-        private List<Poligono> poligonos;
-        private bool poligono2;
-        private Poligono poligono;
         private int contMouseDown;
         private int[] coord;
+        private bool mouseDown;
+        private bool isDesenhaPoligonoMouse;
+        private Color cor;
+        private Bitmap imagemBmp;
+        private DataSet dsPoligonos;
+        private List<Poligono> poligonos;
+        private Poligono poligono;
+        
         public Principal()
         {
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace _2D
             tsLBpos.Text = "";
             mouseDown = false;
             poligonos = new List<Poligono>();
-            poligono2 = false;
+            isDesenhaPoligonoMouse = false;
            // contMouseDown = 0;
             coord = new int[2];
 
@@ -81,6 +83,8 @@ namespace _2D
 
         }
 
+        //-------------------------Botões---------------------------------------
+        
         private void toolStripButtonCor_Click(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -137,12 +141,7 @@ namespace _2D
             opicao = 7;
             pictureBox.Cursor = Cursors.Cross;
         }
-
-        private void desenharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void toolStripButtonLimpar_Click(object sender, EventArgs e)
         {
             pictureBox.Image = imagemBmp = new Bitmap(W, H);
@@ -170,7 +169,7 @@ namespace _2D
 
             pictureBox.Image = imagemBmp;
         }
-
+        
         private void btAddPoligono_Click(object sender, EventArgs e)
         {
             FRMPoligonos frm = new FRMPoligonos();
@@ -274,8 +273,9 @@ namespace _2D
 
         private void poligono2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pictureBox.Cursor = Cursors.Cross;
             poligono = new Poligono();
-            poligono2 = true;
+            isDesenhaPoligonoMouse = true;
             contMouseDown = 0;
             opicao = 7;
         }
@@ -327,14 +327,7 @@ namespace _2D
             }
             pictureBox.Image = imagemBmp;
         }
-
-        private void fecharPoligonoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            poligono2 = false;
-            opicao = 8;
-            novoPoligono(poligono);
-        }
-
+        
         private void KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '.' && !char.IsDigit(e.KeyChar))
@@ -350,10 +343,10 @@ namespace _2D
 
         //------------------------------------------------------------------
 
-        private void poligonoClicando()
+        private void desenhoClick()
         {
             
-            if (poligono2)
+            if (isDesenhaPoligonoMouse)
             {
                 contMouseDown++;
                 if (contMouseDown > 1)
@@ -370,11 +363,25 @@ namespace _2D
             xi = e.X;
             yi = e.Y;
 
-           poligonoClicando();
-
              
             // tsLBpos.Text = "[" + xi + "," + yi + "]";
             tsLBpos.Text = contMouseDown.ToString();
+        }
+
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (isDesenhaPoligonoMouse)
+            {
+                if (e.Button == MouseButtons.Left)
+                    desenhoClick();
+                else
+                {
+                    isDesenhaPoligonoMouse = false;
+                    opicao = -1;
+                    pictureBox.Cursor = Cursors.Arrow;
+                    novoPoligono(poligono);
+                }
+            }
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -387,10 +394,15 @@ namespace _2D
         private void adicionarPontosPoligonoClicando(MouseEventArgs e)
         {
             xf = e.X; yf = e.Y;
-            if (poligono2)
+            if (isDesenhaPoligonoMouse)
             {
-                poligono.add(new Point(xi, yi));
+                if(contMouseDown>1)
                 poligono.add(new Point(xf, yf));
+                else
+                {
+                    poligono.add(new Point(xi, yi));
+                    poligono.add(new Point(xf, yf));
+                }
             }
         }
 
@@ -437,7 +449,7 @@ namespace _2D
                     Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 7:
-                    Reta.poligono(xi, yi, xf, yf, bmp, cor);
+                    Reta.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 8:
                     break;

@@ -43,7 +43,7 @@ namespace _2D
             pAtual = new List<Point>(pOriginal);
         }
 
-    public Point getPosicaoInicial()
+        public Point getPosicaoInicial()
         {
             return pOriginal[0];
         }
