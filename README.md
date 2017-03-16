@@ -1,8 +1,8 @@
 # README #
 
-Daniel Castriani Santos
+[ ] Daniel Castriani Santos
 
-Vitor Santos
+[X] Vitor Santos  
 
 # Task List #
 
