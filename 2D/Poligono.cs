@@ -37,6 +37,10 @@ namespace _2D
             initMatAc();
             pAtual = new List<Point>(pOriginal);
         }
+        public void origem()
+        {
+            pAtual = new List<Point>(pOriginal);
+        }
 
         public Point getPosicaoInicial()
         {

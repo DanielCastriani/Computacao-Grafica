@@ -36,9 +36,13 @@ namespace _2D
         
         private void Principal_Load(object sender, EventArgs e)
         {
-            cor = Color.Black;
             W = 1920;
             H = 1080;
+            pictureBox.Width = W;
+            pictureBox.Height = H;
+            
+            cor = Color.Black;
+
             pictureBox.Image = imagemBmp = new Bitmap(W,H);
             Util.preencher((Bitmap)pictureBox.Image, Color.White);
             xi = yi = xf = yf = 0;
@@ -238,11 +242,15 @@ namespace _2D
                 }
                 else
                 {
-                    //if (rbTranslacao.Checked)
-
-                    //if (rbEscala.Checked)
-
-                    //if (rbRotacao.Checked)
+                    p.origem();
+                    if (rbTranslacao.Checked)
+                        p.traslacao(tx, ty);
+                    if (rbEscala.Checked)
+                        p.escala(tx, ty);
+                    if (rbRotacao.Checked)
+                        p.rotacao(angulo);
+                    if (rbCisalhamento.Checked)
+                        p.cisalhamento(tx, ty);
                 }
 
             }
