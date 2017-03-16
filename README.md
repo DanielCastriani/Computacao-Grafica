@@ -26,7 +26,7 @@ Vitor Santos
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
 
-[ ] Criar Polígono utilizando mouse
+[X] Criar Polígono utilizando mouse
 
 ###Ponto###
 [X] Rotação
