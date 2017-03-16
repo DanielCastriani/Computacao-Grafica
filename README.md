@@ -42,7 +42,7 @@ Vitor Santos
 
 [X] Translação
 
-[ ] Escala
+[X] Escala
 
 [X] Espelhamento
 
