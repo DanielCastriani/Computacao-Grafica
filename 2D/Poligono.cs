@@ -93,7 +93,7 @@ namespace _2D
 
         public void desenha(Bitmap img, Color c)
         {
-            if (pAtual.Count > 2)
+            if (pAtual.Count > 1)
             {
                 for (int i = 0; i < pAtual.Count - 1; i++)
                     Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y, img, c);

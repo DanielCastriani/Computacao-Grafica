@@ -359,6 +359,8 @@ namespace _2D
             mouseDown = true;
             xi = e.X;
             yi = e.Y;
+            moverPoligonoClick(e);
+
         }
 
         //  private Poligono get
@@ -427,24 +429,27 @@ namespace _2D
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             poligonoClick(e);
-            moverPoligonoClick(e);
+          //  moverPoligonoClick(e);
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
             xf = e.X; yf = e.Y;
-            
-            if(!isDesenhaPoligonoMouse)
-                desenha(imagemBmp, xf, yf);
-            else
-                if(contMouseDown>1)
-                    desenha(imagemBmp,xf,yf);
+
+            if (!moverPoligono && isDesenhaPoligonoMouse)
+            {
+                if (!isDesenhaPoligonoMouse)
+                    desenha(imagemBmp, xf, yf);
+                else
+                    if (contMouseDown > 1)
+                    desenha(imagemBmp, xf, yf);
+            }
         }
 
         private void moverPoligonoClick(MouseEventArgs e)
         {
-            if (moverPoligono && dgvPoligonos.CurrentRow != null)
+            if (moverPoligono)
             {
                 Poligono p = getPoligonoSelecionado();
 
@@ -462,6 +467,7 @@ namespace _2D
         {
             if (mouseDown)
             {
+
                 moverPoligonoClick(e);
                 //tsLBpos.Text = contMouseDown.ToString();
                 //  tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
