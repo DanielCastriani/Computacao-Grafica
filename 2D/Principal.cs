@@ -16,6 +16,7 @@ namespace _2D
         private int[] coord;
         private bool mouseDown;
         private bool isDesenhaPoligonoMouse;
+        private bool moverPoligono;
         private Color cor;
         private Bitmap imagemBmp;
         private DataSet dsPoligonos;
@@ -48,6 +49,7 @@ namespace _2D
             opicao = -1;
             tsLBpos.Text = "";
             mouseDown = false;
+            moverPoligono = false;
             poligonos = new List<Poligono>();
             isDesenhaPoligonoMouse = false;
            // contMouseDown = 0;
@@ -353,6 +355,19 @@ namespace _2D
             xi = e.X;
             yi = e.Y;
         }
+
+        private void btRemPoligono_Click(object sender, EventArgs e)
+        {
+            Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
+            DataRow dr = dsPoligonos.Tables["tbPoligonos"].Rows.Find(p.getPosicaoInicial());
+
+            dsPoligonos.Tables["tbPoligonos"].Rows.Remove(dr);
+
+            poligonos.Remove(p);
+            desenhaPoligonos(); 
+        }
+
+       
         private void desenhoClick()
         {
             contMouseDown++;
@@ -363,7 +378,7 @@ namespace _2D
             }
         }
 
-        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        private void poligonoClick(MouseEventArgs e)
         {
             if (isDesenhaPoligonoMouse)
             {
@@ -382,6 +397,22 @@ namespace _2D
             }
         }
 
+        private void moverPoligonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            moverPoligono = true;
+        }
+
+        private void pararDeMoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            moverPoligono = false;
+        }
+
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            poligonoClick(e);
+            moverPoligonoClick(e);
+        }
+
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
@@ -394,13 +425,28 @@ namespace _2D
                     desenha(imagemBmp,xf,yf);
         }
 
-       
+        private void moverPoligonoClick(MouseEventArgs e)
+        {
+            if (moverPoligono && dgvPoligonos.CurrentRow != null)
+            {
+                Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
+
+                Point pontos = p.getCentroAtual();
+
+                double dy = (double)e.Y - pontos.Y;
+                double dx = (double)e.X - pontos.X;
+
+                p.traslacao(dx, dy);
+                desenhaPoligonos();
+            }
+        }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
-                tsLBpos.Text = contMouseDown.ToString();
+                moverPoligonoClick(e);
+                //tsLBpos.Text = contMouseDown.ToString();
                 //  tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
                 //temp = new Bitmap(imagemBmp);
                 //desenha(temp,e.X,e.Y);

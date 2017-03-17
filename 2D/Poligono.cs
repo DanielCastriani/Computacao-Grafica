@@ -67,6 +67,24 @@ namespace _2D
             return p;
         }
 
+        public Point getCentroAtual()
+        {
+            int x = 0;
+            int y = 0;
+
+            foreach (Point pts in pAtual)
+            {
+                x += pts.X;
+                y += pts.Y;
+            }
+
+            Point p = new Point();
+            p.X = x / pAtual.Count;
+            p.Y = y / pAtual.Count;
+
+            return p;
+        }
+
         public void add(Point p)
         {
             pOriginal.Add(p);

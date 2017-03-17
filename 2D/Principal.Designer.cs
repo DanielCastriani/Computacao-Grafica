@@ -85,6 +85,8 @@
             this.toolStripButtonEspelhoVertical = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEspelhoHorizontal = new System.Windows.Forms.ToolStripButton();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.moverPoligonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pararDeMoverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -128,7 +130,9 @@
             this.desenharToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.retaToolStripMenuItem,
             this.poligonoToolStripMenuItem,
-            this.poligono2ToolStripMenuItem});
+            this.poligono2ToolStripMenuItem,
+            this.moverPoligonoToolStripMenuItem,
+            this.pararDeMoverToolStripMenuItem});
             this.desenharToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.desenharToolStripMenuItem.Name = "desenharToolStripMenuItem";
             this.desenharToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
@@ -237,6 +241,7 @@
             this.btRemPoligono.TabIndex = 1;
             this.btRemPoligono.Text = "-";
             this.btRemPoligono.UseVisualStyleBackColor = true;
+            this.btRemPoligono.Click += new System.EventHandler(this.btRemPoligono_Click);
             // 
             // pictureBox
             // 
@@ -647,21 +652,21 @@
             // equaçãoGeralToolStripMenuItem
             // 
             this.equaçãoGeralToolStripMenuItem.Name = "equaçãoGeralToolStripMenuItem";
-            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.equaçãoGeralToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.equaçãoGeralToolStripMenuItem.Text = "Equação Geral";
             this.equaçãoGeralToolStripMenuItem.Click += new System.EventHandler(this.equaçãoGeralToolStripMenuItem_Click);
             // 
             // trigonométricaToolStripMenuItem
             // 
             this.trigonométricaToolStripMenuItem.Name = "trigonométricaToolStripMenuItem";
-            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.trigonométricaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.trigonométricaToolStripMenuItem.Text = "Trigonométrica";
             this.trigonométricaToolStripMenuItem.Click += new System.EventHandler(this.trigonométricaToolStripMenuItem_Click);
             // 
             // pontoMédioToolStripMenuItem1
             // 
             this.pontoMédioToolStripMenuItem1.Name = "pontoMédioToolStripMenuItem1";
-            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.pontoMédioToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.pontoMédioToolStripMenuItem1.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItem1.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemCirculo_Click);
             // 
@@ -720,6 +725,20 @@
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
+            // 
+            // moverPoligonoToolStripMenuItem
+            // 
+            this.moverPoligonoToolStripMenuItem.Name = "moverPoligonoToolStripMenuItem";
+            this.moverPoligonoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.moverPoligonoToolStripMenuItem.Text = "mover poligono";
+            this.moverPoligonoToolStripMenuItem.Click += new System.EventHandler(this.moverPoligonoToolStripMenuItem_Click);
+            // 
+            // pararDeMoverToolStripMenuItem
+            // 
+            this.pararDeMoverToolStripMenuItem.Name = "pararDeMoverToolStripMenuItem";
+            this.pararDeMoverToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.pararDeMoverToolStripMenuItem.Text = "parar de mover";
+            this.pararDeMoverToolStripMenuItem.Click += new System.EventHandler(this.pararDeMoverToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -826,5 +845,7 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripButtonLimpar;
         private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetPoligonosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moverPoligonoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pararDeMoverToolStripMenuItem;
     }
 }

@@ -72,9 +72,24 @@ namespace _2D
             DataColumn c = new DataColumn("Poligono", typeof(Poligono));
             c.AllowDBNull = false;
             dt.Columns.Add(c);
+           // dt.Columns["Poligono"].Unique = true;
+           // dt.PrimaryKey = new DataColumn[] { dt.Columns["Poligono"] };
+             
             c = new DataColumn("PosicaoInicial", typeof(Point));
             c.AllowDBNull = false;
             dt.Columns.Add(c);
+            ds.Tables["tbPoligonos"].Constraints.Add("PK_Poligonos", ds.Tables["tbPoligonos"].Columns["PosicaoInicial"], true);
+         
+            /* 
+            c = new DataColumn("Indice", typeof(Point));
+            c.AllowDBNull = false;
+            dt.Columns.Add(c);
+            ds.Tables["tbPoligonos"].Constraints.Add("PK_Poligonos", ds.Tables["tbPoligonos"].Columns["Indice"], true);
+
+            ds.Tables["tbPoligonos"].Columns["Indice"].AutoIncrement = true;
+            ds.Tables["tbPoligonos"].Columns["Indice"].AutoIncrementSeed = 1;
+            ds.Tables["tbPoligonos"].Columns["Indice"].AutoIncrementStep = 1;*/
+
             return ds;
         }
     }
