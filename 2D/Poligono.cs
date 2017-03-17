@@ -49,7 +49,7 @@ namespace _2D
         }
 
 
-        public Point getCentro()
+        public Point getCentroOriginal()
         {
             int x = 0;
             int y = 0;

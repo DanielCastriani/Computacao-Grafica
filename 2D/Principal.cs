@@ -189,73 +189,75 @@ namespace _2D
 
         private void btAplicar_Click(object sender, EventArgs e)
         {
-            Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
-
-            double tx = 0;
-            double ty = 0;
-            double angulo = 0;
-
-            double.TryParse(tbTranslacaoX.Text,out tx);
-            double.TryParse(tbTranslacaoY.Text, out ty);
-            double.TryParse(tbRotacao.Text, out angulo);
-
-            if (rbPonto.Checked)
+            Poligono p = getPoligonoSelecionado();
+            if (p != null)
             {
-                if(rbTranslacao.Checked)
-                    p.traslacao(tx, ty);
-                if(rbEscala.Checked)
-                    p.escala(tx, ty);
-                if(rbRotacao.Checked)
-                    p.rotacao(angulo);
-                if (rbCisalhamento.Checked)
-                    p.cisalhamento(tx, ty);
-            }
-            else
-            {
-                if (rbCentro.Checked)
+                double tx = 0;
+                double ty = 0;
+                double angulo = 0;
+
+                double.TryParse(tbTranslacaoX.Text, out tx);
+                double.TryParse(tbTranslacaoY.Text, out ty);
+                double.TryParse(tbRotacao.Text, out angulo);
+
+                if (rbPonto.Checked)
                 {
-                    Point pt = p.getCentro();
                     if (rbTranslacao.Checked)
-                    {
-                        p.traslacao(-pt.X,-pt.Y);
                         p.traslacao(tx, ty);
-                        p.traslacao(pt.X, pt.Y);
-                    }
                     if (rbEscala.Checked)
-                    {
-                        p.traslacao(-pt.X, -pt.Y);
                         p.escala(tx, ty);
-                        p.traslacao(pt.X, pt.Y);
-                    }
                     if (rbRotacao.Checked)
-                    {
-                        p.traslacao(-pt.X, -pt.Y);
                         p.rotacao(angulo);
-                        p.traslacao(pt.X, pt.Y);
-                    }
                     if (rbCisalhamento.Checked)
-                    {
-                        p.traslacao(-pt.X, -pt.Y);
                         p.cisalhamento(tx, ty);
-                        p.traslacao(pt.X, pt.Y);
-                    }
-
                 }
                 else
                 {
-                    p.origem();
-                    if (rbTranslacao.Checked)
-                        p.traslacao(tx, ty);
-                    if (rbEscala.Checked)
-                        p.escala(tx, ty);
-                    if (rbRotacao.Checked)
-                        p.rotacao(angulo);
-                    if (rbCisalhamento.Checked)
-                        p.cisalhamento(tx, ty);
-                }
+                    if (rbCentro.Checked)
+                    {
+                        Point pt = p.getCentroOriginal();
+                        if (rbTranslacao.Checked)
+                        {
+                            p.traslacao(-pt.X, -pt.Y);
+                            p.traslacao(tx, ty);
+                            p.traslacao(pt.X, pt.Y);
+                        }
+                        if (rbEscala.Checked)
+                        {
+                            p.traslacao(-pt.X, -pt.Y);
+                            p.escala(tx, ty);
+                            p.traslacao(pt.X, pt.Y);
+                        }
+                        if (rbRotacao.Checked)
+                        {
+                            p.traslacao(-pt.X, -pt.Y);
+                            p.rotacao(angulo);
+                            p.traslacao(pt.X, pt.Y);
+                        }
+                        if (rbCisalhamento.Checked)
+                        {
+                            p.traslacao(-pt.X, -pt.Y);
+                            p.cisalhamento(tx, ty);
+                            p.traslacao(pt.X, pt.Y);
+                        }
 
+                    }
+                    else
+                    {
+                        p.origem();
+                        if (rbTranslacao.Checked)
+                            p.traslacao(tx, ty);
+                        if (rbEscala.Checked)
+                            p.escala(tx, ty);
+                        if (rbRotacao.Checked)
+                            p.rotacao(angulo);
+                        if (rbCisalhamento.Checked)
+                            p.cisalhamento(tx, ty);
+                    }
+
+                }
+                desenhaPoligonos();
             }
-            desenhaPoligonos();
         }
         #region 
         private void retaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -287,12 +289,15 @@ namespace _2D
 
         private void espelho(bool vertical)
         {
-            Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
-            Point pt = p.getCentro();
-            p.traslacao(-pt.X, -pt.Y);
-            p.espelhamento(vertical);
-            p.traslacao(pt.X, pt.Y);
-            desenhaPoligonos();
+            Poligono p = getPoligonoSelecionado();
+            if (p != null)
+            {
+                Point pt = p.getCentroAtual();
+                p.traslacao(-pt.X, -pt.Y);
+                p.espelhamento(vertical);
+                p.traslacao(pt.X, pt.Y);
+                desenhaPoligonos();
+            }
         }
 
         private void toolStripButtonEspelhoVertical_Click(object sender, EventArgs e)
@@ -356,15 +361,27 @@ namespace _2D
             yi = e.Y;
         }
 
+        //  private Poligono get
+        private Poligono getPoligonoSelecionado()
+        {
+
+            if (dgvPoligonos.CurrentRow != null)
+                return poligonos[dgvPoligonos.CurrentRow.Index];
+            return null;
+        }
+
+
         private void btRemPoligono_Click(object sender, EventArgs e)
         {
-            Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
-            DataRow dr = dsPoligonos.Tables["tbPoligonos"].Rows.Find(p.getPosicaoInicial());
 
-            dsPoligonos.Tables["tbPoligonos"].Rows.Remove(dr);
-
-            poligonos.Remove(p);
-            desenhaPoligonos(); 
+            Poligono p = getPoligonoSelecionado();
+            if (p != null)
+            {
+                DataRow dr = dsPoligonos.Tables["tbPoligonos"].Rows.Find(p.getPosicaoInicial());
+                dsPoligonos.Tables["tbPoligonos"].Rows.Remove(dr);
+                poligonos.Remove(p);
+                desenhaPoligonos();
+            }
         }
 
        
@@ -429,7 +446,7 @@ namespace _2D
         {
             if (moverPoligono && dgvPoligonos.CurrentRow != null)
             {
-                Poligono p = poligonos[dgvPoligonos.CurrentRow.Index];
+                Poligono p = getPoligonoSelecionado();
 
                 Point pontos = p.getCentroAtual();
 
