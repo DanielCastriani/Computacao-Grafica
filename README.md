@@ -2,7 +2,7 @@
 
 [ ] Daniel Castriani Santos
 
-[X] Vitor Santos  
+[ ] Vitor Santos  
 
 # Task List #
 
