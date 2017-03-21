@@ -175,7 +175,6 @@ namespace _2D
                 Poligono p = poligonos[i];
                 p.desenha(imagemBmp);
                 Point centro = p.getCentroAtual();
-                Preenchimento.floodFill(centro.X, centro.Y, imagemBmp, p.getFundo());//trocar para scanline
             }
 
             pictureBox.Image = imagemBmp;
@@ -504,7 +503,6 @@ namespace _2D
                     Reta.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 8:
-                    
                     Preenchimento.floodFill(xf, yf, bmp, cor);
                     break;
             }
