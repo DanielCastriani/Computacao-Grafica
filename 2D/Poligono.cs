@@ -9,8 +9,8 @@ namespace _2D
     {
         private List<Point> pOriginal;
         private List<Point> pAtual;
-        private Color preenchimento;
         private double[,] matAc;
+        private Color borda, fundo;
 
         private void initMatAc()
         {
@@ -19,20 +19,35 @@ namespace _2D
                 matAc[i, i] = 1;
         }
 
-        public Poligono()
+        public Poligono(Color borda)
         {
             pOriginal = new List<Point>();
             pAtual = new List<Point>();
             initMatAc();
+            this.borda = borda;
+            fundo = Color.White;
         }
 
-        public Poligono(List<Point> p)
+        public Poligono(List<Point> p, Color borda)
         {
             pOriginal = p;
             pAtual = new List<Point>(p);
             initMatAc();
+            this.borda = borda;
+            fundo = Color.White;
         }
-
+        public Color getFundo()
+        {
+            return fundo;
+        }
+        public void setFundo(Color c)
+        {
+            fundo = c;
+        }
+        public Color getBorda()
+        {
+            return borda;
+        }
         public void reset()
         {
             initMatAc();
@@ -92,13 +107,13 @@ namespace _2D
             pAtual.Add(p);
         }
 
-        public void desenha(Bitmap img, Color c)
+        public void desenha(Bitmap img)
         {
             if (pAtual.Count > 1)
             {
                 for (int i = 0; i < pAtual.Count - 1; i++)
-                    Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y, img, c);
-                Reta.pontoMedio(pAtual[pAtual.Count - 1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, c);
+                    Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y, img, borda);
+                Reta.pontoMedio(pAtual[pAtual.Count - 1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, borda);
             }
         }
         
@@ -200,27 +215,6 @@ namespace _2D
             matAc = multiplicar(C, matAc);
             novosPontos();
         }
-        public unsafe void floodFill(int x, int y, Bitmap img, Color c)
-        {
-            preenchimento = c;
-            int H = img.Height;
-            int W = img.Width;
-            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bmpData.Stride - (W * 3);
-            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
-           
-            Stack<Point> pts = new Stack<Point>();
-            pts.Push(pAtual[0]);
-
-            while (pts.Count > 0)
-            {
-
-
-               
-
-            }
-            img.UnlockBits(bmpData);
-        }
+        
     }
 }

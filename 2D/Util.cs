@@ -48,6 +48,19 @@ namespace _2D
             *(ptr++) = c.R;
         }
 
+        public unsafe static Color getPixel(byte* pIni, int TX, int TY, int W, int padding)
+        {
+            if (TX < 0 || TY < 0 || TX >= Principal.getWTela() || TY >= Principal.getHTela())
+                return Color.White;
+
+            byte* ptr = pIni;
+            ptr += (W * 3 + padding) * TY + (TX * 3);
+            int b = *(ptr++);
+            int g = *(ptr++);
+            int r = *(ptr++);
+            return Color.FromArgb(r,g,b);
+        }
+
         public unsafe static BitmapData LockBits(Bitmap image)
         {
             BitmapData bmpData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);

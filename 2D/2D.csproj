@@ -61,6 +61,7 @@
       <DependentUpon>FRMPoligonos.cs</DependentUpon>
     </Compile>
     <Compile Include="Poligono.cs" />
+    <Compile Include="Preenchimento.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>

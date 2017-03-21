@@ -11,13 +11,13 @@ namespace _2D
         private static int W, H;
 
         private int xi, yi, xf, yf;
-        private int opicao;
+        private int opcao;
         private int contMouseDown;
         private int[] coord;
         private bool mouseDown;
         private bool isDesenhaPoligonoMouse;
         private bool moverPoligono;
-        private Color cor;
+        private Color cor,fundo;
         private Bitmap imagemBmp;
         private DataSet dsPoligonos;
         private List<Poligono> poligonos;
@@ -46,7 +46,7 @@ namespace _2D
             pictureBox.Image = imagemBmp = new Bitmap(W,H);
             Util.preencher((Bitmap)pictureBox.Image, Color.White);
             xi = yi = xf = yf = 0;
-            opicao = -1;
+            opcao = -1;
             tsLBpos.Text = "";
             mouseDown = false;
             moverPoligono = false;
@@ -59,23 +59,24 @@ namespace _2D
             dgvPoligonos.DataSource = dsPoligonos;
             dgvPoligonos.DataMember = "tbPoligonos";
           
-            rbPonto.Checked = true;
+            rbOrigem.Checked = true;
             rbTranslacao.Checked = true;
+            fundo = Color.White;
             //---------------------------
-            Poligono p = new Poligono();
+            Poligono p = new Poligono(cor);
             p.add(new Point(490, 50));
             p.add(new Point(490, 280));
             p.add(new Point(700, 280));
             novoPoligono(p);
 
-            p = new Poligono();
+            p = new Poligono(cor);
             p.add(new Point(170, 320));
             p.add(new Point(420, 320));
             p.add(new Point(420, 440));
             p.add(new Point(170, 440));
             novoPoligono(p);
             
-            p = new Poligono();
+            p = new Poligono(cor);
             p.add(new Point(240, 40));
             p.add(new Point(95, 130));
             p.add(new Point(150, 280));
@@ -98,63 +99,63 @@ namespace _2D
         private void equaçãoDaRetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Equação Geral da Reta";
-            opicao = 1;
+            opcao = 1;
             pictureBox.Cursor = Cursors.Hand;
         }
 
         private void dDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "DDA";
-            opicao = 2;
+            opcao = 2;
             pictureBox.Cursor = Cursors.Hand;
         }
 
         private void pontoMédioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Ponto Medio(Reta)";
-            opicao = 3;
+            opcao = 3;
             pictureBox.Cursor = Cursors.Hand;
         }
         //--Circulo
         private void equaçãoGeralToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Equação Geral do Circulo";
-            opicao = 4;
+            opcao = 4;
             pictureBox.Cursor = Cursors.Cross;
         }
 
         private void trigonométricaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Text = "Trigonométrica";
-            opicao = 5;
+            opcao = 5;
             pictureBox.Cursor = Cursors.Cross;
         }
 
         private void pontoMédioToolStripMenuItemCirculo_Click(object sender, EventArgs e)
         {
             Text = "Ponto Médio(Circulo)";
-            opicao = 6;
+            opcao = 6;
             pictureBox.Cursor = Cursors.Cross;
         }
         //--Elipse
         private void pontoMédioToolStripMenuItemElipse_Click(object sender, EventArgs e)
         {
             Text = "Ponto Médio(Elipse)";
-            opicao = 7;
+            opcao = 7;
             pictureBox.Cursor = Cursors.Cross;
         }
         
         private void toolStripButtonLimpar_Click(object sender, EventArgs e)
         {
             pictureBox.Image = imagemBmp = new Bitmap(W, H);
-            Util.preencher((Bitmap)pictureBox.Image, Color.White);
+            Util.preencher((Bitmap)pictureBox.Image, fundo);
         }
 
         private void novoPoligono(Poligono p)
         {
             if (p.getPontos().Count > 2)
            {
-                p.desenha(imagemBmp, cor);
+                p.desenha(imagemBmp);
                 poligonos.Add(p);
                 pictureBox.Image = imagemBmp;
                 DataRow dr = dsPoligonos.Tables["tbPoligonos"].NewRow();
@@ -167,10 +168,15 @@ namespace _2D
         private void desenhaPoligonos()
         {
             pictureBox.Image = imagemBmp = new Bitmap(W, H);
-            Util.preencher((Bitmap)pictureBox.Image, Color.White);
-            
+            Util.preencher((Bitmap)pictureBox.Image, fundo);
+
             for (int i = 0; i < poligonos.Count; i++)
-                poligonos[i].desenha(imagemBmp,cor);
+            {
+                Poligono p = poligonos[i];
+                p.desenha(imagemBmp);
+                Point centro = p.getCentroAtual();
+                Preenchimento.floodFill(centro.X, centro.Y, imagemBmp, p.getFundo());//trocar para scanline
+            }
 
             pictureBox.Image = imagemBmp;
         }
@@ -181,7 +187,7 @@ namespace _2D
             frm.ShowDialog();
             if (frm.getDesenha() && frm.getPontos().Count > 3)
             {
-                Poligono p = new Poligono(frm.getPontos());                
+                Poligono p = new Poligono(frm.getPontos(),cor);                
                 novoPoligono(p);
             }
             frm.Dispose();
@@ -200,7 +206,7 @@ namespace _2D
                 double.TryParse(tbTranslacaoY.Text, out ty);
                 double.TryParse(tbRotacao.Text, out angulo);
 
-                if (rbPonto.Checked)
+                if (rbOrigem.Checked)
                 {
                     if (rbTranslacao.Checked)
                         p.traslacao(tx, ty);
@@ -210,56 +216,36 @@ namespace _2D
                         p.rotacao(angulo);
                     if (rbCisalhamento.Checked)
                         p.cisalhamento(tx, ty);
+                    if (rbHorizontal.Checked)
+                        p.espelhamento(false);
+                    if (rbVertical.Checked)
+                        p.espelhamento(true);
                 }
                 else
                 {
                     if (rbCentro.Checked)
                     {
                         Point pt = p.getCentroOriginal();
-                        if (rbTranslacao.Checked)
-                        {
-                            p.traslacao(-pt.X, -pt.Y);
-                            p.traslacao(tx, ty);
-                            p.traslacao(pt.X, pt.Y);
-                        }
-                        if (rbEscala.Checked)
-                        {
-                            p.traslacao(-pt.X, -pt.Y);
-                            p.escala(tx, ty);
-                            p.traslacao(pt.X, pt.Y);
-                        }
-                        if (rbRotacao.Checked)
-                        {
-                            p.traslacao(-pt.X, -pt.Y);
-                            p.rotacao(angulo);
-                            p.traslacao(pt.X, pt.Y);
-                        }
-                        if (rbCisalhamento.Checked)
-                        {
-                            p.traslacao(-pt.X, -pt.Y);
-                            p.cisalhamento(tx, ty);
-                            p.traslacao(pt.X, pt.Y);
-                        }
-
-                    }
-                    else
-                    {
-                        p.origem();
+                        p.traslacao(-pt.X, -pt.Y);
                         if (rbTranslacao.Checked)
                             p.traslacao(tx, ty);
                         if (rbEscala.Checked)
-                            p.escala(tx, ty);
+                            p.escala(tx, ty);                        
                         if (rbRotacao.Checked)
-                            p.rotacao(angulo);
+                            p.rotacao(angulo);                        
                         if (rbCisalhamento.Checked)
                             p.cisalhamento(tx, ty);
+                        if (rbHorizontal.Checked)
+                            p.espelhamento(false);
+                        if (rbVertical.Checked)
+                            p.espelhamento(true);
+                        p.traslacao(pt.X, pt.Y);
                     }
 
                 }
                 desenhaPoligonos();
             }
         }
-        #region 
         private void retaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FRMCordenadas frm = new FRMCordenadas();
@@ -272,7 +258,6 @@ namespace _2D
             }
             frm.Dispose();
         }
-        #endregion
         private void poligonoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btAddPoligono_Click(null,null);
@@ -281,10 +266,10 @@ namespace _2D
         private void poligono2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pictureBox.Cursor = Cursors.Cross;
-            poligono = new Poligono();
+            poligono = new Poligono(cor);
             isDesenhaPoligonoMouse = true;
             contMouseDown = 0;
-            opicao = 7;
+            opcao = 7;
         }
 
         private void espelho(bool vertical)
@@ -333,20 +318,20 @@ namespace _2D
             foreach (Poligono pol in poligonos)
             {
                 pol.reset();
-                pol.desenha(imagemBmp, cor);
+                pol.desenha(imagemBmp);
             }
             pictureBox.Image = imagemBmp;
         }
         
         private void KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '.' && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ',' && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
 
-            if (e.KeyChar == '.' && (((TextBox)sender).Text.Trim('-').Contains(".") || ((TextBox)sender).Text.Trim('-').Length == 0))
+            if (e.KeyChar == ',' && ((TextBox)sender).Text.Contains(","))
                 e.Handled = true;
 
-            if (e.KeyChar == '-' && ((TextBox)sender).Text.Length > 0)
+            if (e.KeyChar == '-' && ((TextBox)sender).Text.Contains("-"))
                 e.Handled = true;
 
         }
@@ -409,7 +394,7 @@ namespace _2D
                 else
                 {
                     isDesenhaPoligonoMouse = false;
-                    opicao = -1;
+                    opcao = -1;
                     pictureBox.Cursor = Cursors.Arrow;
                     novoPoligono(poligono);
                 }
@@ -424,6 +409,12 @@ namespace _2D
         private void pararDeMoverToolStripMenuItem_Click(object sender, EventArgs e)
         {
             moverPoligono = false;
+        }
+
+        private void floodFillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox.Cursor = Cursors.Hand;
+            opcao = 8;
         }
 
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -445,6 +436,8 @@ namespace _2D
                     if (contMouseDown > 1)
                     desenha(imagemBmp, xf, yf);
             }
+            else
+                desenha(imagemBmp, xf, yf);
         }
 
         private void moverPoligonoClick(MouseEventArgs e)
@@ -487,7 +480,7 @@ namespace _2D
             if (xi < 0 || yi < 0 || xf < 0 || yf < 0 || xi > bmp.Width || xf > bmp.Width || yi > bmp.Height || yf > bmp.Height)
                 return;
 
-            switch (opicao)
+            switch (opcao)
             {
                 case 1:
                     Reta.equacaoGeral(xi, yi, xf, yf, bmp, cor);
@@ -511,6 +504,8 @@ namespace _2D
                     Reta.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 8:
+                    
+                    Preenchimento.floodFill(xf, yf, bmp, cor);
                     break;
             }
 
