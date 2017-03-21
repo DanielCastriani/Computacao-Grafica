@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace _2D
 {
@@ -8,7 +9,7 @@ namespace _2D
     {
         private List<Point> pOriginal;
         private List<Point> pAtual;
-
+        private Color preenchimento;
         private double[,] matAc;
 
         private void initMatAc()
@@ -199,12 +200,27 @@ namespace _2D
             matAc = multiplicar(C, matAc);
             novosPontos();
         }
+        public unsafe void floodFill(int x, int y, Bitmap img, Color c)
+        {
+            preenchimento = c;
+            int H = img.Height;
+            int W = img.Width;
+            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-        /* 
-         * centro : media dos pontos atuais
-         * transformação -cx -cy
-         * transformação x y
-         * transformação cx cy         
-         */
+            int padding = bmpData.Stride - (W * 3);
+            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+           
+            Stack<Point> pts = new Stack<Point>();
+            pts.Push(pAtual[0]);
+
+            while (pts.Count > 0)
+            {
+
+
+               
+
+            }
+            img.UnlockBits(bmpData);
+        }
     }
 }
