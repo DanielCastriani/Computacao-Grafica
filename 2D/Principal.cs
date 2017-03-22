@@ -22,7 +22,6 @@ namespace _2D
         private DataSet dsPoligonos;
         private List<Poligono> poligonos;
         private Poligono poligono;
-        private int k1 = 0 , k2= 0;
         public Principal()
         {
             InitializeComponent();
@@ -416,6 +415,12 @@ namespace _2D
             opcao = 8;
         }
 
+        private void scanlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox.Cursor = Cursors.Hand;
+            opcao = 9;
+        }
+
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             poligonoClick(e);
@@ -504,6 +509,9 @@ namespace _2D
                     break;
                 case 8:
                     Preenchimento.floodFill(xf, yf, bmp, cor);
+                    break;
+                case 9:
+                    Preenchimento.scanLine(xf, yf, bmp, cor, poligonos[dgvPoligonos.CurrentRow.Index]);
                     break;
             }
 

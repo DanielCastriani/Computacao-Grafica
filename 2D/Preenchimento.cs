@@ -39,5 +39,52 @@ namespace _2D
             }
             img.UnlockBits(bmpData);
         }
+        public static unsafe void scanLine(int xclick, int yclick, Bitmap img, Color c, Poligono poligono)
+        {
+            int H = img.Height;
+            int W = img.Width;
+            BitmapData bmpData = img.LockBits(new Rectangle(0, 0, W, H), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+            int padding = bmpData.Stride - (W * 3);
+            byte* ptrIni = (byte*)bmpData.Scan0.ToPointer();
+
+            List<List<Aresta>> ET = new List<List<Aresta>>();
+            List<Aresta> AET = new List<Aresta>();
+
+            for (int i = 0; i < Principal.getHTela(); i++)
+                ET.Add(new List<Aresta>());
+            
+            List<Point> polPoint = poligono.getPontos();
+            for (int i = 0; i < polPoint.Count; i++)
+            {
+                Aresta aresta = new Aresta(polPoint[i % polPoint.Count], polPoint[(i + 1) % polPoint.Count]);
+                ET[aresta.getYmin()].Add(aresta);
+            }
+
+            int y = 0;
+
+            while (y < Principal.getHTela())
+            {
+                for (int i = 0; i < ET[y].Count; i++)
+                {
+                    AET.Add(ET[y][i]);
+                    ET[y].Remove(ET[y][i--]);
+                }
+                AET.Sort();
+
+                for(int i = 0; i < AET.Count;i++)
+                    if (AET[i].getYmax() == y)
+                        AET.Remove(AET[i--]);
+                
+                for(int i = 0; i < AET.Count;i+=2)
+                {
+                    for (int x = (int)AET[i].getXmin(); x < AET[i + 1].getXmin(); x++)
+                    {
+                        Util.setPixel(ptrIni,x,y,W,padding,c);
+                    }
+                }
+                y++;
+            }
+            img.UnlockBits(bmpData);
+        }
     }
 }

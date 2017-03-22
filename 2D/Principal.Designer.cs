@@ -61,6 +61,8 @@
             this.rbCentro = new System.Windows.Forms.RadioButton();
             this.rbOrigem = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbHorizontal = new System.Windows.Forms.RadioButton();
+            this.rbVertical = new System.Windows.Forms.RadioButton();
             this.rbCisalhamento = new System.Windows.Forms.RadioButton();
             this.rbEscala = new System.Windows.Forms.RadioButton();
             this.rbRotacao = new System.Windows.Forms.RadioButton();
@@ -86,12 +88,10 @@
             this.toolStripDesenhaPoligono = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEspelhoVertical = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEspelhoHorizontal = new System.Windows.Forms.ToolStripButton();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.rbVertical = new System.Windows.Forms.RadioButton();
-            this.rbHorizontal = new System.Windows.Forms.RadioButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.floodFillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scanlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -473,6 +473,30 @@
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             // 
+            // rbHorizontal
+            // 
+            this.rbHorizontal.AutoSize = true;
+            this.rbHorizontal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbHorizontal.Location = new System.Drawing.Point(356, 20);
+            this.rbHorizontal.Name = "rbHorizontal";
+            this.rbHorizontal.Size = new System.Drawing.Size(72, 17);
+            this.rbHorizontal.TabIndex = 6;
+            this.rbHorizontal.TabStop = true;
+            this.rbHorizontal.Text = "Horizontal";
+            this.rbHorizontal.UseVisualStyleBackColor = true;
+            // 
+            // rbVertical
+            // 
+            this.rbVertical.AutoSize = true;
+            this.rbVertical.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbVertical.Location = new System.Drawing.Point(290, 20);
+            this.rbVertical.Name = "rbVertical";
+            this.rbVertical.Size = new System.Drawing.Size(60, 17);
+            this.rbVertical.TabIndex = 5;
+            this.rbVertical.TabStop = true;
+            this.rbVertical.Text = "Vertical";
+            this.rbVertical.UseVisualStyleBackColor = true;
+            // 
             // rbCisalhamento
             // 
             this.rbCisalhamento.AutoSize = true;
@@ -694,7 +718,7 @@
             // pontoMédioToolStripMenuItemElipse
             // 
             this.pontoMédioToolStripMenuItemElipse.Name = "pontoMédioToolStripMenuItemElipse";
-            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(152, 22);
+            this.pontoMédioToolStripMenuItemElipse.Size = new System.Drawing.Size(143, 22);
             this.pontoMédioToolStripMenuItemElipse.Text = "Ponto Médio";
             this.pontoMédioToolStripMenuItemElipse.Click += new System.EventHandler(this.pontoMédioToolStripMenuItemElipse_Click);
             // 
@@ -731,34 +755,6 @@
             this.toolStripButtonEspelhoHorizontal.Text = "Espelho Horizontal";
             this.toolStripButtonEspelhoHorizontal.Click += new System.EventHandler(this.toolStripButtonEspelhoHorizontal_Click);
             // 
-            // colorDialog
-            // 
-            this.colorDialog.FullOpen = true;
-            // 
-            // rbVertical
-            // 
-            this.rbVertical.AutoSize = true;
-            this.rbVertical.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbVertical.Location = new System.Drawing.Point(290, 20);
-            this.rbVertical.Name = "rbVertical";
-            this.rbVertical.Size = new System.Drawing.Size(60, 17);
-            this.rbVertical.TabIndex = 5;
-            this.rbVertical.TabStop = true;
-            this.rbVertical.Text = "Vertical";
-            this.rbVertical.UseVisualStyleBackColor = true;
-            // 
-            // rbHorizontal
-            // 
-            this.rbHorizontal.AutoSize = true;
-            this.rbHorizontal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbHorizontal.Location = new System.Drawing.Point(356, 20);
-            this.rbHorizontal.Name = "rbHorizontal";
-            this.rbHorizontal.Size = new System.Drawing.Size(72, 17);
-            this.rbHorizontal.TabIndex = 6;
-            this.rbHorizontal.TabStop = true;
-            this.rbHorizontal.Text = "Horizontal";
-            this.rbHorizontal.UseVisualStyleBackColor = true;
-            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -783,6 +779,11 @@
             this.scanlineToolStripMenuItem.Name = "scanlineToolStripMenuItem";
             this.scanlineToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.scanlineToolStripMenuItem.Text = "Scanline";
+            this.scanlineToolStripMenuItem.Click += new System.EventHandler(this.scanlineToolStripMenuItem_Click);
+            // 
+            // colorDialog
+            // 
+            this.colorDialog.FullOpen = true;
             // 
             // Principal
             // 
