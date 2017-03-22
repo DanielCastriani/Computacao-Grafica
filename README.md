@@ -60,6 +60,11 @@
 
 [ ] Scanline
 
+## Imagem ##
+[X] HSI
+[X] CMY
+[X] RGB
+
 # Notas #
 ### centro ###
 media dos pontos atuais
