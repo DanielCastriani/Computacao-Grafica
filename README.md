@@ -6,6 +6,8 @@
 
 # Task List #
 
+## Primitivas ##
+
 ###Reta###
 [X] Equação Geral
 
@@ -28,7 +30,9 @@
 
 [X] Criar Polígono utilizando mouse
 
-###Ponto###
+## Transformações 2D ##
+
+###Origem###
 [X] Rotação
 
 [X] Translação
@@ -36,6 +40,8 @@
 [X] Escala
 
 [X] Cisalhamento
+
+[X] Espelhamento
 
 ###Centro###
 [X] Rotação
@@ -48,23 +54,11 @@
 
 [X] Cisalhamento
 
-###Origem###
-[ ] Rotação
-
-[ ] Translação
-
-[ ] Escala
-
-[ ] Cisalhamento
-
-
 #### Preenchimento ####
 
 [ ] Flood Fill
 
 [ ] Scanline
-
-### [ ] View Port ###
 
 # Notas #
 ### centro ###
