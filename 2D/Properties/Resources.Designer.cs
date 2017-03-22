@@ -63,6 +63,16 @@ namespace _2D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Balde_de_tinta_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Balde de tinta 32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Circulo {
             get {
                 object obj = ResourceManager.GetObject("Circulo", resourceCulture);
