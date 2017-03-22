@@ -64,6 +64,7 @@
 
 [ ] Scanline
 
+### [ ] View Port ###
 
 # Notas #
 ### centro ###
@@ -74,3 +75,9 @@ transformação -cx -cy
 transformação x y
 
 transformação cx cy
+
+### View Port ###
+
+(janela de visão) / (mundo real)
+não aplica na matriz acumulada
+ponto atual -> matriz view port -> nova janela
