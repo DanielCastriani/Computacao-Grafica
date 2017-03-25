@@ -22,21 +22,13 @@ namespace _2D
         private DataSet dsPoligonos;
         private List<Poligono> poligonos;
         private Poligono poligono;
+
+        #region Principal
         public Principal()
         {
             InitializeComponent();
         }
-
-        public static int getWTela()
-        {
-            return W;
-        }
-
-        public static int getHTela()
-        {
-            return H;
-        }
-        
+                
         private void Principal_Load(object sender, EventArgs e)
         {
             cor = Color.Black;
@@ -85,8 +77,30 @@ namespace _2D
 
         }
 
-        //-------------------------Botões---------------------------------------
-        
+        public static int getWTela()
+        {
+            return W;
+        }
+
+        public static int getHTela()
+        {
+            return H;
+        }
+
+        private void KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ',' && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+
+            if (e.KeyChar == ',' && ((TextBox)sender).Text.Contains(","))
+                e.Handled = true;
+
+            if (e.KeyChar == '-' && ((TextBox)sender).Text.Contains("-"))
+                e.Handled = true;
+
+        }
+        #endregion
+        #region ToolStripButton
         private void toolStripButtonCor_Click(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -94,6 +108,25 @@ namespace _2D
                 cor = colorDialog.Color;
             }
         }
+
+        private void limparToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox.Image = imagemBmp = new Bitmap(W, H);
+            Util.preencher((Bitmap)pictureBox.Image, Color.White);
+        }
+
+        private void resetPoligonosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            imagemBmp = new Bitmap(W, H);
+            Util.preencher(imagemBmp, Color.White);
+            foreach (Poligono pol in poligonos)
+            {
+                pol.reset();
+                pol.desenha(imagemBmp);
+            }
+            pictureBox.Image = imagemBmp;
+        }
+
         //--Reta
         private void equaçãoDaRetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -143,54 +176,82 @@ namespace _2D
             opcao = 7;
             pictureBox.Cursor = Cursors.Cross;
         }
-        
-        private void toolStripButtonLimpar_Click(object sender, EventArgs e)
+
+        private void toolStripDesenhaPoligono_Click(object sender, EventArgs e)
         {
-            pictureBox.Image = imagemBmp = new Bitmap(W, H);
-            Util.preencher((Bitmap)pictureBox.Image, fundo);
+            poligono2ToolStripMenuItem_Click(null, null);
         }
 
-        private void novoPoligono(Poligono p)
+        private void toolStripButtonEspelhoVertical_Click(object sender, EventArgs e)
         {
-            if (p.getPontos().Count > 2)
-           {
-                p.desenha(imagemBmp);
-                poligonos.Add(p);
-                pictureBox.Image = imagemBmp;
-                DataRow dr = dsPoligonos.Tables["tbPoligonos"].NewRow();
-                dr["Poligono"] = p;
-                dr["PosicaoInicial"] = p.getPosicaoInicial();
-                dsPoligonos.Tables["tbPoligonos"].Rows.Add(dr);
-           }
+            espelho(true);
         }
 
-        private void desenhaPoligonos()
+        private void toolStripButtonEspelhoHorizontal_Click(object sender, EventArgs e)
         {
-            pictureBox.Image = imagemBmp = new Bitmap(W, H);
-            Util.preencher((Bitmap)pictureBox.Image, fundo);
+            espelho(false);
+        }
 
-            for (int i = 0; i < poligonos.Count; i++)
+        private void floodFillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox.Cursor = Cursors.Hand;
+            opcao = 8;
+        }
+
+        private void scanlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox.Cursor = Cursors.Hand;
+            opcao = 9;
+        }
+
+        private void espelho(bool vertical)
+        {
+            Poligono p = getPoligonoSelecionado();
+            if (p != null)
             {
-                Poligono p = poligonos[i];
-                p.desenha(imagemBmp);
-                Point centro = p.getCentroAtual();
+                Point pt = p.getCentroAtual();
+                p.traslacao(-pt.X, -pt.Y);
+                p.espelhamento(vertical);
+                p.traslacao(pt.X, pt.Y);
+                desenhaPoligonos();
             }
-
-            pictureBox.Image = imagemBmp;
         }
-        
-        private void btAddPoligono_Click(object sender, EventArgs e)
+        #endregion
+        #region StripMenu
+        private void retaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRMPoligonos frm = new FRMPoligonos();
+            FRMCordenadas frm = new FRMCordenadas();
             frm.ShowDialog();
-            if (frm.getDesenha() && frm.getPontos().Count > 3)
+            if (frm.getOk())
             {
-                Poligono p = new Poligono(frm.getPontos(),cor);                
-                novoPoligono(p);
+                xi = frm.getX1();
+                yi = frm.getY1();
+                desenha(imagemBmp, frm.getX2(), frm.getY2());
             }
             frm.Dispose();
         }
-
+        private void poligonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btAddPoligono_Click(null, null);
+        }
+        private void poligono2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox.Cursor = Cursors.Cross;
+            poligono = new Poligono(cor);
+            isDesenhaPoligonoMouse = true;
+            contMouseDown = 0;
+            opcao = 7;
+        }
+        private void moverPoligonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            moverPoligono = true;
+        }
+        private void pararDeMoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            moverPoligono = false;
+        }
+        #endregion
+        #region Buttons
         private void btAplicar_Click(object sender, EventArgs e)
         {
             Poligono p = getPoligonoSelecionado();
@@ -228,9 +289,9 @@ namespace _2D
                         if (rbTranslacao.Checked)
                             p.traslacao(tx, ty);
                         if (rbEscala.Checked)
-                            p.escala(tx, ty);                        
+                            p.escala(tx, ty);
                         if (rbRotacao.Checked)
-                            p.rotacao(angulo);                        
+                            p.rotacao(angulo);
                         if (rbCisalhamento.Checked)
                             p.cisalhamento(tx, ty);
                         if (rbHorizontal.Checked)
@@ -244,118 +305,17 @@ namespace _2D
                 desenhaPoligonos();
             }
         }
-        private void retaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btAddPoligono_Click(object sender, EventArgs e)
         {
-            FRMCordenadas frm = new FRMCordenadas();
+            FRMPoligonos frm = new FRMPoligonos();
             frm.ShowDialog();
-            if (frm.getOk())
+            if (frm.getDesenha() && frm.getPontos().Count > 3)
             {
-                xi = frm.getX1();
-                yi = frm.getY1();
-                desenha(imagemBmp, frm.getX2(), frm.getY2());
+                Poligono p = new Poligono(frm.getPontos(), cor);
+                novoPoligono(p);
             }
             frm.Dispose();
         }
-        private void poligonoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btAddPoligono_Click(null,null);
-        }
-
-        private void poligono2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pictureBox.Cursor = Cursors.Cross;
-            poligono = new Poligono(cor);
-            isDesenhaPoligonoMouse = true;
-            contMouseDown = 0;
-            opcao = 7;
-        }
-
-        private void espelho(bool vertical)
-        {
-            Poligono p = getPoligonoSelecionado();
-            if (p != null)
-            {
-                Point pt = p.getCentroAtual();
-                p.traslacao(-pt.X, -pt.Y);
-                p.espelhamento(vertical);
-                p.traslacao(pt.X, pt.Y);
-                desenhaPoligonos();
-            }
-        }
-
-        private void toolStripButtonEspelhoVertical_Click(object sender, EventArgs e)
-        {
-            espelho(true);   
-        }
-
-        private void toolStripButtonEspelhoHorizontal_Click(object sender, EventArgs e)
-        {
-            espelho(false);
-        }
-
-        private void toolStripDesenhaPoligono_Click(object sender, EventArgs e)
-        {
-            poligono2ToolStripMenuItem_Click(null,null);
-        }
-
-        private void limparToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStripButtonLimpar_ButtonClick(null, null);
-        }
-
-        private void toolStripButtonLimpar_ButtonClick(object sender, EventArgs e)
-        {
-            pictureBox.Image = imagemBmp = new Bitmap(W, H);
-            Util.preencher((Bitmap)pictureBox.Image, Color.White);
-        }
-
-        private void resetPoligonosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            imagemBmp = new Bitmap(W, H);
-            Util.preencher(imagemBmp, Color.White);
-            foreach (Poligono pol in poligonos)
-            {
-                pol.reset();
-                pol.desenha(imagemBmp);
-            }
-            pictureBox.Image = imagemBmp;
-        }
-        
-        private void KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ',' && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
-
-            if (e.KeyChar == ',' && ((TextBox)sender).Text.Contains(","))
-                e.Handled = true;
-
-            if (e.KeyChar == '-' && ((TextBox)sender).Text.Contains("-"))
-                e.Handled = true;
-
-        }
-
-        //------------------------------------------------------------------
-
-        
-        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            xi = e.X;
-            yi = e.Y;
-            moverPoligonoClick(e);
-
-        }
-
-        //  private Poligono get
-        private Poligono getPoligonoSelecionado()
-        {
-
-            if (dgvPoligonos.CurrentRow != null)
-                return poligonos[dgvPoligonos.CurrentRow.Index];
-            return null;
-        }
-
-
         private void btRemPoligono_Click(object sender, EventArgs e)
         {
 
@@ -368,8 +328,111 @@ namespace _2D
                 desenhaPoligonos();
             }
         }
+        #endregion
+        #region Picturebox
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            poligonoClick(e);
+        }
 
-       
+        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            xi = e.X;
+            yi = e.Y;
+            moverPoligonoClick(e);
+
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+            xf = e.X; yf = e.Y;
+
+            if (!moverPoligono && isDesenhaPoligonoMouse)
+            {
+                if (!isDesenhaPoligonoMouse)
+                    desenha(imagemBmp, xf, yf);
+                else
+                    if (contMouseDown > 1)
+                    desenha(imagemBmp, xf, yf);
+            }
+            else
+                desenha(imagemBmp, xf, yf);
+        }
+
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                moverPoligonoClick(e);
+            }
+            tsLBpos.Text = "[" + e.X + "," + e.Y + "]";
+        }
+
+        private void dgvPoligonos_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvPoligonos_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (poligonos.Count > e.RowIndex)
+            {
+                DataSet dsPts = Util.criaTablePontos();
+                dgvPontos.DataSource = dsPts;
+                dgvPontos.DataMember = "tbPontos";
+                Poligono p = poligonos[e.RowIndex];
+                if (p != null)
+                {
+                    List<Point> pts = p.getPontos();
+                    foreach (Point pt in pts)
+                    {
+                        DataRow dr = dsPts.Tables["tbPontos"].NewRow();
+                        dr["Ponto"] = new Point(pt.X, pt.Y);
+                        dsPts.Tables["tbPontos"].Rows.Add(dr);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        private void novoPoligono(Poligono p)
+        {
+            if (p.getPontos().Count > 2)
+           {
+                p.desenha(imagemBmp);
+                poligonos.Add(p);
+                pictureBox.Image = imagemBmp;
+                DataRow dr = dsPoligonos.Tables["tbPoligonos"].NewRow();
+                dr["Poligono"] = p;
+                dr["PosicaoInicial"] = p.getPosicaoInicial();
+                dsPoligonos.Tables["tbPoligonos"].Rows.Add(dr);
+           }
+        }
+
+        private void desenhaPoligonos()
+        {
+            pictureBox.Image = imagemBmp = new Bitmap(W, H);
+            Util.preencher((Bitmap)pictureBox.Image, fundo);
+
+            for (int i = 0; i < poligonos.Count; i++)
+            {
+                Poligono p = poligonos[i];
+                p.desenha(imagemBmp);
+                Point centro = p.getCentroAtual();
+            }
+
+            pictureBox.Image = imagemBmp;
+        }
+
+        private Poligono getPoligonoSelecionado()
+        {
+            if (dgvPoligonos.CurrentRow != null)
+                return poligonos[dgvPoligonos.CurrentRow.Index];
+            return null;
+        }
+                  
         private void desenhoClick()
         {
             contMouseDown++;
@@ -397,52 +460,7 @@ namespace _2D
                     novoPoligono(poligono);
                 }
             }
-        }
-
-        private void moverPoligonoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            moverPoligono = true;
-        }
-
-        private void pararDeMoverToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            moverPoligono = false;
-        }
-
-        private void floodFillToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pictureBox.Cursor = Cursors.Hand;
-            opcao = 8;
-        }
-
-        private void scanlineToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pictureBox.Cursor = Cursors.Hand;
-            opcao = 9;
-        }
-
-        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
-        {
-            poligonoClick(e);
-          //  moverPoligonoClick(e);
-        }
-
-        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-            xf = e.X; yf = e.Y;
-
-            if (!moverPoligono && isDesenhaPoligonoMouse)
-            {
-                if (!isDesenhaPoligonoMouse)
-                    desenha(imagemBmp, xf, yf);
-                else
-                    if (contMouseDown > 1)
-                    desenha(imagemBmp, xf, yf);
-            }
-            else
-                desenha(imagemBmp, xf, yf);
-        }
+        }       
 
         private void moverPoligonoClick(MouseEventArgs e)
         {
@@ -459,23 +477,7 @@ namespace _2D
                 desenhaPoligonos();
             }
         }
-
-        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-
-                moverPoligonoClick(e);
-                //tsLBpos.Text = contMouseDown.ToString();
-                //  tsLBpos.Text = "[" + xi + "," + yi + "] " + "[" + e.X + "," + e.Y + "]";
-                //temp = new Bitmap(imagemBmp);
-                //desenha(temp,e.X,e.Y);
-                //temp.Dispose();
-            }
-        }
-
-        //-----------------------------------------------------------------
-
+        
         private void desenha(Bitmap bmp, int x,int y)
         {
             xf = x;
