@@ -513,8 +513,17 @@ namespace _2D
                     Preenchimento.floodFill(xf, yf, bmp, cor);
                     break;
                 case 9:
-                    Preenchimento.scanLine(xf, yf, bmp, cor, poligonos[dgvPoligonos.CurrentRow.Index]);
-                    break;
+                    if (poligonos.Count > 0)
+                    {
+                        Poligono click = poligonos[0];
+                        foreach (Poligono p in poligonos)
+                        {
+                            if (p.getDistanciaClick(xf, yf) < click.getDistanciaClick(xf, yf))
+                                click = p;
+                        }
+                        Preenchimento.scanLine(xf, yf, bmp, cor, click);
+                    }
+                break;
             }
 
             pictureBox.Image = bmp;

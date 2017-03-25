@@ -64,23 +64,24 @@ namespace _2D
 
             while (y < Principal.getHTela())
             {
+   
                 for (int i = 0; i < ET[y].Count; i++)
                 {
                     AET.Add(ET[y][i]);
                     ET[y].Remove(ET[y][i--]);
                 }
                 AET.Sort();
-
+                
                 for(int i = 0; i < AET.Count;i++)
                     if (AET[i].getYmax() == y)
                         AET.Remove(AET[i--]);
                 
                 for(int i = 0; i < AET.Count;i+=2)
                 {
-                    for (int x = (int)AET[i].getXmin(); x < AET[i + 1].getXmin(); x++)
-                    {
-                        Util.setPixel(ptrIni,x,y,W,padding,c);
-                    }
+                    Aresta a = AET[i];
+                    Aresta b = AET[i + 1];
+                    for (double x = a.getXmin(); x < b.getXmin(); x += a.getIncX())
+                        Util.setPixel(ptrIni,(int)Math.Round(x),y,W,padding,c);
                 }
                 y++;
             }

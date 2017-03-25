@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace _2D
 {
@@ -53,7 +52,10 @@ namespace _2D
             initMatAc();
             pAtual = new List<Point>(pOriginal);
         }
-
+        public double getDistanciaClick(int x, int y) {
+            Point c = getCentroAtual();
+            return Math.Sqrt(Math.Pow(c.X-x , 2) + Math.Pow(c.Y - y, 2));
+        }
         public void origem()
         {
             pAtual = new List<Point>(pOriginal);
