@@ -26,7 +26,7 @@ namespace _2D
 
             d1 = b * b - a * a * b + a * a / 4.0;
 
-            pintaPontoCimetria(ptrIni, (int)x, (int)y, x1, y1, W, padding, c);
+            pintaPontoSimetria(ptrIni, (int)x, (int)y, x1, y1, W, padding, c);
 
             while (a * a * (y - 0.5) > b * b * (x + 1))
             {
@@ -41,7 +41,7 @@ namespace _2D
                     x++;
                     y--;
                 }
-                pintaPontoCimetria(ptrIni, (int)x, (int)y, x1, y1, W, padding, c);
+                pintaPontoSimetria(ptrIni, (int)x, (int)y, x1, y1, W, padding, c);
             }
 
             d2 = b * b * (x + 0.5) * (x + 0.5) + a * a * (y - 1) * (y - 1) - a * a * b * b;
@@ -59,13 +59,13 @@ namespace _2D
                     d2 = d2 + a * a * (-2 * y + 3);
                     y--;
                 }
-                pintaPontoCimetria(ptrIni,(int)x,(int)y,x1,y1,W,padding,c);
+                pintaPontoSimetria(ptrIni,(int)x,(int)y,x1,y1,W,padding,c);
             }
 
             img.UnlockBits(bmpData);
         }
 
-        private unsafe static void pintaPontoCimetria(byte* ptrIni, int X, int Y, int xini, int yini, int W, int padding, Color c)
+        private unsafe static void pintaPontoSimetria(byte* ptrIni, int X, int Y, int xini, int yini, int W, int padding, Color c)
         {
             Util.setPixel(ptrIni, xini + X, yini + Y, W, padding, c);
             Util.setPixel(ptrIni, xini + X, yini - Y, W, padding, c);

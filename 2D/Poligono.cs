@@ -54,7 +54,7 @@ namespace _2D
         }
         public double getDistanciaClick(int x, int y) {
             Point c = getCentroAtual();
-            return Math.Sqrt(Math.Pow(c.X-x , 2) + Math.Pow(c.Y - y, 2));
+            return Math.Sqrt(Math.Pow(c.X - x , 2) + Math.Pow(c.Y - y, 2));
         }
         public void origem()
         {
@@ -65,7 +65,6 @@ namespace _2D
         {
             return pOriginal[0];
         }
-
 
         public Point getCentroOriginal()
         {
