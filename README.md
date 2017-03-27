@@ -1,6 +1,6 @@
 # README #
 
-[x] Daniel Castriani Santos
+[ ] Daniel Castriani Santos
 
 [ ] Vitor Santos  
 
@@ -16,11 +16,11 @@
 [X] Ponto Médio
 
 ###Circunferência ###
-[ ] Equação Geral
+[X] Equação Geral
 
-[ ] Trigonométrica
+[X] Trigonométrica
 
-[ ] Ponto Médio
+[X] Ponto Médio
 
 ###Elipse ###
 [ ] Ponto Médio
@@ -56,7 +56,7 @@
 
 #### Preenchimento ####
 
-[ ] Flood Fill
+[X] Flood Fill
 
 [ ] Scanline
 
