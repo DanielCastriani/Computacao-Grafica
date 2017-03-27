@@ -76,12 +76,12 @@ namespace _2D
                     if (AET[i].getYmax() == y)
                         AET.Remove(AET[i--]);
                 
-                for(int i = 0; i < AET.Count;i+=2)
+                for(int i = 0; i < AET.Count;i++)
                 {
                     Aresta a = AET[i];
                     Aresta b = AET[i + 1];
-                    for (double x = a.getXmin(); x < b.getXmin(); x += a.getIncX())
-                        Util.setPixel(ptrIni,(int)Math.Round(x),y,W,padding,c);
+
+                    
                 }
                 y++;
             }

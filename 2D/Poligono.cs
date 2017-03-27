@@ -211,8 +211,8 @@ namespace _2D
             C[1, 1] = 1;
             C[2, 2] = 1;
 
-            C[0, 1] = x;
-            C[1, 0] = y;
+            C[0, 1] = y;
+            C[1, 0] = x;
             
             matAc = multiplicar(C, matAc);
             novosPontos();
