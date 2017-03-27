@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Aresta.cs" />
     <Compile Include="Circunferencia.cs" />
+    <Compile Include="Elipse.cs" />
     <Compile Include="FRMCordenadas.cs">
       <SubType>Form</SubType>
     </Compile>

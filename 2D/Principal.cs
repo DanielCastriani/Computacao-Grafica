@@ -507,7 +507,7 @@ namespace _2D
                     Circunferencia.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 7:
-                    Reta.pontoMedio(xi, yi, xf, yf, bmp, cor);
+                    Elipse.pontoMedio(xi, yi, xf, yf, bmp, cor);
                     break;
                 case 8:
                     Preenchimento.floodFill(xf, yf, bmp, cor);
@@ -524,6 +524,7 @@ namespace _2D
                         Preenchimento.scanLine(xf, yf, bmp, cor, click);
                     }
                 break;
+
             }
 
             pictureBox.Image = bmp;
