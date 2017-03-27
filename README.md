@@ -1,6 +1,6 @@
 # README #
 
-[] Daniel Castriani Santos
+[x] Daniel Castriani Santos
 
 [ ] Vitor Santos  
 
