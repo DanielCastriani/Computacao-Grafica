@@ -240,7 +240,7 @@ namespace _2D
             poligono = new Poligono(cor);
             isDesenhaPoligonoMouse = true;
             contMouseDown = 0;
-            opcao = 7;
+            opcao = 10;
         }
         private void moverPoligonoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -524,7 +524,9 @@ namespace _2D
                         Preenchimento.scanLine(xf, yf, bmp, cor, click);
                     }
                 break;
-
+                case 10:
+                    Reta.pontoMedio(xi, yi, xf, yf, bmp, cor);
+                    break;
             }
 
             pictureBox.Image = bmp;
