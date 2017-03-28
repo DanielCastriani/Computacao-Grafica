@@ -43,7 +43,7 @@ namespace _2D
                 }
                 pintaPontoSimetria(ptrIni, (int)x, (int)y, x1, y1, W, padding, c);
             }
-
+            
             d2 = b * b * (x + 0.5) * (x + 0.5) + a * a * (y - 1) * (y - 1) - a * a * b * b;
 
             while (y > 0)
@@ -61,7 +61,7 @@ namespace _2D
                 }
                 pintaPontoSimetria(ptrIni,(int)x,(int)y,x1,y1,W,padding,c);
             }
-
+            
             img.UnlockBits(bmpData);
         }
 

@@ -62,7 +62,7 @@ namespace _2D
             }
             double raio = Math.Round(Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2)));
             int x,y;
-            for (double a = 0; a < 90 ; a += 0.1)
+            for (double a = 0; a < 90 ; a += 1)
             {
                 x = (int)Math.Round(raio * Math.Cos(a * Math.PI / 180));
                 y = (int)Math.Round(raio * Math.Sin(a * Math.PI / 180));

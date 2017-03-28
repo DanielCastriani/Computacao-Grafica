@@ -6,21 +6,37 @@ namespace _2D
     class Aresta : IComparable<Aresta>
     {
         private Point p1, p2;
-        private double Ymax, Xmin, IncX;
+        private double Ymax;
+        private double Xmin; // x do y min
+        private int Ymin;
+        private double IncX;
         public Aresta(Point p1, Point p2)
         {
+            int Xmax;
+            Ymin = Math.Min(p1.Y, p2.Y);
             this.p1 = p1;
             this.p2 = p2;
+            if (p1.Y < p2.Y)
+            {
+                Xmin = p1.X;
+                Xmax = p2.X;
+            }
+            else
+            {
+                Xmin = p2.X;
+                Xmax = p1.X;
+            }
             Ymax = Math.Max(p1.Y, p2.Y);
-            Xmin = Math.Min(p1.X, p2.X);
-            if ((p2.Y - p1.Y) != 0)
-                IncX = (p2.X - p1.X) / (p2.Y - p1.Y);
+
+
+            if (Ymax - Math.Min(p1.Y, p2.Y) != 0)
+                IncX = (Xmax - Xmin )/ (Ymax - Ymin);
             else
                 IncX = 0;
         }
         public int getYmin()
         {
-            return Math.Min(p1.Y, p2.Y);
+            return Ymin;
         }
         public Point getP1() { return p1; }
         public Point getP2() { return p2; }
@@ -37,6 +53,5 @@ namespace _2D
             else
                 return 1;
         }
-
     }
 }

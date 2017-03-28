@@ -62,8 +62,8 @@ namespace _2D
 
             p = new Poligono(cor);
             p.add(new Point(170, 320));
-            p.add(new Point(420, 320));
             p.add(new Point(420, 440));
+            p.add(new Point(420, 430));            
             p.add(new Point(170, 440));
             novoPoligono(p);
             

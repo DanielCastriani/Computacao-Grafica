@@ -59,33 +59,56 @@ namespace _2D
                 Aresta aresta = new Aresta(polPoint[i % polPoint.Count], polPoint[(i + 1) % polPoint.Count]);
                 ET[aresta.getYmin()].Add(aresta);
             }
+            int y = 0,x;
+            while (ET[y].Count == 0)
+                y++;
 
-            int y = 0;
-
-            while (y < Principal.getHTela())
+            //primeiro Y
+            foreach (Aresta a in ET[y])
+                AET.Add(a);
+                        
+            while (AET.Count > 0)
             {
-   
-                for (int i = 0; i < ET[y].Count; i++)
-                {
-                    AET.Add(ET[y][i]);
-                    ET[y].Remove(ET[y][i--]);
-                }
-                AET.Sort();
-                
+                         
                 for(int i = 0; i < AET.Count;i++)
                     if (AET[i].getYmax() == y)
                         AET.Remove(AET[i--]);
-                
-                for(int i = 0; i < AET.Count;i++)
+                AET.Sort();
+
+                for (int i = 0; i < AET.Count; i += 2)
                 {
                     Aresta a = AET[i];
                     Aresta b = AET[i + 1];
-
-                    
+                    for(x = (int)Math.Floor(a.getXmin()); x < Math.Ceiling(b.getXmin());x++)
+                        Util.setPixel(ptrIni,x ,y , W, padding, c);
+                    a.setXmin(a.getXmin() + a.getIncX());
+                    b.setXmin(b.getXmin() + b.getIncX());
                 }
                 y++;
+                foreach (Aresta a in ET[y])
+                    AET.Add(a);
             }
             img.UnlockBits(bmpData);
         }
     }
 }
+/*
+verificar c ymax = y -> retira
+
+    set pixel(x,y); <- y do incremento
+            
+            a ->floor       b ->ceil
+    for(x = a.xmin ; x < b.xmin ; x++) 
+        set pixel(x,y); <- y do incremento
+
+    while(Aet != empty)
+    {
+        inserir et da pos y em aet
+        exclui caixas com y = ymax
+        sort por xmin
+        desenha linha
+        xmin = xinc
+        y++
+    }
+
+*/
