@@ -48,7 +48,7 @@ namespace _2D
 
         public int CompareTo(Aresta other)
         {
-            if (Xmin < other.getXmin())
+            if (Xmin <= other.getXmin())
                 return 0;
             else
                 return 1;

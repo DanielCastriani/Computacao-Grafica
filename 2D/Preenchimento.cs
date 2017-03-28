@@ -66,15 +66,14 @@ namespace _2D
             //primeiro Y
             foreach (Aresta a in ET[y])
                 AET.Add(a);
-                        
+
             while (AET.Count > 0)
             {
-                         
-                for(int i = 0; i < AET.Count;i++)
+                for (int i = 0; i < AET.Count; i++)
                     if (AET[i].getYmax() == y)
                         AET.Remove(AET[i--]);
-                AET.Sort();
-
+                //AET.Sort();
+                heap(AET);
                 for (int i = 0; i < AET.Count; i += 2)
                 {
                     Aresta a = AET[i];
@@ -89,6 +88,34 @@ namespace _2D
                     AET.Add(a);
             }
             img.UnlockBits(bmpData);
+        }
+        public static void heap(List<Aresta> AET)
+        {
+            int TL2 = AET.Count;
+            int e, d, p;
+            int pos;
+            Aresta aux;
+            while (TL2 > 1)
+            {
+                for (p = TL2 / 2 - 1; p >= 0; p--)
+                {
+                    e = p * 2 + 1;
+                    d = e + 1;
+                    pos = e;
+                    if (d < TL2 && AET[d].getXmin() > AET[e].getXmin())
+                        pos = d;
+                    if (AET[p].getXmin() < AET[pos].getXmin())
+                    {
+                        aux = AET[p];
+                        AET[p] = AET[pos];
+                        AET[pos] = aux;
+                    }
+                }
+                TL2--;
+                aux = AET[0];
+                AET[0] = AET[TL2];
+                AET[TL2] = aux;
+            }
         }
     }
 }
