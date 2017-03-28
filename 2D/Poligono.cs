@@ -116,7 +116,7 @@ namespace _2D
                     Reta.pontoMedio(pAtual[i].X, pAtual[i].Y, pAtual[i + 1].X, pAtual[i + 1].Y, img, borda);
                 Reta.pontoMedio(pAtual[pAtual.Count - 1].X, pAtual[pAtual.Count - 1].Y, pAtual[0].X, pAtual[0].Y, img, borda);
                 Point c = getCentroAtual();
-                Preenchimento.scanLine(c.X,c.Y,img,Color.Aqua,this);
+                //Preenchimento.scanLine(c.X,c.Y,img,fundo,this);
             }
         }
         
