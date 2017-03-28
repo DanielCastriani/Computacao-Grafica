@@ -284,7 +284,7 @@ namespace _2D
                 {
                     if (rbCentro.Checked)
                     {
-                        Point pt = p.getCentroOriginal();
+                        Point pt = p.getCentroAtual();
                         p.traslacao(-pt.X, -pt.Y);
                         if (rbTranslacao.Checked)
                             p.traslacao(tx, ty);
