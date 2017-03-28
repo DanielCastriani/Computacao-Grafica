@@ -1,8 +1,8 @@
 # README #
 
-[ ] Daniel Castriani Santos
+Daniel Castriani Santos
 
-[ ] Vitor Santos  
+Vitor Santos  
 
 # Task List #
 
@@ -23,7 +23,7 @@
 [X] Ponto Médio
 
 ###Elipse ###
-[ ] Ponto Médio
+[X] Ponto Médio
 
 ###Polígono ###
 [X] Criar Polígono usando ponto médio
@@ -54,13 +54,13 @@
 
 [X] Cisalhamento
 
-#### Preenchimento ####
+####Preenchimento####
 
 [X] Flood Fill
 
-[ ] Scanline
+[X] Scanline
 
-## Imagem ##
+##Imagem##
 [X] HSI
 [X] CMY
 [X] RGB
