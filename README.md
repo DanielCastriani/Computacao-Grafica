@@ -80,4 +80,4 @@ Vitor Santos Rodrigues
 
 [X] Matiz
 
-[X] Icones
+[X] Ícones
