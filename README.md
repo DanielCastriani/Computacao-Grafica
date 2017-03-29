@@ -8,7 +8,7 @@ Vitor Santos Rodrigues
 
 ## Primitivas 2D ##
 
-###Reta###
+### Reta ###
 
 [X] Equação Geral
 
@@ -16,7 +16,7 @@ Vitor Santos Rodrigues
 
 [X] Ponto Médio
 
-###Circunferência ###
+### Circunferência ###
 
 [X] Equação Geral
 
@@ -24,11 +24,11 @@ Vitor Santos Rodrigues
 
 [X] Ponto Médio
 
-###Elipse ###
+### Elipse ###
 
 [X] Ponto Médio
 
-###Polígono ###
+### Polígono ###
 
 [X] Criar Polígono usando ponto médio
 
@@ -48,7 +48,7 @@ Vitor Santos Rodrigues
 
 [X] Espelhamento
 
-###Centro###
+### Centro ###
 
 [X] Rotação
 
@@ -60,29 +60,24 @@ Vitor Santos Rodrigues
 
 [X] Cisalhamento
 
-####Preenchimento####
+#### Preenchimento ####
 
 [X] Flood Fill
 
 [X] Scanline
 
-##Imagem##
+## Imagem ##
+
 [X] HSI
+
 [X] CMY
+
 [X] RGB
 
-# Notas #
-### centro ###
-media dos pontos atuais
+[X] Luminancia
 
-transformação -cx -cy
+[X] Brilho
 
-transformação x y
+[X] Matiz
 
-transformação cx cy
-
-### View Port ###
-
-(janela de visão) / (mundo real)
-não aplica na matriz acumulada
-ponto atual -> matriz view port -> nova janela
+[X] Icones
