@@ -2,13 +2,14 @@
 
 Daniel Castriani Santos
 
-Vitor Santos  
+Vitor Santos Rodrigues 
 
 # Task List #
 
-## Primitivas ##
+## Primitivas 2D ##
 
 ###Reta###
+
 [X] Equação Geral
 
 [X] DDA
@@ -16,6 +17,7 @@ Vitor Santos
 [X] Ponto Médio
 
 ###Circunferência ###
+
 [X] Equação Geral
 
 [X] Trigonométrica
@@ -23,9 +25,11 @@ Vitor Santos
 [X] Ponto Médio
 
 ###Elipse ###
+
 [X] Ponto Médio
 
 ###Polígono ###
+
 [X] Criar Polígono usando ponto médio
 
 [X] Criar Polígono utilizando mouse
@@ -33,6 +37,7 @@ Vitor Santos
 ## Transformações 2D ##
 
 ###Origem###
+
 [X] Rotação
 
 [X] Translação
@@ -44,6 +49,7 @@ Vitor Santos
 [X] Espelhamento
 
 ###Centro###
+
 [X] Rotação
 
 [X] Translação
